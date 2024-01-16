@@ -1,2 +1,2 @@
 # GDIM-32-Sim
-A simulation game made for GDIM 32.
+A 3D simulation game made for GDIM 32.
