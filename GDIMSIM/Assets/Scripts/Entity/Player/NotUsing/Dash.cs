@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dash : AbilityBase
+public class Dash : SpellBase
 {
-    protected override float SoulCost { get; set; }
+    protected override float Cooldown { get; set; }
     
     [Header("Dashing")] 
-    [SerializeField] private float soulCost = 20f;
+    [SerializeField] private float cooldown = 20f;
     [SerializeField] private float dashSpeed = 50;
     [SerializeField] private float dashDuration;
     [SerializeField] private float dashCooldown;
@@ -25,10 +25,10 @@ public class Dash : AbilityBase
 
     protected override void InitializeAbstractedStats()
     {
-        SoulCost = soulCost;
+        Cooldown = cooldown;
     }
 
-    protected override bool DoAbility()
+    protected override bool CastSpell()
     {
         (float x, float z) = GetHorizontalAndVerticalMovement(); // Tuple unpacking
 
@@ -37,7 +37,7 @@ public class Dash : AbilityBase
             return false;
         
         // This will do the checks for decreasing soul amount. If we dont have enough soul we will exit and not start dash.
-        if (!base.DoAbility())
+        if (!base.CastSpell())
             return false;
 
         StartDash(x, z);
@@ -80,7 +80,7 @@ public class Dash : AbilityBase
                 _playerMovement.movementState == PlayerMovement.MovementState.WallRunning)
                 return;
         
-            DoAbility();
+            CastSpell();
         }
     }
 

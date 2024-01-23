@@ -10,15 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8045168280018231875}
   - component: {fileID: 8415735055528578445}
-  - component: {fileID: 1333857954973827223}
-  - component: {fileID: 1329447810645162843}
-  - component: {fileID: 5499683377979997573}
-  - component: {fileID: 6004229854859266330}
-  - component: {fileID: 3798158640156584629}
   - component: {fileID: 1827088416964060040}
-  - component: {fileID: 2916955876139936306}
-  - component: {fileID: 8872730403723145126}
-  - component: {fileID: 113852162472059025}
+  - component: {fileID: 2906374757105336039}
+  - component: {fileID: 1287955652795179194}
+  - component: {fileID: 2855931619267254136}
+  - component: {fileID: 5291217243078230635}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -70,118 +66,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1333857954973827223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523647103476993651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e0ea1a9d7b46ad4f8800911ee7f1467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 8415735055528578445}
-  walkSpeed: 12
-  sprintSpeed: 20
-  crouchSpeed: 5
-  wallRunSpeed: 0
-  dashSpeed: 0
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
-  groundCheck: {fileID: 3104059769107951433}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 64
-  gravity: -39.24
-  useGravity: 1
-  velocity: {x: 0, y: 0, z: 0}
-  jumpHeight: 4
-  crouchYScale: 0.5
-  movementState: 0
---- !u!114 &1329447810645162843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523647103476993651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 103de344f25f55849bcf53f869c4d43d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  whatIsWall:
-    serializedVersion: 2
-    m_Bits: 128
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
-  wallRunSpeed: 0.3
-  wallRunClimbSpeed: 4
-  wallJumpUpSpeed: 10
-  wallJumpSideSpeed: 15
-  wallJumpForwardSpeed: 10
-  isWallJumping: 0
-  isWallRunning: 0
-  upwardsRunKey: 304
-  downwardsRunKey: 306
-  jumpKey: 32
-  wallCheckDistance: 1
-  minJumpHeight: 2
-  playerBody: {fileID: 8045168280018231875}
-  controller: {fileID: 8415735055528578445}
---- !u!114 &5499683377979997573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523647103476993651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65e65b7429918674cb858995819fae6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soulCost: 20
-  dashSpeed: 20
-  dashDuration: 0.5
-  dashCooldown: 0.6
-  isDashing: 0
-  dashKey: 101
-  controller: {fileID: 8415735055528578445}
---- !u!114 &6004229854859266330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523647103476993651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8037e9ac91a676d4998b8ca85364a48b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 100
---- !u!114 &3798158640156584629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523647103476993651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68ef54fb0cf60da40b800d8881bc0ff7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSoul: 100
-  minSoul: 0
-  currentSoul: 100
 --- !u!54 &1827088416964060040
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -209,7 +93,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!114 &2916955876139936306
+--- !u!114 &2906374757105336039
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -218,20 +102,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 3523647103476993651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70e47d57581973d4397f0371a5195f09, type: 3}
+  m_Script: {fileID: 11500000, guid: 7518af2ff62ed8349962cdc40f994eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyLayer:
+  controller: {fileID: 8415735055528578445}
+  walkSpeed: 12
+  sprintSpeed: 20
+  crouchSpeed: 5
+  wallRunSpeed: 0
+  dashSpeed: 0
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  groundCheck: {fileID: 3104059769107951433}
+  groundDistance: 0.4
+  groundMask:
     serializedVersion: 2
-    m_Bits: 256
-  cam: {fileID: 5303126048535765995}
-  soulStrikePrefab: {fileID: 3810348480074086707, guid: 83dcc71d7fe5a8c46b887c99eeca9d63, type: 3}
-  damage: 50
-  attackDistance: 10
-  attackWidth: 2.5
-  attackKey: 323
-  cooldown: 0.5
---- !u!114 &8872730403723145126
+    m_Bits: 8
+  gravity: -39.24
+  useGravity: 1
+  velocity: {x: 0, y: 0, z: 0}
+  jumpHeight: 4
+  crouchYScale: 0.5
+  movementState: 0
+--- !u!114 &1287955652795179194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,14 +134,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 3523647103476993651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5553e26c547e40f8b5730fc38a4d9495, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a11244cd6419eb4189938798943541e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soulCost: 10
-  healAmount: 10
-  healCooldown: 0.3
-  healKey: 113
---- !u!114 &113852162472059025
+  whatIsWall:
+    serializedVersion: 2
+    m_Bits: 64
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  wallRunSpeed: 0.3
+  wallRunClimbSpeed: 4
+  wallJumpUpSpeed: 10
+  wallJumpSideSpeed: 15
+  wallJumpForwardSpeed: 10
+  isWallJumping: 0
+  isWallRunning: 0
+  upwardsRunKey: 304
+  downwardsRunKey: 306
+  jumpKey: 32
+  wallCheckDistance: 1
+  minJumpHeight: 2
+  playerBody: {fileID: 8045168280018231875}
+  controller: {fileID: 8415735055528578445}
+--- !u!114 &2855931619267254136
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,17 +166,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 3523647103476993651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f88bf093803e4d7498bffd8f2610aac6, type: 3}
+  m_Script: {fileID: 11500000, guid: aadbc90927eba084aaeba1f396f504b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camTrans: {fileID: 5303126048535765995}
-  projectilePrefab: {fileID: 1919913695092184, guid: ce33864eafe72fa4096e91accab040f8, type: 3}
-  attackKey: 324
   soulCost: 20
-  attackCooldown: 0.5
-  damage: 40
-  speed: 50
-  range: 120
+  dashSpeed: 20
+  dashDuration: 0.5
+  dashCooldown: 0.6
+  isDashing: 0
+  dashKey: 101
+  controller: {fileID: 8415735055528578445}
+--- !u!114 &5291217243078230635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4900d308ac8f2f4293ccb06eb046451, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 100
 --- !u!1 &4424734255451308140
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +201,7 @@ GameObject:
   - component: {fileID: 5303126048535765995}
   - component: {fileID: 4755448008199239799}
   - component: {fileID: 1655001154678001862}
-  - component: {fileID: 2579723050575470140}
+  - component: {fileID: 6844203162568893171}
   m_Layer: 0
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -360,7 +283,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4424734255451308140}
   m_Enabled: 1
---- !u!114 &2579723050575470140
+--- !u!114 &6844203162568893171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,7 +292,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4424734255451308140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ec00d1ae1205b4fb4b736e0ccbcd1e, type: 3}
+  m_Script: {fileID: 11500000, guid: 3a53d091b0c909a4e9cc0b5863300352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseXSensitivity: 300
@@ -437,7 +360,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 612926fb0ef6af749b55e16b8efd0152, type: 2}
+  - {fileID: 2100000, guid: 5862ed631f552e14ea98b7b028371461, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
