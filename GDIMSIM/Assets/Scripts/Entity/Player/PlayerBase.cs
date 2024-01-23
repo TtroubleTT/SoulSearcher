@@ -43,7 +43,7 @@ public class PlayerBase : EntityBase
     public override bool AddHealth(float amount)
     {
         bool addedHealth = base.AddHealth(amount);
-        _barImage.fillAmount = CurrentHealth / MaxHealth;
+        // _barImage.fillAmount = CurrentHealth / MaxHealth;
         return addedHealth;
     }
     
@@ -51,7 +51,7 @@ public class PlayerBase : EntityBase
     public override bool SubtractHealth(float amount)
     {
         bool subtractedHealth = base.SubtractHealth(amount);
-        _barImage.fillAmount = CurrentHealth / MaxHealth;
+        // _barImage.fillAmount = CurrentHealth / MaxHealth;
         return subtractedHealth;
     }
 }
