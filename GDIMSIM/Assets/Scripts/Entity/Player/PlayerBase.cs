@@ -37,7 +37,7 @@ public class PlayerBase : EntityBase
     private void Awake()
     {
         InitializeAbstractedStats();
-        InitializeHealthBar();
+        // InitializeHealthBar();
     }
 
     public override bool AddHealth(float amount)
