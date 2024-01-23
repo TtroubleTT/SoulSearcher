@@ -598,7 +598,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 833150312}
   m_SourcePrefab: {fileID: 100100000, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
 --- !u!1 &614553889
 GameObject:
@@ -705,6 +708,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -88.414, y: 222.829, z: -226.428}
+--- !u!1 &833150304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+  m_PrefabInstance: {fileID: 548947978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &833150312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833150304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc286405a7c6e54c9256148c5b37a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseXSensitivity: 300
+  mouseYSensitivity: 300
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
 --- !u!1 &912406232
 GameObject:
   m_ObjectHideFlags: 0
