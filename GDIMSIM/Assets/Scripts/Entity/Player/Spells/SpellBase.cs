@@ -3,17 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AbilityBase : MonoBehaviour
+public abstract class SpellBase : MonoBehaviour
 {
-    protected abstract float SoulCost { get; set; }
+    protected abstract float Cooldown { get; set; }
 
     protected abstract void InitializeAbstractedStats();
 
-    protected virtual bool DoAbility()
+    protected virtual bool CastSpell()
     {
-        bool canDoAbility = true;
+        bool canCastSpell = true;
 
-        if (!canDoAbility)
+        if (!canCastSpell)
             return false;
 
         return true;
