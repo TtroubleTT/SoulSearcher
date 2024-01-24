@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
-    [Header("Sensitivity")]
-    [SerializeField] private float mouseXSensitivity = 100f;
-    [SerializeField] private float mouseYSensitivity = 100f;
+    private float _mouseXSensitivity;
+    private float _mouseYSensitivity;
 
     [Header("References")]
-    [SerializeField] private Transform playerBody;
-
+    [SerializeField] private Transform playerBody; 
+    private Settings _settings;
     private float _xRotation;
-    
+
     // Code has been inspired and modified a bit based on these tutorials
     // https://www.youtube.com/watch?v=f473C43s8nE&t=505s
     // https://www.youtube.com/watch?v=_QajrabyTJc
@@ -21,12 +20,14 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        _settings = GameObject.FindGameObjectWithTag("Player").GetComponent<Settings>();
+        (_mouseXSensitivity, _mouseYSensitivity) = _settings.GetSensitivity();
     }
     
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseXSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseYSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * _mouseXSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * _mouseYSensitivity * Time.deltaTime;
 
         // Looking up and down
         _xRotation -= mouseY;
