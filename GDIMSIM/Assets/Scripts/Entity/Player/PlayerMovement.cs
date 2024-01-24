@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private CharacterController controller;
-    private Settings _settings;
+    [SerializeField] private Settings settings;
     private WallRunning _wallRunning;
     private Dash _dash;
     private Dictionary<Settings.PlayerControls, KeyCode> _playerControls;
@@ -70,8 +70,8 @@ public class PlayerMovement : MonoBehaviour
         _startYScale = transform.localScale.y;
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
-        _settings = GameObject.FindGameObjectWithTag("Player").GetComponent<Settings>();
-        _playerControls = _settings.GetPlayerControls();
+        settings = GameObject.FindGameObjectWithTag("Player").GetComponent<Settings>();
+        _playerControls = settings.GetPlayerControls();
     }
 
     private void Update()

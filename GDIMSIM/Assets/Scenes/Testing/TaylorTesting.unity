@@ -552,6 +552,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2906374757105336039, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      propertyPath: settings
+      value: 
+      objectReference: {fileID: 833150305}
+    - target: {fileID: 2906374757105336039, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: walkSpeed
       value: 15
       objectReference: {fileID: 0}
@@ -567,6 +571,10 @@ PrefabInstance:
       propertyPath: settings
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6844203162568893171, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      propertyPath: _settings
+      value: 
+      objectReference: {fileID: 833150305}
     - target: {fileID: 8045168280018231875, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -613,7 +621,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 833150312}
+      addedObject: {fileID: 833150305}
   m_SourcePrefab: {fileID: 100100000, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
 --- !u!1 &614553889
 GameObject:
@@ -725,7 +733,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
   m_PrefabInstance: {fileID: 548947978}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &833150312
+--- !u!114 &833150305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
