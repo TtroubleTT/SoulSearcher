@@ -53,4 +53,7 @@ public class Settings : MonoBehaviour
     {
         return _playerControlMap;
     }
+    
+    // Still need to impliment changing controls with menu change keycode in dictionary
+    // If we add save system consider saving what people change their controls to
 }

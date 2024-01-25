@@ -48,11 +48,12 @@ public class PlayerBase : EntityBase
         return addedHealth;
     }
     
-    // Returns a bool of weather or not the entity is alive
     public override bool SubtractHealth(float amount)
     {
         bool subtractedHealth = base.SubtractHealth(amount);
         // _barImage.fillAmount = CurrentHealth / MaxHealth;
         return subtractedHealth;
     }
+    
+    // Keep track of skill points, current souls, spells unlocked (some of ths might get its own class). If its just a number we can make it an abstracted number.
 }
