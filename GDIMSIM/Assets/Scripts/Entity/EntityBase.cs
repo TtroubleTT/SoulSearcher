@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,6 +44,11 @@ public abstract class EntityBase : MonoBehaviour
     public float GetCurrentHealth()
     {
         return CurrentHealth;
+    }
+
+    protected virtual void Awake()
+    {
+        InitializeAbstractedStats();
     }
 
     protected abstract void InitializeAbstractedStats();
