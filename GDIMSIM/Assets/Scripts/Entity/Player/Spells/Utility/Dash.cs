@@ -28,7 +28,7 @@ public class Dash : SpellBase
         Cooldown = cooldown;
     }
 
-    protected override bool CastSpell()
+    public override bool CastSpell()
     {
         (float x, float z) = GetHorizontalAndVerticalMovement(); // Tuple unpacking
 

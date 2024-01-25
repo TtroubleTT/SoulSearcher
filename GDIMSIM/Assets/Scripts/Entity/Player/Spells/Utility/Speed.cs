@@ -1,15 +1,18 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpellBase : MonoBehaviour
+public class Speed : SpellBase
 {
-    protected abstract float Cooldown { get; set; }
+    protected override float Cooldown { get; set; }
 
-    protected abstract void InitializeAbstractedStats();
+    protected override void InitializeAbstractedStats()
+    {
+        
+    }
 
-    public virtual bool CastSpell()
+    public override bool CastSpell()
     {
         bool canCastSpell = true;
 

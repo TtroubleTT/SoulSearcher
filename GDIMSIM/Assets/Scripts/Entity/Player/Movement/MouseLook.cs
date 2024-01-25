@@ -10,7 +10,7 @@ public class MouseLook : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private Transform playerBody; 
-    private Settings _settings;
+    [SerializeField] private Settings settings;
     private float _xRotation;
 
     // Code has been inspired and modified a bit based on these tutorials
@@ -20,8 +20,8 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        _settings = GameObject.FindGameObjectWithTag("Player").GetComponent<Settings>();
-        (_mouseXSensitivity, _mouseYSensitivity) = _settings.GetSensitivity();
+        settings = GameObject.FindGameObjectWithTag("Player").GetComponent<Settings>();
+        (_mouseXSensitivity, _mouseYSensitivity) = settings.GetSensitivity();
     }
     
     void Update()
