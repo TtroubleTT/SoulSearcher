@@ -41,6 +41,8 @@ public class SpellManager : MonoBehaviour
     {
         _settings = GetComponent<Settings>();
         UpdateSpellControls();
+        Heal heal = GetComponent<Heal>();
+        _equippedSpells.Add(SlotNumber.FirstSlot, heal);
     }
 
     // Checks if they use one of their keybinds for casting an equip spell and cast the spell in that slot

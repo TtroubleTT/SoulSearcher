@@ -6,14 +6,21 @@ using UnityEngine;
 public abstract class SpellBase : MonoBehaviour
 {
     private float _lastUsed;
+    
     protected abstract float Cooldown { get; set; }
 
     protected abstract void InitializeAbstractedStats();
+
+    protected void Awake()
+    {
+        InitializeAbstractedStats();
+    }
 
     public virtual bool CastSpell()
     {
         if (Time.time - _lastUsed > Cooldown)
         {
+            _lastUsed = Time.time;
             return true;
         }
 
