@@ -43,11 +43,24 @@ public class SpellManager : MonoBehaviour
         UpdateSpellControls();
     }
 
+    // Checks if they use one of their keybinds for casting an equip spell and cast the spell in that slot
     private void Update()
     {
         if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.FirstSpell]))
         {
             _equippedSpells[SlotNumber.FirstSlot].CastSpell();
+        }
+        else if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.SecondSpell]))
+        {
+            _equippedSpells[SlotNumber.SecondSlot].CastSpell();
+        }
+        else if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.ThirdSpell]))
+        {
+            _equippedSpells[SlotNumber.ThirdSlot].CastSpell();
+        }
+        else if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.ForthSpell]))
+        {
+            _equippedSpells[SlotNumber.ForthSlot].CastSpell();
         }
     }
 }

@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1287955652795179194}
   - component: {fileID: 2855931619267254136}
   - component: {fileID: 5291217243078230635}
+  - component: {fileID: 2817821747138671252}
+  - component: {fileID: 9057295118126128850}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -106,14 +108,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8415735055528578445}
-  walkSpeed: 12
-  sprintSpeed: 20
+  settings: {fileID: 2817821747138671252}
+  walkSpeed: 15
+  sprintSpeed: 25
   crouchSpeed: 5
   wallRunSpeed: 0
   dashSpeed: 0
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
   groundCheck: {fileID: 3104059769107951433}
   groundDistance: 0.4
   groundMask:
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadbc90927eba084aaeba1f396f504b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soulCost: 20
+  cooldown: 20
   dashSpeed: 20
   dashDuration: 0.5
   dashCooldown: 0.6
@@ -190,6 +190,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 100
+--- !u!114 &2817821747138671252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbc286405a7c6e54c9256148c5b37a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mouseXSensitivity: 300
+  mouseYSensitivity: 300
+  jumpKey: 32
+  sprintKey: 304
+  crouchKey: 306
+  firstSpell: 101
+  secondSpell: 113
+  thirdSpell: 114
+  forthSpell: 102
+--- !u!114 &9057295118126128850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c0a8d0109e42ba82799a968b3d4c9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4424734255451308140
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,9 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a53d091b0c909a4e9cc0b5863300352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseXSensitivity: 300
-  mouseYSensitivity: 300
   playerBody: {fileID: 8045168280018231875}
+  settings: {fileID: 0}
 --- !u!1 &8137954327509150506
 GameObject:
   m_ObjectHideFlags: 0
