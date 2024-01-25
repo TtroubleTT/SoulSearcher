@@ -12,26 +12,6 @@ public class PlayerBase : EntityBase
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth = 100f;
 
-    private Dictionary<SlotNumber, SpellBase> _equippedSpells = new();
-
-    public enum SlotNumber
-    {
-        FirstSlot,
-        SecondSlot,
-        ThirdSlot,
-        ForthSlot,
-    }
-
-    public void UpdateEquippedSpells(SlotNumber number, SpellBase spellBase)
-    {
-        _equippedSpells[number] = spellBase;
-    }
-
-    public Dictionary<SlotNumber, SpellBase> GetEquippedSpells()
-    {
-        return _equippedSpells;
-    }
-    
     protected override float MaxHealth { get; set; }
     
     protected override float CurrentHealth { get; set; }
