@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,8 +11,28 @@ public class PlayerBase : EntityBase
     [Header("Player Stats")] 
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth = 100f;
+
+    private Dictionary<SlotNumber, SpellBase> _equippedSpells = new();
+
+    public enum SlotNumber
+    {
+        FirstSlot,
+        SecondSlot,
+        ThirdSlot,
+        ForthSlot,
+    }
+
+    public void UpdateEquippedSpells(SlotNumber number, SpellBase spellBase)
+    {
+        _equippedSpells[number] = spellBase;
+    }
+
+    public Dictionary<SlotNumber, SpellBase> GetEquippedSpells()
+    {
+        return _equippedSpells;
+    }
     
-    protected override float MaxHealth { get; set;  }
+    protected override float MaxHealth { get; set; }
     
     protected override float CurrentHealth { get; set; }
 

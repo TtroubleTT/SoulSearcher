@@ -9,10 +9,16 @@ public class Settings : MonoBehaviour
     [SerializeField] private float mouseXSensitivity = 300f;
     [SerializeField] private float mouseYSensitivity = 300f;
     
-    [Header("Player Settings")] 
+    [Header("Movement Settings")] 
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
+
+    [Header("Spell Settings")] 
+    [SerializeField] private KeyCode firstSpell = KeyCode.E;
+    [SerializeField] private KeyCode secondSpell = KeyCode.Q;
+    [SerializeField] private KeyCode thirdSpell = KeyCode.R;
+    [SerializeField] private KeyCode forthSpell = KeyCode.F;
 
     private Dictionary<PlayerControls, KeyCode> _playerControlMap = new ();
 
@@ -21,6 +27,10 @@ public class Settings : MonoBehaviour
         Jump,
         Sprint,
         Crouch,
+        FirstSpell,
+        SecondSpell,
+        ThirdSpell,
+        ForthSpell,
     }
 
     private void Awake()
@@ -28,6 +38,10 @@ public class Settings : MonoBehaviour
         _playerControlMap.Add(PlayerControls.Jump, jumpKey);
         _playerControlMap.Add(PlayerControls.Sprint, sprintKey);
         _playerControlMap.Add(PlayerControls.Crouch, crouchKey);
+        _playerControlMap.Add(PlayerControls.FirstSpell, firstSpell);
+        _playerControlMap.Add(PlayerControls.SecondSpell, secondSpell);
+        _playerControlMap.Add(PlayerControls.ThirdSpell, thirdSpell);
+        _playerControlMap.Add(PlayerControls.ForthSpell, forthSpell);
     }
 
     public (float, float) GetSensitivity()
