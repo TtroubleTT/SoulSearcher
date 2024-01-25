@@ -11,7 +11,7 @@ public abstract class SpellBase : MonoBehaviour
 
     protected abstract void InitializeAbstractedStats();
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         InitializeAbstractedStats();
     }
