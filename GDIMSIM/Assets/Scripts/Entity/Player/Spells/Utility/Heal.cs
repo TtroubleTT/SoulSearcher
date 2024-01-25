@@ -22,6 +22,7 @@ public class Heal : SpellBase
         if (_playerBase.GetCurrentHealth() >= _playerBase.GetMaxHealth())
             return false;
         
+        // Checks if Cooldown has passed
         if (!base.CastSpell())
             return false;
 

@@ -41,7 +41,7 @@ public class SpellManager : MonoBehaviour
     {
         _settings = GetComponent<Settings>();
         UpdateSpellControls();
-        Heal heal = GetComponent<Heal>();
+        Dash heal = GetComponent<Dash>();
         _equippedSpells.Add(SlotNumber.FirstSlot, heal);
     }
 
