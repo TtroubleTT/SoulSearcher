@@ -35,9 +35,9 @@ public class PlayerBase : EntityBase
         _barImage.fillAmount = CurrentHealth / MaxHealth;
     }
 
-    private void Awake()
+    protected override void Awake()
     {
-        InitializeAbstractedStats();
+        base.Awake();
         // InitializeHealthBar();
     }
 

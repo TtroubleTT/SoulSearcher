@@ -6,18 +6,14 @@ using UnityEngine;
 public class Dash : SpellBase
 {
     protected override float Cooldown { get; set; }
-    
+
     [Header("Dashing")] 
-    [SerializeField] private float cooldown = 20f;
-    [SerializeField] private float dashSpeed = 50;
+    [SerializeField] private float cooldown = 5f;
+    [SerializeField] private float dashSpeed = 20;
     [SerializeField] private float dashDuration;
-    [SerializeField] private float dashCooldown;
     [HideInInspector] public bool isDashing;
     private float _dashStartTime;
     private Vector3 _velocity;
-
-    [Header("Input")] 
-    [SerializeField] private KeyCode dashKey = KeyCode.E;
 
     [Header("References")] 
     [SerializeField] private CharacterController controller;
@@ -36,7 +32,7 @@ public class Dash : SpellBase
         if (x == 0 && z == 0)
             return false;
         
-        // This will do the checks for decreasing soul amount. If we dont have enough soul we will exit and not start dash.
+        // Checks if cooldown has passed
         if (!base.CastSpell())
             return false;
 
@@ -46,13 +42,11 @@ public class Dash : SpellBase
 
     private void Start()
     {
-        InitializeAbstractedStats();
         _playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
-        CheckDash();
         DashMove();
     }
 
@@ -68,20 +62,6 @@ public class Dash : SpellBase
         Transform myTransform = transform;
         Vector3 direction = myTransform.right * x + myTransform.forward * z; // This makes it so its moving locally so rotation is taken into consideration
         return direction;
-    }
-
-    private void CheckDash()
-    {
-        // if you are pressing dash key and its passed the cooldown
-        if (Input.GetKeyDown(dashKey) && !isDashing && Time.time - _dashStartTime > dashCooldown)
-        {
-            // No dashing if you are crouching or wall running
-            if (_playerMovement.movementState == PlayerMovement.MovementState.Crouching ||
-                _playerMovement.movementState == PlayerMovement.MovementState.WallRunning)
-                return;
-        
-            CastSpell();
-        }
     }
 
     private void StartDash(float x, float z)
