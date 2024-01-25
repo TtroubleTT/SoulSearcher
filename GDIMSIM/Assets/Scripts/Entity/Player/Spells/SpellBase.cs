@@ -5,19 +5,19 @@ using UnityEngine;
 
 public abstract class SpellBase : MonoBehaviour
 {
+    private float _lastUsed;
     protected abstract float Cooldown { get; set; }
 
     protected abstract void InitializeAbstractedStats();
 
     public virtual bool CastSpell()
     {
-        bool canCastSpell = true;
+        if (Time.time - _lastUsed > Cooldown)
+        {
+            return true;
+        }
 
-        if (!canCastSpell)
-            return false;
-
-        return true;
-
+        return false;
         // other scripts will extend this base behavior
     }
 }

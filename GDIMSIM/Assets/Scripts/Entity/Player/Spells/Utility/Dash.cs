@@ -6,7 +6,7 @@ using UnityEngine;
 public class Dash : SpellBase
 {
     protected override float Cooldown { get; set; }
-    
+
     [Header("Dashing")] 
     [SerializeField] private float cooldown = 20f;
     [SerializeField] private float dashSpeed = 50;
