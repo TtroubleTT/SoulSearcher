@@ -50,8 +50,7 @@ public class SoulStrike : MonoBehaviour, ICombat
         bool hitEnemy = Physics.BoxCast(camPos + (-cam.forward * 2.5f), new Vector3(attackWidth, attackWidth, attackWidth), cam.forward, out RaycastHit hitInfo, camRot, attackDistance, enemyLayer);
         if (hitEnemy)
         {
-            // If there is a better way to do this please tell me
-            hitInfo.transform.gameObject.GetComponent<EnemyBase>().SubtractHealth(Damage);
+            HurtEnemy(hitInfo.transform.gameObject, Damage);
         }
     }
 }

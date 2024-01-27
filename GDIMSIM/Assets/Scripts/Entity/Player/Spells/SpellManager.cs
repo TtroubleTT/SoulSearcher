@@ -9,6 +9,12 @@ using UnityEngine.UI;
 public class SpellManager : MonoBehaviour
 {
     [SerializeField] private Settings settings;
+
+    [Header("Equipped Spells")]
+    [SerializeField] private SpellBase first;
+    [SerializeField] private SpellBase second;
+    [SerializeField] private SpellBase third;
+    [SerializeField] private SpellBase forth;
     
     private Dictionary<SlotNumber, SpellBase> _equippedSpells = new();
 
@@ -28,6 +34,14 @@ public class SpellManager : MonoBehaviour
     public Dictionary<SlotNumber, SpellBase> GetEquippedSpells()
     {
         return _equippedSpells;
+    }
+
+    private void Start()
+    {
+        UpdateEquippedSpells(SlotNumber.FirstSlot, first);
+        UpdateEquippedSpells(SlotNumber.SecondSlot, second);
+        UpdateEquippedSpells(SlotNumber.ThirdSlot, third);
+        UpdateEquippedSpells(SlotNumber.ForthSlot, forth);
     }
 
     // Checks if they use one of their keybinds for casting an equip spell and cast the spell in that slot
