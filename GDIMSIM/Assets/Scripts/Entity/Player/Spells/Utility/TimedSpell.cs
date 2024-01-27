@@ -5,18 +5,30 @@ using UnityEngine;
 
 public abstract class TimedSpell : SpellBase
 {
-    protected abstract float SpellLength { get; set; }
+    private float _spellStartTime;
+
+    protected bool SpellActive = false;
     
+    protected abstract float SpellLength { get; set; }
+
+    protected abstract void EndSpell();
+
+    protected virtual void Update()
+    {
+        if (Time.time - _spellStartTime > SpellLength && SpellActive)
+        {
+            SpellActive = false;
+            EndSpell();
+        }
+    }
+
     public override bool CastSpell()
     {
-        if (Time.time - _lastUsed > Cooldown)
-        {
-            _lastUsed = Time.time;
-            DoSpell();
-            return true;
-        }
+        if (!base.CastSpell())
+            return false;
 
-        return false;
+        _spellStartTime = Time.time;
+        return true;
         // other scripts will extend this base behavior
     }
 }
