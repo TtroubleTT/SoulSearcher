@@ -8,11 +8,15 @@ using UnityEngine.UI;
 
 public class SpellManager : MonoBehaviour
 {
-    private Settings _settings;
+    [SerializeField] private Settings settings;
+
+    [Header("Equipped Spells")]
+    [SerializeField] private SpellBase first;
+    [SerializeField] private SpellBase second;
+    [SerializeField] private SpellBase third;
+    [SerializeField] private SpellBase forth;
     
     private Dictionary<SlotNumber, SpellBase> _equippedSpells = new();
-    
-    private Dictionary<Settings.PlayerControls, KeyCode> _playerControlMap = new ();
 
     public enum SlotNumber
     {
@@ -20,11 +24,6 @@ public class SpellManager : MonoBehaviour
         SecondSlot,
         ThirdSlot,
         ForthSlot,
-    }
-
-    public void UpdateSpellControls()
-    {
-        _playerControlMap = _settings.GetPlayerControls();
     }
 
     public void UpdateEquippedSpells(SlotNumber number, SpellBase spellBase)
@@ -39,28 +38,28 @@ public class SpellManager : MonoBehaviour
 
     private void Start()
     {
-        _settings = GetComponent<Settings>();
-        UpdateSpellControls();
-        Dash heal = GetComponent<Dash>();
-        _equippedSpells.Add(SlotNumber.FirstSlot, heal);
+        UpdateEquippedSpells(SlotNumber.FirstSlot, first);
+        UpdateEquippedSpells(SlotNumber.SecondSlot, second);
+        UpdateEquippedSpells(SlotNumber.ThirdSlot, third);
+        UpdateEquippedSpells(SlotNumber.ForthSlot, forth);
     }
 
     // Checks if they use one of their keybinds for casting an equip spell and cast the spell in that slot
     private void Update()
     {
-        if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.FirstSpell]))
+        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.FirstSpell]))
         {
             _equippedSpells[SlotNumber.FirstSlot].CastSpell();
         }
-        else if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.SecondSpell]))
+        else if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.SecondSpell]))
         {
             _equippedSpells[SlotNumber.SecondSlot].CastSpell();
         }
-        else if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.ThirdSpell]))
+        else if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.ThirdSpell]))
         {
             _equippedSpells[SlotNumber.ThirdSlot].CastSpell();
         }
-        else if (Input.GetKeyDown(_playerControlMap[Settings.PlayerControls.ForthSpell]))
+        else if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.ForthSpell]))
         {
             _equippedSpells[SlotNumber.ForthSlot].CastSpell();
         }

@@ -35,7 +35,7 @@ public class Dash : SpellBase
         // Checks if cooldown has passed
         if (!base.CastSpell())
             return false;
-
+        
         StartDash(x, z);
         return true;
     }
@@ -64,11 +64,15 @@ public class Dash : SpellBase
         return direction;
     }
 
-    private void StartDash(float x, float z)
+    protected override void DoSpell()
     {
         isDashing = true;
         _playerMovement.dashSpeed = dashSpeed;
         _dashStartTime = Time.time;
+    }
+
+    private void StartDash(float x, float z)
+    {
         Vector3 direction = GetDashDirection(x, z);
         _velocity = direction * dashSpeed;
     }

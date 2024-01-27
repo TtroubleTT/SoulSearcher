@@ -17,6 +17,10 @@ GameObject:
   - component: {fileID: 5291217243078230635}
   - component: {fileID: 2817821747138671252}
   - component: {fileID: 9057295118126128850}
+  - component: {fileID: 3218550429839834572}
+  - component: {fileID: 7789707900667638742}
+  - component: {fileID: 1963348690859609933}
+  - component: {fileID: 5807552636801895452}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -169,12 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadbc90927eba084aaeba1f396f504b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 20
+  cooldown: 5
   dashSpeed: 20
   dashDuration: 0.5
-  dashCooldown: 0.6
   isDashing: 0
-  dashKey: 101
   controller: {fileID: 8415735055528578445}
 --- !u!114 &5291217243078230635
 MonoBehaviour:
@@ -189,7 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 100
+  currentHealth: 50
+  slider: {fileID: 0}
 --- !u!114 &2817821747138671252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +210,7 @@ MonoBehaviour:
   jumpKey: 32
   sprintKey: 304
   crouchKey: 306
+  defaultAttackSpell: 323
   firstSpell: 101
   secondSpell: 113
   thirdSpell: 114
@@ -223,6 +227,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c0a8d0109e42ba82799a968b3d4c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settings: {fileID: 2817821747138671252}
+  first: {fileID: 7789707900667638742}
+  second: {fileID: 2855931619267254136}
+  third: {fileID: 3218550429839834572}
+  forth: {fileID: 5807552636801895452}
+--- !u!114 &3218550429839834572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070be513193b4fb5ab19d4ca618e0079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 1
+  healAmount: 20
+--- !u!114 &7789707900667638742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f120ae2879174da2b6f63067ab66eb7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTrans: {fileID: 5303126048535765995}
+  projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
+  cooldown: 1
+  damage: 40
+  speed: 50
+  range: 120
+--- !u!114 &1963348690859609933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28086b51c9fa40d8989ccdbde02d1015, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  cam: {fileID: 5303126048535765995}
+  settings: {fileID: 2817821747138671252}
+  damage: 50
+  attackDistance: 6
+  attackWidth: 2.5
+  cooldown: 1
+--- !u!114 &5807552636801895452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9de17dc753804827a366da6a16866faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 20
+  spellLength: 10
+  amountIncreased: 10
 --- !u!1 &4424734255451308140
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerBody: {fileID: 8045168280018231875}
-  settings: {fileID: 0}
+  settings: {fileID: 2817821747138671252}
 --- !u!1 &8137954327509150506
 GameObject:
   m_ObjectHideFlags: 0

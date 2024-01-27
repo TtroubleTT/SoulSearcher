@@ -7,5 +7,5 @@ public interface ICombat
 {
     public float Damage { get; set; }
 
-    public void Attack();
+    public bool HurtEnemy(GameObject enemy, float damage);
 }

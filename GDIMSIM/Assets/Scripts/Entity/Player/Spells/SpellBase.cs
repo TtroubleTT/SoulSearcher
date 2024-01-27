@@ -11,16 +11,19 @@ public abstract class SpellBase : MonoBehaviour
 
     protected abstract void InitializeAbstractedStats();
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         InitializeAbstractedStats();
     }
+    
+    protected abstract void DoSpell();
 
     public virtual bool CastSpell()
     {
         if (Time.time - _lastUsed > Cooldown)
         {
             _lastUsed = Time.time;
+            DoSpell();
             return true;
         }
 

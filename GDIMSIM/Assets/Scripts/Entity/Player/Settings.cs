@@ -15,18 +15,20 @@ public class Settings : MonoBehaviour
     [SerializeField] private KeyCode crouchKey = KeyCode.LeftControl;
 
     [Header("Spell Settings")] 
+    [SerializeField] private KeyCode defaultAttackSpell = KeyCode.Mouse0;
     [SerializeField] private KeyCode firstSpell = KeyCode.E;
     [SerializeField] private KeyCode secondSpell = KeyCode.Q;
     [SerializeField] private KeyCode thirdSpell = KeyCode.R;
     [SerializeField] private KeyCode forthSpell = KeyCode.F;
 
-    private Dictionary<PlayerControls, KeyCode> _playerControlMap = new ();
+    public Dictionary<PlayerControls, KeyCode> PlayerControlMap = new ();
 
     public enum PlayerControls
     {
         Jump,
         Sprint,
         Crouch,
+        DefaultAttack,
         FirstSpell,
         SecondSpell,
         ThirdSpell,
@@ -35,13 +37,14 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
-        _playerControlMap.Add(PlayerControls.Jump, jumpKey);
-        _playerControlMap.Add(PlayerControls.Sprint, sprintKey);
-        _playerControlMap.Add(PlayerControls.Crouch, crouchKey);
-        _playerControlMap.Add(PlayerControls.FirstSpell, firstSpell);
-        _playerControlMap.Add(PlayerControls.SecondSpell, secondSpell);
-        _playerControlMap.Add(PlayerControls.ThirdSpell, thirdSpell);
-        _playerControlMap.Add(PlayerControls.ForthSpell, forthSpell);
+        PlayerControlMap.Add(PlayerControls.Jump, jumpKey);
+        PlayerControlMap.Add(PlayerControls.Sprint, sprintKey);
+        PlayerControlMap.Add(PlayerControls.Crouch, crouchKey);
+        PlayerControlMap.Add(PlayerControls.DefaultAttack, defaultAttackSpell);
+        PlayerControlMap.Add(PlayerControls.FirstSpell, firstSpell);
+        PlayerControlMap.Add(PlayerControls.SecondSpell, secondSpell);
+        PlayerControlMap.Add(PlayerControls.ThirdSpell, thirdSpell);
+        PlayerControlMap.Add(PlayerControls.ForthSpell, forthSpell);
     }
 
     public (float, float) GetSensitivity()
@@ -49,11 +52,6 @@ public class Settings : MonoBehaviour
         return (mouseXSensitivity, mouseYSensitivity);
     }
 
-    public Dictionary<PlayerControls, KeyCode> GetPlayerControls()
-    {
-        return _playerControlMap;
-    }
-    
     // Still need to impliment changing controls with menu change keycode in dictionary
     // If we add save system consider saving what people change their controls to
 }

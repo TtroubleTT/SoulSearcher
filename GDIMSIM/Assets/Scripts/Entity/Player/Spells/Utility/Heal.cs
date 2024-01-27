@@ -21,22 +21,18 @@ public class Heal : SpellBase
     {
         if (_playerBase.GetCurrentHealth() >= _playerBase.GetMaxHealth())
             return false;
-        
-        // Checks if Cooldown has passed
-        if (!base.CastSpell())
-            return false;
 
-        DoHeal();
-        return true;
+        bool castedSpell = base.CastSpell();
+        return castedSpell;
+    }
+    
+    protected override void DoSpell()
+    {
+        _playerBase.AddHealth(healAmount);
     }
 
     private void Start() 
     {
         _playerBase = GetComponent<PlayerBase>();
-    }
-
-    private void DoHeal()
-    {
-        _playerBase.AddHealth(healAmount);
     }
 }
