@@ -15,8 +15,6 @@ public class SpellBlast : CombatSpell
 
     [Header("Stats")]
     [SerializeField] private float cooldown = 10f;
-
-    [Header("Projectile Stats")] 
     [SerializeField] private float damage = 40f;
     [SerializeField] private float speed = 50f;
     [SerializeField] private float range = 120f;
@@ -39,15 +37,6 @@ public class SpellBlast : CombatSpell
     private void Start()
     {
         InitializeStats();
-    }
-    
-    public override bool CastSpell()
-    {
-        // Checks if Cooldown has passed
-        if (!base.CastSpell())
-            return false;
-        
-        return true;
     }
 
     public override void Attack()

@@ -47,6 +47,7 @@ public class ShootingProjectile : MonoBehaviour
         rb.AddForce(_direction * _speed, ForceMode.Impulse);
     }
 
+    // Consider keeping track of tag of who shoots to not do ff
     private void OnCollisionEnter(Collision other)
     {
         if (Time.time - _lastHit <= .5)
