@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Settings settings;
     private WallRunning _wallRunning;
     private Dash _dash;
-    private Dictionary<Settings.PlayerControls, KeyCode> _playerControls;
 
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 12f;
@@ -70,8 +69,6 @@ public class PlayerMovement : MonoBehaviour
         _startYScale = transform.localScale.y;
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
-        settings = GameObject.FindGameObjectWithTag("Player").GetComponent<Settings>();
-        _playerControls = settings.GetPlayerControls();
     }
 
     private void Update()
@@ -114,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
             movementState = MovementState.Crouching;
             _currentSpeed = crouchSpeed;
         }
-        else if (_isGrounded && Input.GetKey(_playerControls[Settings.PlayerControls.Sprint]))
+        else if (_isGrounded && Input.GetKey(settings.PlayerControlMap[Settings.PlayerControls.Sprint]))
         {
             movementState = MovementState.Sprinting;
             _currentSpeed = sprintSpeed;
@@ -164,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckJump()
     {
-        if (Input.GetKeyDown(_playerControls[Settings.PlayerControls.Jump]))
+        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.Jump]))
         {
             switch (_isGrounded || movementState == MovementState.Falling)
             {
@@ -195,14 +192,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 localScale = transform.localScale;
         
         // If we push down the crouch key and we are crouching (not wall running) we decrease model size
-        if (Input.GetKeyDown(_playerControls[Settings.PlayerControls.Crouch]) && movementState != MovementState.WallRunning)
+        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && movementState != MovementState.WallRunning)
         {
             transform.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
             _isCrouching = true;
         }
 
         // When releasing crouch key sets our scale back to normal
-        if (Input.GetKeyUp(_playerControls[Settings.PlayerControls.Crouch]) && !IsUnderObject())
+        if (Input.GetKeyUp(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && !IsUnderObject())
         {
             transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
             _isCrouching = false;
@@ -211,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ForceStandUp()
     {
-        if (_isCrouching && !Input.GetKey(_playerControls[Settings.PlayerControls.Crouch]) && !IsUnderObject())
+        if (_isCrouching && !Input.GetKey(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && !IsUnderObject())
         {
             Vector3 localScale = transform.localScale;
             transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);

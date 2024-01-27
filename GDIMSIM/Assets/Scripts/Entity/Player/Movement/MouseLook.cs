@@ -20,7 +20,6 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        settings = GameObject.FindGameObjectWithTag("Player").GetComponent<Settings>();
         (_mouseXSensitivity, _mouseYSensitivity) = settings.GetSensitivity();
     }
     
