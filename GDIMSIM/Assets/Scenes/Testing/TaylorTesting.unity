@@ -610,7 +610,7 @@ PrefabInstance:
     - target: {fileID: 9057295118126128850, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: first
       value: 
-      objectReference: {fileID: 548947980}
+      objectReference: {fileID: 548947984}
     - target: {fileID: 9057295118126128850, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: forth
       value: 
@@ -634,6 +634,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 548947980}
+    - targetCorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 548947984}
   m_SourcePrefab: {fileID: 100100000, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
 --- !u!1 &548947979 stripped
 GameObject:
@@ -676,6 +679,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadbc90927eba084aaeba1f396f504b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &548947983 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5303126048535765995, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+  m_PrefabInstance: {fileID: 548947978}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &548947984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548947979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f120ae2879174da2b6f63067ab66eb7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camTrans: {fileID: 548947983}
+  projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
+  cooldown: 1
+  damage: 40
+  speed: 50
+  range: 120
 --- !u!1 &614553889
 GameObject:
   m_ObjectHideFlags: 0
