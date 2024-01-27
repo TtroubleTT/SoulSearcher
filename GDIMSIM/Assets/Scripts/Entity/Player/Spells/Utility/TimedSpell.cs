@@ -24,6 +24,9 @@ public abstract class TimedSpell : SpellBase
 
     public override bool CastSpell()
     {
+        if (SpellActive)
+            return false;
+        
         if (!base.CastSpell())
             return false;
 
