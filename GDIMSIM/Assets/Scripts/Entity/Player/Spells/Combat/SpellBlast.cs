@@ -39,7 +39,7 @@ public class SpellBlast : CombatSpell
         InitializeStats();
     }
 
-    public override void Attack()
+    protected override void DoSpell()
     {
         GameObject projectile = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2), camTrans.rotation);
         Vector3 direction = camTrans.forward.normalized; // Gets direction player is looking

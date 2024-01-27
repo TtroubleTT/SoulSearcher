@@ -15,12 +15,15 @@ public abstract class SpellBase : MonoBehaviour
     {
         InitializeAbstractedStats();
     }
+    
+    protected abstract void DoSpell();
 
     public virtual bool CastSpell()
     {
         if (Time.time - _lastUsed > Cooldown)
         {
             _lastUsed = Time.time;
+            DoSpell();
             return true;
         }
 
