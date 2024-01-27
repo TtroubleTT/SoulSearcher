@@ -28,6 +28,7 @@ public abstract class TimedSpell : SpellBase
             return false;
 
         _spellStartTime = Time.time;
+        SpellActive = true;
         return true;
         // other scripts will extend this base behavior
     }

@@ -551,10 +551,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2855931619267254136, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: cooldown
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_Name
       value: Player
@@ -563,14 +559,6 @@ PrefabInstance:
       propertyPath: slider
       value: 
       objectReference: {fileID: 808493236}
-    - target: {fileID: 5291217243078230635, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: currentHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844203162568893171, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: settings
-      value: 
-      objectReference: {fileID: 548947981}
     - target: {fileID: 8045168280018231875, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -611,101 +599,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9057295118126128850, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: first
-      value: 
-      objectReference: {fileID: 548947984}
-    - target: {fileID: 9057295118126128850, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: forth
-      value: 
-      objectReference: {fileID: 548947982}
-    - target: {fileID: 9057295118126128850, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: third
-      value: 
-      objectReference: {fileID: 548947980}
-    - target: {fileID: 9057295118126128850, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: second
-      value: 
-      objectReference: {fileID: 548947982}
-    - target: {fileID: 9057295118126128850, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: settings
-      value: 
-      objectReference: {fileID: 548947981}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 548947980}
-    - targetCorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 548947984}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
---- !u!1 &548947979 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3523647103476993651, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-  m_PrefabInstance: {fileID: 548947978}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &548947980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548947979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 070be513193b4fb5ab19d4ca618e0079, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldown: 1
-  healAmount: 20
---- !u!114 &548947981 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2817821747138671252, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-  m_PrefabInstance: {fileID: 548947978}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548947979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc286405a7c6e54c9256148c5b37a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &548947982 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2855931619267254136, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-  m_PrefabInstance: {fileID: 548947978}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548947979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aadbc90927eba084aaeba1f396f504b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &548947983 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5303126048535765995, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-  m_PrefabInstance: {fileID: 548947978}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &548947984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548947979}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f120ae2879174da2b6f63067ab66eb7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camTrans: {fileID: 548947983}
-  projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
-  cooldown: 1
-  damage: 40
-  speed: 50
-  range: 120
 --- !u!1 &614553889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1293,8 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7597852196260148688, guid: 1853b4932ec319c4c8f40abbf9ff32ca, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

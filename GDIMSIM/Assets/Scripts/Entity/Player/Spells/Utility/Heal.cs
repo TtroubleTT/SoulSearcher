@@ -25,14 +25,14 @@ public class Heal : SpellBase
         bool castedSpell = base.CastSpell();
         return castedSpell;
     }
+    
+    protected override void DoSpell()
+    {
+        _playerBase.AddHealth(healAmount);
+    }
 
     private void Start() 
     {
         _playerBase = GetComponent<PlayerBase>();
-    }
-
-    protected override void DoSpell()
-    {
-        _playerBase.AddHealth(healAmount);
     }
 }

@@ -59,6 +59,13 @@ public class PlayerMovement : MonoBehaviour
     // https://www.youtube.com/watch?v=f473C43s8nE&t=505s
     // https://www.youtube.com/watch?v=_QajrabyTJc
 
+    public void UpdateSpeed(float change)
+    {
+        walkSpeed += change;
+        sprintSpeed += change;
+        crouchSpeed += change;
+    }
+    
     public bool IsGrounded()
     {
         return _isGrounded;
