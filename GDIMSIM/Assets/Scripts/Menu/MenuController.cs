@@ -17,17 +17,25 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(newGameLevel);
     }
 
-    public void LoadGameDialogYes()
+    /*public void LoadGameDialogYes()
     {
         if(PlayerPrefs.HasKey("SavedLevel"))
         {
-            levelToLoad = PlayerPrefs.GetString("SavedLevel");
+            levelToLoad = PlayerPrefs.GetString("LevelToLoad);
             SceneManager.LoadScene(levelToLoad);
         } else
         {
             NoSaveGameDialouge.SetActive(true);
         }
     }
+    */
+
+    public void LoadGameDialogYes()
+    {
+            SceneManager.LoadScene("AidanTesting");
+            NoSaveGameDialouge.SetActive(true);
+    }
+
     public void ExitButton()
     {
         Application.Quit();
