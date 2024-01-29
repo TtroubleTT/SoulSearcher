@@ -34,12 +34,12 @@ public class SoulStrike : MonoBehaviour, ICombat
         }
     }
 
-    public bool HurtEnemy(GameObject enemy, float damageToDo)
+    public bool HurtEnemy(GameObject enemy)
     {
         if (!enemy.CompareTag("Enemy"))
             return false;
         
-        enemy.GetComponent<EnemyBase>().SubtractHealth(damageToDo);
+        enemy.GetComponent<EnemyBase>().SubtractHealth(Damage);
         return true;
     }
 
@@ -50,7 +50,7 @@ public class SoulStrike : MonoBehaviour, ICombat
         bool hitEnemy = Physics.BoxCast(camPos + (-cam.forward * 2.5f), new Vector3(attackWidth, attackWidth, attackWidth), cam.forward, out RaycastHit hitInfo, camRot, attackDistance, enemyLayer);
         if (hitEnemy)
         {
-            HurtEnemy(hitInfo.transform.gameObject, Damage);
+            HurtEnemy(hitInfo.transform.gameObject);
         }
     }
 }
