@@ -12,32 +12,33 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject NoSaveGameDialouge = null;
 
 
-    public void NewGameDialogeYes()
+    public void NewGameDialogeYes() //maybe have to change this to NewGameYesButton since thats the name of the actual button
     {
-        SceneManager.LoadScene(newGameLevel);
+        SceneManager.LoadScene(1);
     }
 
-    /*public void LoadGameDialogYes()
+    public void LoadGameYesDialouge()
     {
         if(PlayerPrefs.HasKey("SavedLevel"))
         {
-            levelToLoad = PlayerPrefs.GetString("LevelToLoad);
+            levelToLoad = PlayerPrefs.GetString("LevelToLoad");
             SceneManager.LoadScene(levelToLoad);
         } else
         {
             NoSaveGameDialouge.SetActive(true);
         }
     }
-    */
+    
 
-    public void LoadGameDialogYes()
+    public void LoadGameNoDialouge()
     {
-            SceneManager.LoadScene("AidanTesting");
+            SceneManager.LoadScene(1);
             NoSaveGameDialouge.SetActive(true);
     }
 
     public void ExitButton()
     {
         Application.Quit();
+        Debug.Log("something");
     }
 }
