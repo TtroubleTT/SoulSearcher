@@ -32,12 +32,13 @@ public class MenuController : MonoBehaviour
 
     public void LoadGameNoDialouge()
     {
-            SceneManager.LoadScene("AidanTesting");
+            SceneManager.LoadScene(1);
             NoSaveGameDialouge.SetActive(true);
     }
 
     public void ExitButton()
     {
         Application.Quit();
+        Debug.Log("something");
     }
 }
