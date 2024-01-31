@@ -752,6 +752,10 @@ PrefabInstance:
       propertyPath: uiInventory
       value: 
       objectReference: {fileID: 907834582}
+    - target: {fileID: 5291217243078230635, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5807552636801895452, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: icon
       value: 
@@ -986,6 +990,10 @@ PrefabInstance:
     - target: {fileID: 912572925078426170, guid: 722df2b3e3af15640b3243202978aada, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4205534225919761625, guid: 722df2b3e3af15640b3243202978aada, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7721763540944371998, guid: 722df2b3e3af15640b3243202978aada, type: 3}
       propertyPath: m_Pivot.x
