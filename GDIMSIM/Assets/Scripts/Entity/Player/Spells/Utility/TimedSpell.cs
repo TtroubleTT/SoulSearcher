@@ -13,8 +13,9 @@ public abstract class TimedSpell : SpellBase
 
     protected abstract void EndSpell();
 
-    protected virtual void Update()
+    protected override void Update()
     {
+        base.Update();
         if (Time.time - _spellStartTime > SpellLength && SpellActive)
         {
             SpellActive = false;
