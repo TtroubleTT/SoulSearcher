@@ -8,7 +8,9 @@ using UnityEngine.UI;
 
 public class SpellManager : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Settings settings;
+    [SerializeField] private Slider cooldownSlider;
 
     [Header("Equipped Spells")]
     [SerializeField] private SpellBase first;
@@ -28,6 +30,8 @@ public class SpellManager : MonoBehaviour
 
     public void UpdateEquippedSpells(SlotNumber number, SpellBase spellBase)
     {
+        // Make this for every slider slot
+        spellBase.slider = cooldownSlider;
         _equippedSpells[number] = spellBase;
     }
 
@@ -39,9 +43,9 @@ public class SpellManager : MonoBehaviour
     private void Start()
     {
         UpdateEquippedSpells(SlotNumber.FirstSlot, first);
-        UpdateEquippedSpells(SlotNumber.SecondSlot, second);
-        UpdateEquippedSpells(SlotNumber.ThirdSlot, third);
-        UpdateEquippedSpells(SlotNumber.ForthSlot, forth);
+        //UpdateEquippedSpells(SlotNumber.SecondSlot, second);
+        //UpdateEquippedSpells(SlotNumber.ThirdSlot, third);
+        //UpdateEquippedSpells(SlotNumber.ForthSlot, forth);
     }
 
     // Checks if they use one of their keybinds for casting an equip spell and cast the spell in that slot
