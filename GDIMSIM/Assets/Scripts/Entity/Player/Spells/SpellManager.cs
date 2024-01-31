@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,7 +11,16 @@ public class SpellManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Settings settings;
-    [SerializeField] private Slider cooldownSlider;
+    [SerializeField] private Slider firstCooldown;
+    [SerializeField] private Slider secondCooldown;
+    [SerializeField] private Slider thirdCooldown;
+    [SerializeField] private Slider forthCooldown;
+
+    [Header("Icons")] 
+    [SerializeField] private RawImage firstIcon;
+    [SerializeField] private RawImage secondIcon;
+    [SerializeField] private RawImage thirdIcon;
+    [SerializeField] private RawImage forthIcon;
 
     [Header("Equipped Spells")]
     [SerializeField] private SpellBase first;
@@ -31,7 +41,29 @@ public class SpellManager : MonoBehaviour
     public void UpdateEquippedSpells(SlotNumber number, SpellBase spellBase)
     {
         // Make this for every slider slot
-        spellBase.slider = cooldownSlider;
+        if (number == SlotNumber.FirstSlot)
+        {
+            spellBase.slider = firstCooldown;
+            firstIcon.texture = spellBase.GetIcon().texture;
+        }
+        else if (number == SlotNumber.SecondSlot)
+        {
+            spellBase.slider = secondCooldown;
+            secondIcon.texture = spellBase.GetIcon().texture;
+        }
+        else if (number == SlotNumber.ThirdSlot)
+        {
+            spellBase.slider = thirdCooldown;
+            thirdIcon.texture = spellBase.GetIcon().texture;
+        }
+        else if (number == SlotNumber.ForthSlot)
+        {
+            spellBase.slider = forthCooldown;
+            forthIcon.texture = spellBase.GetIcon().texture;
+        }
+
+        spellBase.slider.maxValue = spellBase.GetCooldown();
+        spellBase.slider.value = spellBase.GetCooldown();
         _equippedSpells[number] = spellBase;
     }
 
@@ -43,9 +75,9 @@ public class SpellManager : MonoBehaviour
     private void Start()
     {
         UpdateEquippedSpells(SlotNumber.FirstSlot, first);
-        //UpdateEquippedSpells(SlotNumber.SecondSlot, second);
-        //UpdateEquippedSpells(SlotNumber.ThirdSlot, third);
-        //UpdateEquippedSpells(SlotNumber.ForthSlot, forth);
+        UpdateEquippedSpells(SlotNumber.SecondSlot, second);
+        UpdateEquippedSpells(SlotNumber.ThirdSlot, third);
+        UpdateEquippedSpells(SlotNumber.ForthSlot, forth);
     }
 
     // Checks if they use one of their keybinds for casting an equip spell and cast the spell in that slot
