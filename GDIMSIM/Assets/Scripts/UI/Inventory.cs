@@ -11,11 +11,20 @@ public class Inventory : MonoBehaviour
         spellList = new List<Spell>();
 
         AddSpell(new Spell { spellType = Spell.SpellType.SpellOne, amount = 1 });
+        AddSpell(new Spell { spellType = Spell.SpellType.SpellTwo, amount = 1 });
+        AddSpell(new Spell { spellType = Spell.SpellType.SpellThree, amount = 1 });
+        AddSpell(new Spell { spellType = Spell.SpellType.SpellFour, amount = 1 });
+        AddSpell(new Spell { spellType = Spell.SpellType.SpellFive, amount = 1 });
         Debug.Log(spellList.Count);
     }
 
     public void AddSpell(Spell spell)
     {
         spellList.Add(spell);
+    }
+
+    public List<Spell> GetSpellList()
+    {
+        return spellList;
     }
 }
