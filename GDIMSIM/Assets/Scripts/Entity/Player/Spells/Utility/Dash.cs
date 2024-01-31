@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dash : SpellBase
 {
     protected override float Cooldown { get; set; }
+    
+    protected override RawImage Icon { get; set; }
 
     [Header("Dashing")] 
     [SerializeField] private float cooldown = 5f;
@@ -19,9 +22,12 @@ public class Dash : SpellBase
     [SerializeField] private CharacterController controller;
     private PlayerMovement _playerMovement;
 
+    [SerializeField] private RawImage icon;
+
     protected override void InitializeAbstractedStats()
     {
         Cooldown = cooldown;
+        Icon = icon;
     }
 
     public override bool CastSpell()

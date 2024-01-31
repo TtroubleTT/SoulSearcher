@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,12 @@ public class SpellManager : MonoBehaviour
     [SerializeField] private Slider secondCooldown;
     [SerializeField] private Slider thirdCooldown;
     [SerializeField] private Slider forthCooldown;
+
+    [Header("Icons")] 
+    [SerializeField] private RawImage firstIcon;
+    [SerializeField] private RawImage secondIcon;
+    [SerializeField] private RawImage thirdIcon;
+    [SerializeField] private RawImage forthIcon;
 
     [Header("Equipped Spells")]
     [SerializeField] private SpellBase first;
@@ -37,18 +44,22 @@ public class SpellManager : MonoBehaviour
         if (number == SlotNumber.FirstSlot)
         {
             spellBase.slider = firstCooldown;
+            firstIcon.texture = spellBase.GetIcon().texture;
         }
         else if (number == SlotNumber.SecondSlot)
         {
             spellBase.slider = secondCooldown;
+            secondIcon.texture = spellBase.GetIcon().texture;
         }
         else if (number == SlotNumber.ThirdSlot)
         {
             spellBase.slider = thirdCooldown;
+            thirdIcon.texture = spellBase.GetIcon().texture;
         }
         else if (number == SlotNumber.ForthSlot)
         {
             spellBase.slider = forthCooldown;
+            forthIcon.texture = spellBase.GetIcon().texture;
         }
 
         spellBase.slider.maxValue = spellBase.GetCooldown();

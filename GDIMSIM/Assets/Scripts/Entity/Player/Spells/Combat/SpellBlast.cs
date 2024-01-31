@@ -2,12 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellBlast : CombatSpell
 {
     public override float Damage { get; set; }
 
     protected override float Cooldown { get; set; }
+
+    protected override RawImage Icon { get; set; }
 
     [Header("References")] 
     [SerializeField] private Transform camTrans;
@@ -18,6 +21,8 @@ public class SpellBlast : CombatSpell
     [SerializeField] private float damage = 40f;
     [SerializeField] private float speed = 50f;
     [SerializeField] private float range = 120f;
+
+    [SerializeField] private RawImage icon;
     
     private readonly Dictionary<ShootingProjectile.Stats, float> _projectileStats = new();
 
@@ -25,6 +30,7 @@ public class SpellBlast : CombatSpell
     {
         Damage = damage;
         Cooldown = cooldown;
+        Icon = icon;
     }
     
     private void InitializeStats()

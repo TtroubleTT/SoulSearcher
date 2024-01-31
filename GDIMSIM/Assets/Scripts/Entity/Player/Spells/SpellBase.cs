@@ -13,6 +13,8 @@ public abstract class SpellBase : MonoBehaviour
     [HideInInspector] public Slider slider;
     
     protected abstract float Cooldown { get; set; }
+    
+    protected abstract RawImage Icon { get; set; }
 
     protected abstract void InitializeAbstractedStats();
 
@@ -42,6 +44,11 @@ public abstract class SpellBase : MonoBehaviour
     public float GetCooldown()
     {
         return Cooldown;
+    }
+
+    public RawImage GetIcon()
+    {
+        return Icon;
     }
 
     protected virtual void Update()
