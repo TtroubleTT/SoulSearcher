@@ -760,10 +760,18 @@ PrefabInstance:
       propertyPath: icon
       value: 
       objectReference: {fileID: 257515593}
+    - target: {fileID: 5807552636801895452, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      propertyPath: cooldown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7789707900667638742, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: icon
       value: 
       objectReference: {fileID: 705584339}
+    - target: {fileID: 7789707900667638742, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      propertyPath: cooldown
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8045168280018231875, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
