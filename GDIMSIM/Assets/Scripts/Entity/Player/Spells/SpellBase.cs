@@ -10,7 +10,7 @@ public abstract class SpellBase : MonoBehaviour
 
     private bool _cooldownActive;
 
-    public Slider slider;
+    [HideInInspector] public Slider slider;
     
     protected abstract float Cooldown { get; set; }
 

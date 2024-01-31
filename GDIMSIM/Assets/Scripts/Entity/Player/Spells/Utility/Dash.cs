@@ -47,6 +47,7 @@ public class Dash : SpellBase
 
     protected override void Update()
     {
+        base.Update();
         DashMove();
     }
 

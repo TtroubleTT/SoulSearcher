@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aadbc90927eba084aaeba1f396f504b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   cooldown: 5
   dashSpeed: 20
   dashDuration: 0.5
@@ -228,6 +229,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 2817821747138671252}
+  firstCooldown: {fileID: 0}
+  secondCooldown: {fileID: 0}
+  thirdCooldown: {fileID: 0}
+  forthCooldown: {fileID: 0}
   first: {fileID: 7789707900667638742}
   second: {fileID: 2855931619267254136}
   third: {fileID: 3218550429839834572}
@@ -244,6 +249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070be513193b4fb5ab19d4ca618e0079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   cooldown: 1
   healAmount: 20
 --- !u!114 &7789707900667638742
@@ -258,9 +264,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f120ae2879174da2b6f63067ab66eb7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   camTrans: {fileID: 5303126048535765995}
   projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
-  cooldown: 1
+  cooldown: 10
   damage: 40
   speed: 50
   range: 120
@@ -297,6 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de17dc753804827a366da6a16866faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
   cooldown: 20
   spellLength: 10
   amountIncreased: 10

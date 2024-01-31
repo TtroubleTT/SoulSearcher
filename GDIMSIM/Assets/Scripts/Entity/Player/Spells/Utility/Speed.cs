@@ -35,4 +35,9 @@ public class Speed : TimedSpell
     {
         _playerMovement = GetComponent<PlayerMovement>();
     }
+    
+    protected override void Update()
+    {
+        base.Update();
+    }
 }

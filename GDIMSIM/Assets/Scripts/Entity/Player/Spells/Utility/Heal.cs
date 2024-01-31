@@ -35,4 +35,9 @@ public class Heal : SpellBase
     {
         _playerBase = GetComponent<PlayerBase>();
     }
+    
+    protected override void Update()
+    {
+        base.Update();
+    }
 }
