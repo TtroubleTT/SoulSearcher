@@ -179,6 +179,7 @@ MonoBehaviour:
   dashDuration: 0.5
   isDashing: 0
   controller: {fileID: 8415735055528578445}
+  icon: {fileID: 0}
 --- !u!114 &5291217243078230635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +234,10 @@ MonoBehaviour:
   secondCooldown: {fileID: 0}
   thirdCooldown: {fileID: 0}
   forthCooldown: {fileID: 0}
+  firstIcon: {fileID: 0}
+  secondIcon: {fileID: 0}
+  thirdIcon: {fileID: 0}
+  forthIcon: {fileID: 0}
   first: {fileID: 7789707900667638742}
   second: {fileID: 2855931619267254136}
   third: {fileID: 3218550429839834572}
@@ -252,6 +257,7 @@ MonoBehaviour:
   slider: {fileID: 0}
   cooldown: 1
   healAmount: 20
+  icon: {fileID: 0}
 --- !u!114 &7789707900667638742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +277,7 @@ MonoBehaviour:
   damage: 40
   speed: 50
   range: 120
+  icon: {fileID: 0}
 --- !u!114 &1963348690859609933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,9 +312,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
-  cooldown: 20
+  cooldown: 10
   spellLength: 10
   amountIncreased: 10
+  icon: {fileID: 0}
 --- !u!1 &4424734255451308140
 GameObject:
   m_ObjectHideFlags: 0
