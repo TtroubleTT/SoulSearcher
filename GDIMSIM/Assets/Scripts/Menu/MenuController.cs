@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
     
     public void StartGame()
     {
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(newGameLevel);
     }
     
     public void NewGameDialogeYes() //maybe have to change this to NewGameYesButton since thats the name of the actual button
