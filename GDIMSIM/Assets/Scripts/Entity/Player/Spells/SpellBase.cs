@@ -30,6 +30,8 @@ public abstract class SpellBase : MonoBehaviour
             _lastUsed = Time.time;
             DoSpell();
             slider.value = 0;
+            slider.maxValue = Cooldown;
+            _cooldownActive = true;
             return true;
         }
 
@@ -40,5 +42,20 @@ public abstract class SpellBase : MonoBehaviour
     public float GetCooldown()
     {
         return Cooldown;
+    }
+
+    protected virtual void Update()
+    {
+        if (_cooldownActive)
+        {
+            if (Time.time - _lastUsed < Cooldown)
+            {
+                slider.value = Time.time - _lastUsed;
+            }
+            else
+            {
+                _cooldownActive = false;
+            }
+        }
     }
 }

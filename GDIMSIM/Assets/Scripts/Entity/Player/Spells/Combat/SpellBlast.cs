@@ -45,4 +45,9 @@ public class SpellBlast : CombatSpell
         Vector3 direction = camTrans.forward.normalized; // Gets direction player is looking
         projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction);
     }
+
+    protected override void Update()
+    {
+        base.Update();
+    }
 }

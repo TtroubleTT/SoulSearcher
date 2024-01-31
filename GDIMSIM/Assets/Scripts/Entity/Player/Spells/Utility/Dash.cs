@@ -45,7 +45,7 @@ public class Dash : SpellBase
         _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    private void Update()
+    protected override void Update()
     {
         DashMove();
     }
