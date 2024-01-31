@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro
+using TMPro;
 
 public class SoulCounter : MonoBehaviour
 {
     public TMP_Text soulsCollected;
 	void collectSoulCount()
 	{
-		soulsCollected.SetText(int(soulsCollected) + 1);
+		int count = Int32.Parse(soulsCollected.text) + 1;
+		soulsCollected.SetText(count.ToString());
 	}
 	void resetCounter()
 	{
-		soulsCollected.SetText(int(0));
+		soulsCollected.SetText("0");
 	}
 }
