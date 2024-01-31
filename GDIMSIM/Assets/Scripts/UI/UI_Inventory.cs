@@ -22,12 +22,12 @@ public class UI_Inventory : MonoBehaviour
     {
         int x = 0;
         int y = 0;
-        float spellSlotCellSize = 30f;
+        //float spellSlotCellSize = 30f;
         foreach (Spell spell in inventory.GetSpellList())
         {
             RectTransform spellSlotTransform = Instantiate(spellSlotTemplate, spellSlotContainer).GetComponent<RectTransform>();
-            spellSlotRectTransform.gameObject.SetActive(true);
-            spellSlotRectTransform.anchoredPosition = new Vector2(x * spellSlotCellSize, y * spellSlotCellSize);
+            //spellSlotRectTransform.gameObject.SetActive(true);
+            //spellSlotRectTransform.anchoredPosition = new Vector2(x * spellSlotCellSize, y * spellSlotCellSize);
             x++;
             if (x > 4)
             {
