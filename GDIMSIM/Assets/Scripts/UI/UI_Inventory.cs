@@ -11,8 +11,8 @@ public class UI_Inventory : MonoBehaviour
 
     private void Awake()
     {
-        spellSlotContainer = GameObject.FindGameObjectWithTag("spellSlotContainer").transform;
-        spellSlotTemplate = GameObject.FindGameObjectWithTag("spellSlotTemplate").transform;
+        // spellSlotContainer = GameObject.FindGameObjectWithTag("spellSlotContainer").transform;
+        // spellSlotTemplate = GameObject.FindGameObjectWithTag("spellSlotTemplate").transform;
     }
     public void SetInventory(Inventory inventory)
     {
