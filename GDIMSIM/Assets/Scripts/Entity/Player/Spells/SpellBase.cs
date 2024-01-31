@@ -2,10 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class SpellBase : MonoBehaviour
 {
     private float _lastUsed;
+
+    private bool _cooldownActive;
+
+    public Slider slider;
     
     protected abstract float Cooldown { get; set; }
 
@@ -24,10 +29,16 @@ public abstract class SpellBase : MonoBehaviour
         {
             _lastUsed = Time.time;
             DoSpell();
+            slider.value = 0;
             return true;
         }
 
         return false;
         // other scripts will extend this base behavior
+    }
+
+    public float GetCooldown()
+    {
+        return Cooldown;
     }
 }
