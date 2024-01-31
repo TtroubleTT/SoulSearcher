@@ -8,6 +8,8 @@ TagManager:
   - HealthBar
   - Ground
   - Projectile
+  - spellSlotContainer
+  - spellSlotTemplate
   layers:
   - Default
   - TransparentFX
