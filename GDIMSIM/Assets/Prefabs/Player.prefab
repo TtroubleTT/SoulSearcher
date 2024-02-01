@@ -24,7 +24,6 @@ GameObject:
   - component: {fileID: 1900124225570454009}
   - component: {fileID: 3894450718741638171}
   - component: {fileID: 331517561455049856}
-  - component: {fileID: 6296330954000440614}
   - component: {fileID: 3909286341229791744}
   - component: {fileID: 5839752829404727400}
   m_Layer: 0
@@ -383,19 +382,6 @@ MonoBehaviour:
   speed: 50
   range: 120
   icon: {fileID: 0}
---- !u!114 &6296330954000440614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523647103476993651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d44c83da14a83e047bbb3523539197e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soulsCollected: {fileID: 0}
 --- !u!114 &3909286341229791744
 MonoBehaviour:
   m_ObjectHideFlags: 0
