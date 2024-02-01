@@ -17,7 +17,7 @@ public class RockSpell : CombatSpell
 
     [Header("Stats")]
     [SerializeField] private float cooldown = 10f;
-    [SerializeField] private float damage = 40f;
+    [SerializeField] private float damage = 50f;
     [SerializeField] private float speed = 50f;
     [SerializeField] private float range = 120f;
 
@@ -48,7 +48,7 @@ public class RockSpell : CombatSpell
     {
         GameObject projectile = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2), camTrans.rotation);
         Vector3 direction = camTrans.forward.normalized; // Gets direction player is looking
-        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction);
+        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, EnemyBase.StatusEffect.None);
     }
 
     protected override void Update()
