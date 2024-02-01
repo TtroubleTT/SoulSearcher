@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SoulObject : MonoBehaviour
 {
+    // Contributors: Taylor
     private SoulCounter _soulCounter;
     private void Awake()
     {

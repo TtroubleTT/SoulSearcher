@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Settings : MonoBehaviour
 {
+    // Contributors: Taylor
     [Header("Sensitivity")] 
     [SerializeField] private float mouseXSensitivity = 300f;
     [SerializeField] private float mouseYSensitivity = 300f;

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShootingEnemy : EnemyBase
 {
+    // Contributors: Taylor
     protected override float MaxHealth { get; set; }
     
     protected override float CurrentHealth { get; set; }

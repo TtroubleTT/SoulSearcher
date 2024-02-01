@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public abstract class EnemyBase : EntityBase
 {
     //referencing the status effect script so that the spells work
+    // Contributors: Taylor, Amelia
 
     protected bool CanAttack = true;
 

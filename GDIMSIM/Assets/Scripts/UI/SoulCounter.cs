@@ -7,6 +7,7 @@ using TMPro;
 
 public class SoulCounter : MonoBehaviour
 {
+	// Contributors: Taylor, Richard
     public TMP_Text soulsCollected;
 
     private float _soulAmount = 0;

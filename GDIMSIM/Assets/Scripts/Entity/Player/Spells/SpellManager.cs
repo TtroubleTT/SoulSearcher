@@ -2,13 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SpellManager : MonoBehaviour
 {
+    // Contributors: Taylor
     [Header("References")]
     [SerializeField] private Settings settings;
     [SerializeField] private Slider firstCooldown;

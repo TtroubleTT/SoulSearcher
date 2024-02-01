@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public abstract class SpellBase : MonoBehaviour
 {
+    // Contributors: Taylor
     private float _lastUsed;
 
     private bool _cooldownActive;
