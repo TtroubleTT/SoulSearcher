@@ -80,7 +80,7 @@ public class ShootingEnemy : EnemyBase
     // Checks if the player is within the enemies line of sight
     private bool InLineOfSight()
     {
-        if (Physics.Raycast(transform.position + transform.up, (_player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
+        if (Physics.Raycast(transform.position + transform.forward, (_player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
         {
             if (hitInfo.transform.gameObject == _player)
             {
@@ -96,6 +96,7 @@ public class ShootingEnemy : EnemyBase
     {
         if (Time.time - _lastShotTime > shotCooldown && IsInRange() && InLineOfSight())
         {
+            Debug.Log("shoot");
             _lastShotTime = Time.time;
             Shoot();
         }

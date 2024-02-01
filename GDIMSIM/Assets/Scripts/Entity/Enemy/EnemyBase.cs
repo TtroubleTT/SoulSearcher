@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public abstract class EnemyBase : EntityBase
 {
     //referencing the status effect script so that the spells work
+
+    protected bool CanAttack = true;
     
     public enum StatusEffect
     {
@@ -28,7 +30,7 @@ public abstract class EnemyBase : EntityBase
         }
         else if (effect == StatusEffect.Freeze)
         {
-            Freeze(this, 3, 1f);
+            Freeze(7, 1f);
         }
     }
 
@@ -37,9 +39,9 @@ public abstract class EnemyBase : EntityBase
         StartCoroutine(BurningEffect(enemy, damage, x, delay));
     }
     
-    public void Freeze(EnemyBase enemy, int x, float delay)
+    public void Freeze(int x, float delay)
     {
-        StartCoroutine(FreezeEffect(enemy, x, delay));
+        StartCoroutine(FreezeEffect( x, delay));
     }
 
     private IEnumerator BurningEffect(EnemyBase enemy, float damage, int x, float delay)
@@ -51,11 +53,10 @@ public abstract class EnemyBase : EntityBase
         }
     }
     
-    private IEnumerator FreezeEffect(EnemyBase enemy, int x, float delay)
+    private IEnumerator FreezeEffect(int x, float delay)
     {
-        for (int i = 0; i < x; i++)
-        {
-            yield return new WaitForSeconds(delay);
-        }
+        CanAttack = false;
+        yield return new WaitForSeconds(delay);
+        CanAttack = true;
     }
 }
