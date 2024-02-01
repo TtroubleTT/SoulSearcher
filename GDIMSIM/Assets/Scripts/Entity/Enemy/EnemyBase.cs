@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 
 public abstract class EnemyBase : EntityBase
 {
-    EnemyStatusEffect statuseffect;
-    protected virtual float SoulDropAmount { get; set; } = 10;
+    private EnemyStatusEffect statuseffect;
 
     //referencing the status effect script so that the spells work
     private void Start()
