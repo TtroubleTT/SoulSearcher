@@ -94,9 +94,8 @@ public class ShootingEnemy : EnemyBase
     // If the shot cooldown has passed, and the player is within shooting range, and line of sight then shoot
     private void CheckShoot()
     {
-        if (Time.time - _lastShotTime > shotCooldown && IsInRange() && InLineOfSight())
+        if (Time.time - _lastShotTime > shotCooldown && CanAttack && IsInRange() && InLineOfSight())
         {
-            Debug.Log("shoot");
             _lastShotTime = Time.time;
             Shoot();
         }

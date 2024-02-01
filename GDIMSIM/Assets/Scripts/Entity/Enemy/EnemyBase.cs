@@ -10,24 +10,15 @@ public abstract class EnemyBase : EntityBase
 
     protected bool CanAttack = true;
 
-    private SoulCounter _soulCounter;
-    
     public enum StatusEffect
     {
         None,
         Burning,
         Freeze,
     }
-    
-    protected override void Awake()
-    {
-        base.Awake();
-        _soulCounter = GameObject.FindGameObjectWithTag("SoulCounter").GetComponent<SoulCounter>();
-    }
 
     protected override void Die()
     {
-        _soulCounter.CollectSoulCount();
         Destroy(gameObject);
     }
 
@@ -39,7 +30,7 @@ public abstract class EnemyBase : EntityBase
         }
         else if (effect == StatusEffect.Freeze)
         {
-            Freeze(7, 1f);
+            Freeze(7f);
         }
     }
 
@@ -48,9 +39,9 @@ public abstract class EnemyBase : EntityBase
         StartCoroutine(BurningEffect(enemy, damage, x, delay));
     }
     
-    public void Freeze(int x, float delay)
+    public void Freeze(float delay)
     {
-        StartCoroutine(FreezeEffect( x, delay));
+        StartCoroutine(FreezeEffect(delay));
     }
 
     private IEnumerator BurningEffect(EnemyBase enemy, float damage, int x, float delay)
@@ -62,7 +53,7 @@ public abstract class EnemyBase : EntityBase
         }
     }
     
-    private IEnumerator FreezeEffect(int x, float delay)
+    private IEnumerator FreezeEffect(float delay)
     {
         CanAttack = false;
         yield return new WaitForSeconds(delay);
