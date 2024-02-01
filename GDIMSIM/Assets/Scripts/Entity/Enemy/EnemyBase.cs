@@ -9,6 +9,8 @@ public abstract class EnemyBase : EntityBase
     //referencing the status effect script so that the spells work
 
     protected bool CanAttack = true;
+
+    private SoulCounter _soulCounter;
     
     public enum StatusEffect
     {
@@ -16,9 +18,16 @@ public abstract class EnemyBase : EntityBase
         Burning,
         Freeze,
     }
+    
+    protected override void Awake()
+    {
+        base.Awake();
+        _soulCounter = GameObject.FindGameObjectWithTag("SoulCounter").GetComponent<SoulCounter>();
+    }
 
     protected override void Die()
     {
+        _soulCounter.CollectSoulCount();
         Destroy(gameObject);
     }
 

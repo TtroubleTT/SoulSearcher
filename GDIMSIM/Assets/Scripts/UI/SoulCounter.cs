@@ -8,13 +8,15 @@ using TMPro;
 public class SoulCounter : MonoBehaviour
 {
     public TMP_Text soulsCollected;
-	void collectSoulCount()
+    
+	public void CollectSoulCount()
 	{
 		int count = Int32.Parse(soulsCollected.text) + 1;
-		soulsCollected.SetText(count.ToString());
+		soulsCollected.SetText($"{count} / 10");
 	}
-	void resetCounter()
+	
+	public void ResetCounter()
 	{
-		soulsCollected.SetText("0");
+		soulsCollected.SetText("0 / 10");
 	}
 }
