@@ -48,20 +48,11 @@ public class FireSpell : CombatSpell
     {
         GameObject projectile = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2), camTrans.rotation);
         Vector3 direction = camTrans.forward.normalized; // Gets direction player is looking
-        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction);
+        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, EnemyBase.StatusEffect.Burning);
     }
 
     protected override void Update()
     {
         base.Update();
-    }
-    public override bool HurtEnemy(GameObject enemy)
-    {
-        if (!enemy.CompareTag("Enemy"))
-            return false;
-
-        enemy.GetComponent<EnemyBase>().SubtractHealth(Damage);
-        enemy.GetComponent<EnemyBase>().CauseStatusEffect(1);
-        return true;
     }
 }
