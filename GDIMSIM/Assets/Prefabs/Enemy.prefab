@@ -151,7 +151,7 @@ MonoBehaviour:
   maxHealth: 60
   currentHealth: 50
   shotRange: 50
-  shotCooldown: 3
+  shotCooldown: 1
   damage: 10
   speed: 50
   range: 120

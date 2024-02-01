@@ -49,6 +49,14 @@ public class RockSpell : CombatSpell
         GameObject projectile = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2), camTrans.rotation);
         Vector3 direction = camTrans.forward.normalized; // Gets direction player is looking
         projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, EnemyBase.StatusEffect.None);
+        
+        GameObject projectile2 = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2) + camTrans.right, camTrans.rotation);
+        Vector3 direction2 = camTrans.forward.normalized; // Gets direction player is looking
+        projectile2.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction2, EnemyBase.StatusEffect.None);
+        
+        GameObject projectile3 = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2) - camTrans.right, camTrans.rotation);
+        Vector3 direction3 = camTrans.forward.normalized; // Gets direction player is looking
+        projectile3.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction3, EnemyBase.StatusEffect.None);
     }
 
     protected override void Update()
