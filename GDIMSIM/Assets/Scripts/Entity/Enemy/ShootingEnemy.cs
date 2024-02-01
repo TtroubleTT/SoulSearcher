@@ -23,6 +23,7 @@ public class ShootingEnemy : EnemyBase
     
     [Header("References")] 
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject soul;
     [SerializeField] private Transform wandTransform;
     private GameObject _player;
     private Transform _playerTransform;
@@ -40,6 +41,12 @@ public class ShootingEnemy : EnemyBase
         _projectileStats.Add(ShootingProjectile.Stats.Damage, damage);
         _projectileStats.Add(ShootingProjectile.Stats.Speed, speed);
         _projectileStats.Add(ShootingProjectile.Stats.Range, range);
+    }
+
+    protected override void Die()
+    {
+        Instantiate(soul, gameObject.transform.position + Vector3.down, Quaternion.identity);
+        base.Die();
     }
 
     private void Start()
