@@ -11,6 +11,7 @@ TagManager:
   - spellSlotContainer
   - spellSlotTemplate
   - SoulObject
+  - SoulCounter
   layers:
   - Default
   - TransparentFX
