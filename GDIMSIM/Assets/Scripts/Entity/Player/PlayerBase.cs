@@ -12,8 +12,6 @@ public class PlayerBase : EntityBase
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth = 100f;
     [SerializeField] private Slider slider;
-    [SerializeField] private UI_Inventory uiInventory;
-    private Inventory inventory;
 
     protected override float MaxHealth { get; set; }
     
@@ -40,8 +38,6 @@ public class PlayerBase : EntityBase
     {
         base.Awake();
         InitializeHealthBar();
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
 
     }
 
