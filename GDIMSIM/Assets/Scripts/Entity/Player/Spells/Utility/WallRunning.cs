@@ -2,9 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class WallRunning : MonoBehaviour
+public class WallRunning : TimedSpell
 {
+    protected override float Cooldown { get; set; }
+
+    protected override float SpellLength { get; set; }
+
+    protected override RawImage Icon { get; set; }
+
+    [Header("Stats")] 
+    [SerializeField] private float cooldown;
+    [SerializeField] private float spellLength;
+    [SerializeField] private RawImage icon;
+    private bool _spellActive = false;
+    
     [Header("WallRunning")]
     [SerializeField] private LayerMask whatIsWall;
     [SerializeField] private LayerMask whatIsGround;
@@ -48,12 +61,34 @@ public class WallRunning : MonoBehaviour
         _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    private void Update()
+    protected override void InitializeAbstractedStats()
     {
-        CheckForWall();
-        WallRunningState();
-        WallJump();
-        WallJumpMove();
+        Cooldown = cooldown;
+        SpellLength = spellLength;
+        Icon = icon;
+    }
+
+    protected override void DoSpell()
+    {
+        _spellActive = true;
+    }
+
+    protected override void EndSpell()
+    {
+        _spellActive = false;
+        StopWallRun();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        if (_spellActive)
+        {
+            CheckForWall();
+            WallRunningState();
+            WallJump();
+            WallJumpMove();
+        }
     }
 
     private void FixedUpdate()
