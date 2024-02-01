@@ -7,7 +7,7 @@ public abstract class CombatSpell : SpellBase, ICombat
 {
     public abstract float Damage { get; set; }
 
-    public bool HurtEnemy(GameObject enemy)
+    public virtual bool HurtEnemy(GameObject enemy)
     {
         if (!enemy.CompareTag("Enemy"))
             return false;

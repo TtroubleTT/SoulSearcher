@@ -10,8 +10,12 @@ public class MenuController : MonoBehaviour
     public string newGameLevel;
     private string levelToLoad;
     [SerializeField] private GameObject NoSaveGameDialouge = null;
-
-
+    
+    public void StartGame()
+    {
+        SceneManager.LoadScene(newGameLevel);
+    }
+    
     public void NewGameDialogeYes() //maybe have to change this to NewGameYesButton since thats the name of the actual button
     {
         SceneManager.LoadScene(1);
@@ -32,7 +36,7 @@ public class MenuController : MonoBehaviour
 
     public void LoadGameNoDialouge()
     {
-            SceneManager.LoadScene("AidanTesting");
+            SceneManager.LoadScene(1);
             NoSaveGameDialouge.SetActive(true);
     }
 
