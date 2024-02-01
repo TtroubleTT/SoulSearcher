@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 1963348690859609933}
   - component: {fileID: 5807552636801895452}
   - component: {fileID: 1900124225570454009}
+  - component: {fileID: 3894450718741638171}
+  - component: {fileID: 331517561455049856}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -39,7 +41,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 13.88, z: 12.76}
-  m_LocalScale: {x: 0.35424754, y: 0.31771418, z: 0.41528603}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1323138460948216920}
@@ -201,7 +203,6 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   slider: {fileID: 0}
-  uiInventory: {fileID: 0}
 --- !u!114 &2817821747138671252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +246,7 @@ MonoBehaviour:
   secondIcon: {fileID: 0}
   thirdIcon: {fileID: 0}
   forthIcon: {fileID: 0}
-  first: {fileID: 7789707900667638742}
+  first: {fileID: 331517561455049856}
   second: {fileID: 2855931619267254136}
   third: {fileID: 3218550429839834572}
   forth: {fileID: 5807552636801895452}
@@ -338,6 +339,46 @@ MonoBehaviour:
   slider: {fileID: 0}
   cooldown: 10
   spellLength: 10
+  icon: {fileID: 0}
+--- !u!114 &3894450718741638171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f79921f66e15d740b9243a9c964f853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  camTrans: {fileID: 5303126048535765995}
+  projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
+  cooldown: 1
+  damage: 40
+  speed: 50
+  range: 120
+  icon: {fileID: 0}
+--- !u!114 &331517561455049856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fca425d84fc7045a38b6227ad8e6d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  camTrans: {fileID: 5303126048535765995}
+  projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
+  cooldown: 1
+  damage: 40
+  speed: 50
+  range: 120
   icon: {fileID: 0}
 --- !u!1 &4424734255451308140
 GameObject:

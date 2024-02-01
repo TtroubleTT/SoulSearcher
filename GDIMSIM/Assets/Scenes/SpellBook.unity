@@ -614,6 +614,7 @@ GameObject:
   - component: {fileID: 394893027}
   - component: {fileID: 394893029}
   - component: {fileID: 394893028}
+  - component: {fileID: 394893030}
   m_Layer: 5
   m_Name: SoulCounter
   m_TagString: Untagged
@@ -737,6 +738,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394893026}
   m_CullTransparentMesh: 1
+--- !u!114 &394893030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394893026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d44c83da14a83e047bbb3523539197e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsCollected: {fileID: 394893028}
 --- !u!1 &457470583
 GameObject:
   m_ObjectHideFlags: 0
