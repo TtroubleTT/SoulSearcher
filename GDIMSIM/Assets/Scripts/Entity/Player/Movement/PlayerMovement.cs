@@ -40,6 +40,9 @@ public class PlayerMovement : MonoBehaviour
     private bool _isCrouching = false;
     private double fallTime = 0.0;
     private bool jumped = false;
+    
+    // For Spell
+    [HideInInspector] public bool spellActive = false;
 
     // Movement States
     [HideInInspector] public MovementState movementState;
@@ -176,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
                     jumped = true;
                     DoJump();
                     break;
-                case false when movementState is MovementState.Air or MovementState.Falling && _canDoubleJump && !_wallRunning.isWallJumping:
+                case false when movementState is MovementState.Air or MovementState.Falling && _canDoubleJump && !_wallRunning.isWallJumping && spellActive:
                     _canDoubleJump = false;
                     DoJump();
                     break;

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 7789707900667638742}
   - component: {fileID: 1963348690859609933}
   - component: {fileID: 5807552636801895452}
+  - component: {fileID: 1900124225570454009}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -128,6 +129,7 @@ MonoBehaviour:
   velocity: {x: 0, y: 0, z: 0}
   jumpHeight: 4
   crouchYScale: 0.5
+  spellActive: 0
   movementState: 0
 --- !u!114 &1287955652795179194
 MonoBehaviour:
@@ -141,6 +143,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a11244cd6419eb4189938798943541e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  cooldown: 10
+  spellLength: 10
+  icon: {fileID: 0}
   whatIsWall:
     serializedVersion: 2
     m_Bits: 64
@@ -193,8 +199,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 50
+  currentHealth: 100
   slider: {fileID: 0}
+  uiInventory: {fileID: 0}
 --- !u!114 &2817821747138671252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +280,7 @@ MonoBehaviour:
   slider: {fileID: 0}
   camTrans: {fileID: 5303126048535765995}
   projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
-  cooldown: 10
+  cooldown: 1
   damage: 40
   speed: 50
   range: 120
@@ -315,6 +322,22 @@ MonoBehaviour:
   cooldown: 10
   spellLength: 10
   amountIncreased: 10
+  icon: {fileID: 0}
+--- !u!114 &1900124225570454009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d12b5f222db45fe99b24d0febf4a0df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  cooldown: 10
+  spellLength: 10
   icon: {fileID: 0}
 --- !u!1 &4424734255451308140
 GameObject:
