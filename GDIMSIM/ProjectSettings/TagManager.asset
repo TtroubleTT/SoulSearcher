@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - spellSlotContainer
   - spellSlotTemplate
+  - SoulObject
   layers:
   - Default
   - TransparentFX

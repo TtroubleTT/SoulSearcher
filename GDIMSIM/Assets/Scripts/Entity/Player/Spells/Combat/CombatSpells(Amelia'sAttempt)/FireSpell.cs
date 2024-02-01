@@ -55,13 +55,13 @@ public class FireSpell : CombatSpell
     {
         base.Update();
     }
-    public bool HurtEnemy(GameObject enemy)
+    public override bool HurtEnemy(GameObject enemy)
     {
         if (!enemy.CompareTag("Enemy"))
             return false;
 
         enemy.GetComponent<EnemyBase>().SubtractHealth(Damage);
-        // enemy.GetComponent<EnemyBase>().CauseStatusEffect(1);
+        enemy.GetComponent<EnemyBase>().CauseStatusEffect(1);
         return true;
     }
 }
