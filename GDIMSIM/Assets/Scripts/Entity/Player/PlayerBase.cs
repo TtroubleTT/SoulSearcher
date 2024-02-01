@@ -40,9 +40,8 @@ public class PlayerBase : EntityBase
     {
         base.Awake();
         InitializeHealthBar();
-        inventory = new Inventory();
-        uiInventory.SetInventory(inventory);
-
+        // inventory = new Inventory();
+        // uiInventory.SetInventory(inventory);
     }
 
     public override bool AddHealth(float amount)

@@ -11,8 +11,8 @@ public class UI_Inventory : MonoBehaviour
 
     private void Awake()
     {
-        spellSlotContainer = GameObject.FindGameObjectWithTag("spellSlotContainer").transform;
-        spellSlotTemplate = GameObject.FindGameObjectWithTag("spellSlotTemplate").transform;
+        // spellSlotContainer = GameObject.FindGameObjectWithTag("spellSlotContainer").transform;
+        // spellSlotTemplate = GameObject.FindGameObjectWithTag("spellSlotTemplate").transform;
     }
     public void SetInventory(Inventory inventory)
     {
@@ -30,7 +30,8 @@ public class UI_Inventory : MonoBehaviour
         foreach (Spell spell in inventory.GetSpellList())
         {
             Debug.Log("YOOOOOO");
-            RectTransform spellSlotTransform = Instantiate(spellSlot, spellSlotTemplate, spellSlotContainer).GetComponent<RectTransform>();
+            RectTransform spellSlotTransform = Instantiate(spellSlot, spellSlotTemplate.position, Quaternion.identity, spellSlotContainer).GetComponent<RectTransform>();
+            Debug.Log("ughghg");
             spellSlotTransform.gameObject.SetActive(true);
             spellSlotTransform.anchoredPosition = new Vector2(x * spellSlotCellSize, y * spellSlotCellSize);
             //in video it is spellSlotRectTransform instead of spellSlotTransform
