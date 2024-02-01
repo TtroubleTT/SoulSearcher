@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public abstract class EnemyBase : EntityBase
 {
-    private EnemyStatusEffect statuseffect;
-
     //referencing the status effect script so that the spells work
-    private void Start()
+    
+    public enum StatusEffect
     {
-        statuseffect = FindObjectOfType<EnemyStatusEffect>();
+        None,
+        Burning,
+        Freeze,
     }
 
     protected override void Die()
@@ -19,14 +20,42 @@ public abstract class EnemyBase : EntityBase
         Destroy(gameObject);
     }
 
-    public void CauseStatusEffect(int x)
+    public void CauseStatusEffect(StatusEffect effect)
     {
-        if (x == 1)
+        if (effect == StatusEffect.Burning)
         {
-            statuseffect.Burning(this, 20, 3, 1f);
+            Burning(this, 5, 3, 1f);
         }
-
+        else if (effect == StatusEffect.Freeze)
+        {
+            Freeze(this, 3, 1f);
+        }
     }
 
+    public void Burning(EnemyBase enemy, float damage, int x, float delay)
+    {
+        StartCoroutine(BurningEffect(enemy, damage, x, delay));
+    }
+    
+    public void Freeze(EnemyBase enemy, int x, float delay)
+    {
+        StartCoroutine(FreezeEffect(enemy, x, delay));
+    }
 
+    private IEnumerator BurningEffect(EnemyBase enemy, float damage, int x, float delay)
+    {
+        for (int i = 0; i < x; i++)
+        {
+            enemy.SubtractHealth(damage);
+            yield return new WaitForSeconds(delay);
+        }
+    }
+    
+    private IEnumerator FreezeEffect(EnemyBase enemy, int x, float delay)
+    {
+        for (int i = 0; i < x; i++)
+        {
+            yield return new WaitForSeconds(delay);
+        }
+    }
 }
