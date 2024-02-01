@@ -61,7 +61,7 @@ public class FireSpell : CombatSpell
             return false;
 
         enemy.GetComponent<EnemyBase>().SubtractHealth(Damage);
-        // enemy.GetComponent<EnemyBase>().CauseStatusEffect(1);
+        enemy.GetComponent<EnemyBase>().CauseStatusEffect(1);
         return true;
     }
 }

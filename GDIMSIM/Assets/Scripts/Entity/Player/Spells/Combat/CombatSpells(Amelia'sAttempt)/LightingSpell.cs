@@ -8,7 +8,7 @@ public class LightingSpell : CombatSpell
     public override float Damage { get; set; }
 
     protected override float Cooldown { get; set; }
-    //decreasing cooldown so it is a constant stream of damage for lightning effect
+    //i decreased the cooldown so it is a constant stream of damage for lightning effect
     protected override RawImage Icon { get; set; }
 
     [Header("References")]
