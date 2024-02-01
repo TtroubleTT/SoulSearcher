@@ -55,7 +55,7 @@ public class FireSpell : CombatSpell
     {
         base.Update();
     }
-    public bool HurtEnemy(GameObject enemy)
+    public override bool HurtEnemy(GameObject enemy)
     {
         if (!enemy.CompareTag("Enemy"))
             return false;
