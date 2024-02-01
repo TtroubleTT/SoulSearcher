@@ -22,6 +22,8 @@ public class ShootingProjectile : MonoBehaviour
     
     // Physics
     private Vector3 _direction;
+
+    private EnemyBase.StatusEffect _statusEffect;
     
     // Cooldown
     private float _lastHit = 0;
@@ -32,12 +34,13 @@ public class ShootingProjectile : MonoBehaviour
         Destroy(gameObject, _range / _speed);
     }
 
-    public void ProjectileInitialize(Dictionary<Stats, float> stats, Vector3 direction)
+    public void ProjectileInitialize(Dictionary<Stats, float> stats, Vector3 direction, EnemyBase.StatusEffect effect)
     {
         _damage = stats[Stats.Damage];
         _speed = stats[Stats.Speed];
         _range = stats[Stats.Range];
         _direction = direction;
+        _statusEffect = effect;
         
         ProjectileMove();
     }
@@ -61,6 +64,7 @@ public class ShootingProjectile : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<EnemyBase>().SubtractHealth(_damage);
+            other.gameObject.GetComponent<EnemyBase>().CauseStatusEffect(_statusEffect);
         }
         
         _lastHit = Time.time;
