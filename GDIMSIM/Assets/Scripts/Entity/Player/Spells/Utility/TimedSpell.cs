@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class TimedSpell : SpellBase
 {
+    // Contributors: Taylor
     private float _spellStartTime;
 
     protected bool SpellActive = false;

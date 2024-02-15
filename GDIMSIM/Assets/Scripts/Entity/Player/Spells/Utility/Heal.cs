@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Heal : SpellBase
 {
+    // Contributors: Taylor
     [SerializeField] private float cooldown;
     [SerializeField] private float healAmount;
     private PlayerBase _playerBase;

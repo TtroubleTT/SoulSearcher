@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class DoubleJump : TimedSpell
 {
+    // Contributors: Taylor
     [SerializeField] private float cooldown;
     [SerializeField] private float spellLength;
     private PlayerMovement _playerMovement;

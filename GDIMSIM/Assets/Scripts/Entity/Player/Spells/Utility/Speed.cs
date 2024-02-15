@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Speed : TimedSpell
 {
+    // Contributors: Taylor
     [SerializeField] private float cooldown;
     [SerializeField] private float spellLength;
     [SerializeField] private float amountIncreased;

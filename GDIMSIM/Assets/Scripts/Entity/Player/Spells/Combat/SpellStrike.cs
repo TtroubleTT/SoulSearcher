@@ -6,6 +6,7 @@ using UnityEngine;
 // Close range attack
 public class SoulStrike : MonoBehaviour, ICombat
 {
+    // Contributors: Taylor
     public float Damage { get; set; }
 
     [Header("References")]

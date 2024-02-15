@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SpellBlast : CombatSpell
 {
+    // Contributors: Taylor
     public override float Damage { get; set; }
 
     protected override float Cooldown { get; set; }

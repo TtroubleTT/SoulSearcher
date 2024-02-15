@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Contributors: Taylor
     [Header("References")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Settings settings;

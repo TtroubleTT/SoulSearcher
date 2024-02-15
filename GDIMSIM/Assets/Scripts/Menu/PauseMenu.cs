@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    // Contributors: Taylor, Aiden
     public static bool GamePaused = false;
 
     [SerializeField] GameObject pauseMenu;
@@ -47,6 +47,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void ResumeGame()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
         GamePaused = false;

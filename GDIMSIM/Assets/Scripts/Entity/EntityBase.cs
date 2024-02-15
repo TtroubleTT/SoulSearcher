@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class EntityBase : MonoBehaviour
 {
+    // Contributors: Taylor
     protected abstract float MaxHealth { get; set;  }
     
     protected abstract float CurrentHealth { get; set; }
