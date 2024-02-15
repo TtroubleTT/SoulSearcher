@@ -1,13 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerBase : EntityBase
 {
+    // Contributors: Taylor
     [Header("Player Stats")] 
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float currentHealth = 100f;

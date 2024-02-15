@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ShootingProjectile : MonoBehaviour
 {
+    // Contributors: Taylor
     [SerializeField] private Rigidbody rb;
     
     // Projectile Stats

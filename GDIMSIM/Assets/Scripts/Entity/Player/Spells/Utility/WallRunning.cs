@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class WallRunning : TimedSpell
 {
+    // Contributors: Taylor
     protected override float Cooldown { get; set; }
 
     protected override float SpellLength { get; set; }

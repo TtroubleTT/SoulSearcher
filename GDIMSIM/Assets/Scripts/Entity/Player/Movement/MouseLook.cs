@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MouseLook : MonoBehaviour
 {
+    // Contributors: Taylor
     private float _mouseXSensitivity;
     private float _mouseYSensitivity;
 

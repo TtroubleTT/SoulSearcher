@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class Dash : SpellBase
 {
+    // Contributors: Taylor
     protected override float Cooldown { get; set; }
     
     protected override RawImage Icon { get; set; }

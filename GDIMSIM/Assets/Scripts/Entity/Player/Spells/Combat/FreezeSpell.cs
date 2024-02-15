@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FreezeSpell : CombatSpell
 {
+    // Contributors: Taylor, Amelia
     public override float Damage { get; set; }
 
     protected override float Cooldown { get; set; }
@@ -50,7 +51,7 @@ public class FreezeSpell : CombatSpell
     {
         GameObject projectile = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2), camTrans.rotation);
         Vector3 direction = camTrans.forward.normalized; // Gets direction player is looking
-        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, EnemyBase.StatusEffect.None);
+        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, EnemyBase.StatusEffect.Freeze);
     }
 
     protected override void Update()

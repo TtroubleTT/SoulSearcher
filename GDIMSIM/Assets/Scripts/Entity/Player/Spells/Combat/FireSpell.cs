@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FireSpell : CombatSpell
 {
+    // Contributors: Taylor, Amelia
     public override float Damage { get; set; }
 
     protected override float Cooldown { get; set; }

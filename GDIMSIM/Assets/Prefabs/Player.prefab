@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 1900124225570454009}
   - component: {fileID: 3894450718741638171}
   - component: {fileID: 331517561455049856}
+  - component: {fileID: 3909286341229791744}
+  - component: {fileID: 5839752829404727400}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -246,7 +248,7 @@ MonoBehaviour:
   secondIcon: {fileID: 0}
   thirdIcon: {fileID: 0}
   forthIcon: {fileID: 0}
-  first: {fileID: 331517561455049856}
+  first: {fileID: 3894450718741638171}
   second: {fileID: 2855931619267254136}
   third: {fileID: 3218550429839834572}
   forth: {fileID: 5807552636801895452}
@@ -377,6 +379,46 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
   cooldown: 1
   damage: 40
+  speed: 50
+  range: 120
+  icon: {fileID: 0}
+--- !u!114 &3909286341229791744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4557786f97162c940919c0a08eab0871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  camTrans: {fileID: 5303126048535765995}
+  projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
+  cooldown: 0.01
+  damage: 20
+  speed: 50
+  range: 120
+  icon: {fileID: 0}
+--- !u!114 &5839752829404727400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523647103476993651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2f5519acc37319418bbeb0561c99b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  camTrans: {fileID: 5303126048535765995}
+  projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
+  cooldown: 3
+  damage: 50
   speed: 50
   range: 120
   icon: {fileID: 0}
