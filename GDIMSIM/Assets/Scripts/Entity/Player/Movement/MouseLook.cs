@@ -18,13 +18,13 @@ public class MouseLook : MonoBehaviour
     // https://www.youtube.com/watch?v=f473C43s8nE&t=505s
     // https://www.youtube.com/watch?v=_QajrabyTJc
     
-    void Start()
+    private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        (_mouseXSensitivity, _mouseYSensitivity) = settings.GetSensitivity();
+        UpdateSensitivity();
     }
     
-    void Update()
+    private void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * _mouseXSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * _mouseYSensitivity * Time.deltaTime;
@@ -37,5 +37,10 @@ public class MouseLook : MonoBehaviour
         
         // Looking right and left
         playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    public void UpdateSensitivity()
+    {
+        (_mouseXSensitivity, _mouseYSensitivity) = settings.GetSensitivity();
     }
 }
