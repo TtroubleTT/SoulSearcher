@@ -9,12 +9,14 @@ public class PauseMenu : MonoBehaviour
     // Contributors: Taylor, Aidan
     public static bool GamePaused = false;
 
-    [SerializeField] GameObject pauseMenu;
-    [SerializeField] GameObject UICanvas;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject UICanvas;
+    [SerializeField] private GameObject optionsMenu;
 
     private void Start()
     {
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         UICanvas.SetActive(true);
     }
     private void Update()
@@ -50,6 +52,7 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
         UICanvas.SetActive(true);
         Time.timeScale = 1;
         GamePaused = false;
