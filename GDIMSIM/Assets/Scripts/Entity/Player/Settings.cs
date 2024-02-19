@@ -2,13 +2,17 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Settings : MonoBehaviour
 {
     // Contributors: Taylor
     [Header("Sensitivity")] 
-    [SerializeField] private float mouseXSensitivity = 300f;
-    [SerializeField] private float mouseYSensitivity = 300f;
+    [SerializeField] private Slider mouseXSens;
+    [SerializeField] private Slider mouseYSens;
+
+    public float XSens { get; set; } 
+    public float YSens { get; set; }
     
     [Header("Movement Settings")] 
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
@@ -46,11 +50,14 @@ public class Settings : MonoBehaviour
         PlayerControlMap.Add(PlayerControls.SecondSpell, secondSpell);
         PlayerControlMap.Add(PlayerControls.ThirdSpell, thirdSpell);
         PlayerControlMap.Add(PlayerControls.ForthSpell, forthSpell);
+
+        XSens = mouseXSens.value;
+        YSens = mouseYSens.value;
     }
 
     public (float, float) GetSensitivity()
     {
-        return (mouseXSensitivity, mouseYSensitivity);
+        return (XSens, YSens);
     }
 
     // Still need to impliment changing controls with menu change keycode in dictionary
