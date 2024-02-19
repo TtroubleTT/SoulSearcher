@@ -15,6 +15,7 @@ public class PauseMenu : MonoBehaviour
     private void Start()
     {
         pauseMenu.SetActive(false);
+        UICanvas.SetActive(true);
     }
     private void Update()
     {
@@ -49,6 +50,7 @@ public class PauseMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(false);
+        UICanvas.SetActive(false);
         Time.timeScale = 1;
         GamePaused = false;
     }
