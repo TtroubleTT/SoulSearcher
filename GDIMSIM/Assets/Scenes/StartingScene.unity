@@ -13323,7 +13323,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817182402}
+      - m_Target: {fileID: 2114321615}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -14100,7 +14100,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 817182403}
-  - component: {fileID: 817182402}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -14108,20 +14107,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &817182402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 817182401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7bacd8211543f4b9cf4a4c059db4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 817182401}
-  UICanvas: {fileID: 1033357742}
 --- !u!4 &817182403
 Transform:
   m_ObjectHideFlags: 0
@@ -19463,52 +19448,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5c7de3ea78afce6468d2ebe76dd0bf6d, type: 3}
   m_PrefabInstance: {fileID: 728471092}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1123351168
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1123351170}
-  - component: {fileID: 1123351169}
-  m_Layer: 0
-  m_Name: EmptyForPause
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1123351169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123351168}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd7bacd8211543f4b9cf4a4c059db4b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 817182401}
-  UICanvas: {fileID: 1033357742}
---- !u!4 &1123351170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123351168}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 548.12384, y: 236.71202, z: 118.72375}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1138614073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24333,7 +24272,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817182402}
+      - m_Target: {fileID: 2114321615}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
@@ -31725,8 +31664,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 817182402}
-        m_TargetAssemblyTypeName: PauseMenuScript, Assembly-CSharp
+      - m_Target: {fileID: 2114321615}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -37165,6 +37104,7 @@ GameObject:
   - component: {fileID: 2114321614}
   - component: {fileID: 2114321613}
   - component: {fileID: 2114321612}
+  - component: {fileID: 2114321615}
   m_Layer: 5
   m_Name: PauseMenuUICanvas
   m_TagString: Untagged
@@ -37255,6 +37195,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2114321615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114321610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd7bacd8211543f4b9cf4a4c059db4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 817182401}
+  UICanvas: {fileID: 1033357742}
 --- !u!1001 &2114916586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38773,6 +38727,5 @@ SceneRoots:
   - {fileID: 2129109639}
   - {fileID: 495042170}
   - {fileID: 2114321611}
-  - {fileID: 1123351170}
   - {fileID: 270167770}
   - {fileID: 1959420563}
