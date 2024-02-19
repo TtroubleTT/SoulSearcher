@@ -21,7 +21,7 @@ public class SpellEquipMenu : MonoBehaviour
         {
             if (inventoryOpen)
             {
-                Xbutton();
+                inventoryClose();
             }
             else
             {
@@ -38,7 +38,7 @@ public class SpellEquipMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Confined;
     }
 
-    public void Xbutton()
+    public void inventoryClose()
     {
         spellEquipMenu.SetActive(false);
         Time.timeScale = 1;

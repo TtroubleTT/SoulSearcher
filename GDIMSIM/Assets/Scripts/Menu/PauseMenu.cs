@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    // Contributors: Taylor, Aiden
+    // Contributors: Taylor, Aidan
     public static bool GamePaused = false;
 
     [SerializeField] GameObject pauseMenu;

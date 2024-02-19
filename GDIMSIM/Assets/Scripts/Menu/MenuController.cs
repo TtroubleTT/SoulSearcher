@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    // Contributors: Taylor, Aiden
+    // Contributors: Taylor, Aidan
     [Header("Levels To Load")]
     public string newGameLevel;
     private string levelToLoad;
