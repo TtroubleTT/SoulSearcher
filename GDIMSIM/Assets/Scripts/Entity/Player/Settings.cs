@@ -42,6 +42,7 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
+        /*
         PlayerControlMap.Add(PlayerControls.Jump, jumpKey);
         PlayerControlMap.Add(PlayerControls.Sprint, sprintKey);
         PlayerControlMap.Add(PlayerControls.Crouch, crouchKey);
@@ -53,6 +54,7 @@ public class Settings : MonoBehaviour
 
         XSens = mouseXSens.value;
         YSens = mouseYSens.value;
+        */
     }
 
     public (float, float) GetSensitivity()

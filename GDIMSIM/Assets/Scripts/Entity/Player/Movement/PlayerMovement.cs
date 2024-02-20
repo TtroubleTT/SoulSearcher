@@ -208,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 localScale = transform.localScale;
         
-        if (_shouldCrouch && !_isCrouching && movementState != MovementState.WallRunning)// If we push down the crouch key and we are crouching (not wall running) we decrease model size
+        if (_shouldCrouch && !_isCrouching && movementState != MovementState.WallRunning) // If we push down the crouch key and we are crouching (not wall running) we decrease model size
         {
             transform.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
             _isCrouching = true;

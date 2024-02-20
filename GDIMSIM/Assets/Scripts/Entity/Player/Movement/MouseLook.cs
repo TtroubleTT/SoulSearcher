@@ -2,17 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class MouseLook : MonoBehaviour
 {
     // Contributors: Taylor
-    private float _mouseXSensitivity;
-    private float _mouseYSensitivity;
+    private float _mouseXSensitivity = 20;
+    private float _mouseYSensitivity = 20;
 
     [Header("References")]
     [SerializeField] private Transform playerBody; 
     [SerializeField] private Settings settings;
     private float _xRotation;
+    private Vector2 _lookInput = Vector2.zero;
 
     // Code has been inspired and modified a bit based on these tutorials
     // https://www.youtube.com/watch?v=f473C43s8nE&t=505s
@@ -21,13 +23,13 @@ public class MouseLook : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        UpdateSensitivity();
+        // UpdateSensitivity();
     }
     
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _mouseXSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseYSensitivity * Time.deltaTime;
+        float mouseX = _lookInput.x * _mouseXSensitivity * Time.deltaTime;
+        float mouseY = _lookInput.y * _mouseYSensitivity * Time.deltaTime;
 
         // Looking up and down
         _xRotation -= mouseY;
@@ -42,5 +44,10 @@ public class MouseLook : MonoBehaviour
     public void UpdateSensitivity()
     {
         (_mouseXSensitivity, _mouseYSensitivity) = settings.GetSensitivity();
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        _lookInput = context.ReadValue<Vector2>();
     }
 }
