@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _movementInput = Vector2.zero;
     private bool _shouldJump = false;
     private bool _shouldSprint = false;
+    private bool _shouldCrouch = false;
     
     // For Spell
     [HideInInspector] public bool spellActive = false;
@@ -103,10 +104,10 @@ public class PlayerMovement : MonoBehaviour
         CheckJump();
         
         // Crouching
-        //CheckCrouch();
+        CheckCrouch();
         
         // Force standing if player isn't trying to crouch and is no longer under object
-        //ForceStandUp();
+        ForceStandUp();
 
         // Gravity
         Gravity();
@@ -124,13 +125,13 @@ public class PlayerMovement : MonoBehaviour
         {
             movementState = MovementState.Dashing;
         }
-        else if (_isCrouching)
+        */
+        if (_isCrouching)
         {
             movementState = MovementState.Crouching;
             _currentSpeed = crouchSpeed;
         }
-        */
-        if (_isGrounded && _shouldSprint)
+        else if (_isGrounded && _shouldSprint)
         {
             movementState = MovementState.Sprinting;
             _currentSpeed = sprintSpeed;
@@ -207,15 +208,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 localScale = transform.localScale;
         
-        // If we push down the crouch key and we are crouching (not wall running) we decrease model size
-        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && movementState != MovementState.WallRunning)
+        if (_shouldCrouch && !_isCrouching && movementState != MovementState.WallRunning)// If we push down the crouch key and we are crouching (not wall running) we decrease model size
         {
             transform.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
             _isCrouching = true;
         }
-
-        // When releasing crouch key sets our scale back to normal
-        if (Input.GetKeyUp(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && !IsUnderObject())
+        else if (!_shouldCrouch && _isCrouching && !IsUnderObject()) // When releasing crouch key sets our scale back to normal
         {
             transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
             _isCrouching = false;
@@ -224,7 +222,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ForceStandUp()
     {
-        if (_isCrouching && !Input.GetKey(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && !IsUnderObject())
+        if (_isCrouching && !_shouldCrouch && !IsUnderObject())
         {
             Vector3 localScale = transform.localScale;
             transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
@@ -256,5 +254,10 @@ public class PlayerMovement : MonoBehaviour
     public void OnSprint(InputAction.CallbackContext context)
     {
         _shouldSprint = context.action.triggered;
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        _shouldCrouch = context.action.triggered;
     }
 }
