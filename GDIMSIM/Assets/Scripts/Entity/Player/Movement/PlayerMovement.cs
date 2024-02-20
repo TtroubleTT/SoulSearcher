@@ -170,7 +170,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveInDirection()
     {
-        Vector3 move = new Vector3(_movementInput.x, 0, _movementInput.y);
+        Transform myTransform = transform;
+        Vector3 move = myTransform.right * _movementInput.x + myTransform.forward * _movementInput.y; // This makes it so its moving locally so rotation is taken into consideration
 
         controller.Move(move * (_currentSpeed * Time.deltaTime)); // Moving in the direction of move at the speed
     }
