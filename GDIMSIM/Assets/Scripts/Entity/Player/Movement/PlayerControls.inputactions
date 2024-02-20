@@ -2,13 +2,13 @@
     "name": "ControllerInputs",
     "maps": [
         {
-            "name": "Gameplay",
-            "id": "994e10d7-7eb0-4744-b172-a07cced9acff",
+            "name": "Controller Map",
+            "id": "93129091-5645-4be6-a91a-457dcb773770",
             "actions": [
                 {
                     "name": "Move",
                     "type": "PassThrough",
-                    "id": "104b3067-b3bd-41f2-ba87-39c390753398",
+                    "id": "f7f55819-b2c3-46c7-ae3e-402eaddef400",
                     "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": "",
@@ -17,8 +17,17 @@
                 {
                     "name": "Rotate",
                     "type": "PassThrough",
-                    "id": "09cef9e3-ce77-4908-a6c0-e4821c30f863",
+                    "id": "4138e0ea-7220-498a-a5a5-722bed79f7ff",
                     "expectedControlType": "Stick",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "9db4dcc5-8abb-46ab-9916-d5f54c9f1620",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -27,7 +36,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "62749433-73c2-4526-a8a5-89bd88c1c747",
+                    "id": "2937858c-657d-459e-a1d8-1568b686b0c0",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
@@ -38,12 +47,23 @@
                 },
                 {
                     "name": "",
-                    "id": "0e4cdab4-8fe9-49be-90b0-1b4a7d99e000",
+                    "id": "6b175d88-548e-4fd8-b3ba-646d9900ff5d",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d35bf1be-939f-4675-a5cd-6cd5e0275d7e",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

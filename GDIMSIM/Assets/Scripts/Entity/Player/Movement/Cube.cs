@@ -6,20 +6,20 @@ using UnityEngine.InputSystem;
 
 public class Cube : MonoBehaviour
 {
-    private ControllerInputs _controllerInputs;
+    private PlayerControls _controllerInputs;
 
     private Vector2 _move;
     private Vector2 _rotate;
 
     private void Awake()
     {
-        _controllerInputs = new ControllerInputs();
+        _controllerInputs = new PlayerControls();
         
-        _controllerInputs.Gameplay.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
-        _controllerInputs.Gameplay.Move.canceled += ctx => _move = Vector2.zero;
+        _controllerInputs.ControllerMap.Move.performed += ctx => _move = ctx.ReadValue<Vector2>();
+        _controllerInputs.ControllerMap.Move.canceled += ctx => _move = Vector2.zero;
 
-        _controllerInputs.Gameplay.Rotate.performed += ctx => _rotate = ctx.ReadValue<Vector2>();
-        _controllerInputs.Gameplay.Rotate.canceled += ctx => _rotate = Vector2.zero;
+        _controllerInputs.ControllerMap.Rotate.performed += ctx => _rotate = ctx.ReadValue<Vector2>();
+        _controllerInputs.ControllerMap.Rotate.canceled += ctx => _rotate = Vector2.zero;
     }
 
     private void Update()
@@ -33,11 +33,11 @@ public class Cube : MonoBehaviour
 
     private void OnEnable()
     {
-        _controllerInputs.Gameplay.Enable();
+        _controllerInputs.ControllerMap.Enable();
     }
 
     private void OnDisable()
     {
-        _controllerInputs.Gameplay.Disable();
+        _controllerInputs.ControllerMap.Disable();
     }
 }
