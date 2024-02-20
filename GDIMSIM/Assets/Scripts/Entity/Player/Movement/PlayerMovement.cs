@@ -181,7 +181,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_shouldJump && _isGrounded)
         {
-            DoJump();
+            Debug.Log(_canDoubleJump);
+            if (movementState != MovementState.Air && movementState != MovementState.Falling &&
+                movementState != MovementState.Crouching)
+            {
+                jumped = true;
+                DoJump();
+            }
+            else if (_canDoubleJump)
+            {
+                _canDoubleJump = false;
+                DoJump();
+            }
+            
+            /*
             switch (movementState == MovementState.Falling)
             {
                 case true when movementState != MovementState.Crouching:
@@ -193,6 +206,7 @@ public class PlayerMovement : MonoBehaviour
                     DoJump();
                     break;
             }
+            */
         }
     }
 
