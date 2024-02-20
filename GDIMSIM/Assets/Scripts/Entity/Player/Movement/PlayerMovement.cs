@@ -181,7 +181,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_shouldJump && _isGrounded)
         {
-            Debug.Log(_canDoubleJump);
             if (movementState != MovementState.Air && movementState != MovementState.Falling &&
                 movementState != MovementState.Crouching)
             {
