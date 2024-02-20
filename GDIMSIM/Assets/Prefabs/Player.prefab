@@ -528,22 +528,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 9e8791f0-1835-427c-af55-ab6189ace0c7
     m_ActionName: Player/Sprint[/Keyboard/leftShift,/XInputControllerWindows/leftStickPress]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6844203162568893171}
-        m_TargetAssemblyTypeName: MouseLook, Assembly-CSharp
-        m_MethodName: OnLook
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 52443e1d-66a6-49a5-83a8-9593165abbcc
-    m_ActionName: Player/Mouse Look[/Mouse/delta/x,/Mouse/delta/y]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -656,6 +640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerBody: {fileID: 8045168280018231875}
   settings: {fileID: 2817821747138671252}
+  controls: {fileID: 500453657014252591}
 --- !u!1 &8137954327509150506
 GameObject:
   m_ObjectHideFlags: 0

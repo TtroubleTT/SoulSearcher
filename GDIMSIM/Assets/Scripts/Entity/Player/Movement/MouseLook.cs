@@ -7,12 +7,13 @@ using UnityEngine.InputSystem;
 public class MouseLook : MonoBehaviour
 {
     // Contributors: Taylor
-    private float _mouseXSensitivity = 20;
-    private float _mouseYSensitivity = 20;
+    private float _mouseXSensitivity;
+    private float _mouseYSensitivity;
 
     [Header("References")]
     [SerializeField] private Transform playerBody; 
     [SerializeField] private Settings settings;
+    [SerializeField] private PlayerInput controls;
     private float _xRotation;
     private Vector2 _lookInput = Vector2.zero;
 
@@ -23,6 +24,18 @@ public class MouseLook : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log(controls.currentControlScheme);
+
+        if (controls.currentControlScheme == "Controller")
+        {
+            _mouseXSensitivity = 300;
+            _mouseYSensitivity = 300;
+        }
+        else
+        {
+            _mouseXSensitivity = 20;
+            _mouseYSensitivity = 20;
+        }
         // UpdateSensitivity();
     }
     
