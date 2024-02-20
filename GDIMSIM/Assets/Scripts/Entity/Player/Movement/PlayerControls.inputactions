@@ -1,24 +1,15 @@
 {
-    "name": "ControllerInputs",
+    "name": "PlayerControls",
     "maps": [
         {
-            "name": "Controller Map",
-            "id": "93129091-5645-4be6-a91a-457dcb773770",
+            "name": "Player",
+            "id": "fe2c9c40-eecb-4ec1-af2d-fc36443415f7",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "Movement",
                     "type": "PassThrough",
-                    "id": "f7f55819-b2c3-46c7-ae3e-402eaddef400",
-                    "expectedControlType": "Stick",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Rotate",
-                    "type": "PassThrough",
-                    "id": "4138e0ea-7220-498a-a5a5-722bed79f7ff",
-                    "expectedControlType": "Stick",
+                    "id": "11740e26-c775-43d1-9b95-1df0509bd17d",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -26,7 +17,7 @@
                 {
                     "name": "Jump",
                     "type": "Button",
-                    "id": "9db4dcc5-8abb-46ab-9916-d5f54c9f1620",
+                    "id": "09cc5c44-e134-4a7c-ab61-b61ac04508a7",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -36,39 +27,117 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2937858c-657d-459e-a1d8-1568b686b0c0",
-                    "path": "<Gamepad>/leftStick",
+                    "id": "8bd593ae-575c-4666-ab51-897d17b1f5bd",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Move",
+                    "groups": "Keyboard",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "6b175d88-548e-4fd8-b3ba-646d9900ff5d",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d35bf1be-939f-4675-a5cd-6cd5e0275d7e",
+                    "id": "83918fe6-a89f-486d-9356-c78466d78b7c",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Controller",
                     "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "WASD",
+                    "id": "8be41d99-b709-4413-b4c6-9832d473f8df",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "163a85b5-0335-4f83-b82b-803bac85bc86",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "afa8b745-2af1-4f26-98d6-accd908e88de",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "94f22c66-d729-4bd1-b053-002b9ff8eeaa",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "a8b41691-7d8e-452b-9dae-e6b9ebcd956a",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f7a86d1e-1e2a-433c-a149-12bcba3b1b64",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "Controller",
+            "bindingGroup": "Controller",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
