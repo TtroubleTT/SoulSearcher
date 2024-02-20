@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenuUICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3550722139662004639, guid: e352250f4d26756409c660d68a29a174, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4454851426701986436, guid: e352250f4d26756409c660d68a29a174, type: 3}
       propertyPath: UICanvas
       value: 

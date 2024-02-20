@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("References")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Settings settings;
+    [SerializeField] private Transform bodyTrans;
     private WallRunning _wallRunning;
     private Dash _dash;
 
@@ -207,16 +208,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckCrouch()
     {
-        Vector3 localScale = transform.localScale;
+        Vector3 localScale = bodyTrans.localScale;
         
         if (_shouldCrouch && !_isCrouching && movementState != MovementState.WallRunning) // If we push down the crouch key and we are crouching (not wall running) we decrease model size
         {
-            transform.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
+            bodyTrans.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
             _isCrouching = true;
         }
         else if (!_shouldCrouch && _isCrouching && !IsUnderObject()) // When releasing crouch key sets our scale back to normal
         {
-            transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
+            bodyTrans.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
             _isCrouching = false;
         }
     }
@@ -225,8 +226,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (_isCrouching && !_shouldCrouch && !IsUnderObject())
         {
-            Vector3 localScale = transform.localScale;
-            transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
+            Vector3 localScale = bodyTrans.localScale;
+            bodyTrans.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
             _isCrouching = false;
         }
     }

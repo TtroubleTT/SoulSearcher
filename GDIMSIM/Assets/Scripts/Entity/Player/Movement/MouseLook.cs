@@ -24,7 +24,6 @@ public class MouseLook : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log(controls.currentControlScheme);
 
         if (controls.currentControlScheme == "Controller")
         {
