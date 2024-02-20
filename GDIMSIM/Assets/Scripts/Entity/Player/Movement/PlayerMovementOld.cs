@@ -2,9 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementOld : MonoBehaviour
 {
     // Contributors: Taylor
     [Header("References")]
@@ -42,11 +41,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _isCrouching = false;
     private double fallTime = 0.0;
     private bool jumped = false;
-    
-    // For new input system
-    private Vector2 _movementInput = Vector2.zero;
-    private bool _shouldJump = false;
-    private bool _shouldSprint = false;
     
     // For Spell
     [HideInInspector] public bool spellActive = false;
@@ -103,10 +97,10 @@ public class PlayerMovement : MonoBehaviour
         CheckJump();
         
         // Crouching
-        //CheckCrouch();
+        CheckCrouch();
         
         // Force standing if player isn't trying to crouch and is no longer under object
-        //ForceStandUp();
+        ForceStandUp();
 
         // Gravity
         Gravity();
@@ -115,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
     private void MovementStateHandler()
     {
         // Determines the movement state and speed based on different conditions
-        /*
         if (_wallRunning.isWallRunning)
         {
             movementState = MovementState.WallRunning;
@@ -129,8 +122,7 @@ public class PlayerMovement : MonoBehaviour
             movementState = MovementState.Crouching;
             _currentSpeed = crouchSpeed;
         }
-        */
-        if (_isGrounded && _shouldSprint)
+        else if (_isGrounded && Input.GetKey(settings.PlayerControlMap[Settings.PlayerControls.Sprint]))
         {
             movementState = MovementState.Sprinting;
             _currentSpeed = sprintSpeed;
@@ -169,17 +161,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveInDirection()
     {
-        Vector3 move = new Vector3(_movementInput.x, 0, _movementInput.y);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        
+        Transform myTransform = transform;
+        Vector3 move = myTransform.right * x + myTransform.forward * z; // This makes it so its moving locally so rotation is taken into consideration
 
         controller.Move(move * (_currentSpeed * Time.deltaTime)); // Moving in the direction of move at the speed
     }
 
     private void CheckJump()
     {
-        if (_shouldJump && _isGrounded)
+        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.Jump]))
         {
-            DoJump();
-            switch (movementState == MovementState.Falling)
+            switch (_isGrounded || movementState == MovementState.Falling)
             {
                 case true when movementState != MovementState.Crouching:
                     jumped = true;
@@ -240,21 +235,5 @@ public class PlayerMovement : MonoBehaviour
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
         }
-    }
-    
-    // New Input system actions below
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        _movementInput = context.ReadValue<Vector2>();
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        _shouldJump = context.action.triggered;
-    }
-
-    public void OnSprint(InputAction.CallbackContext context)
-    {
-        _shouldSprint = context.action.triggered;
     }
 }
