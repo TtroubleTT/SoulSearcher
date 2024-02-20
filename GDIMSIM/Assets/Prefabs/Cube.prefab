@@ -206,7 +206,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 09cc5c44-e134-4a7c-ab61-b61ac04508a7
     m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
-  m_NeverAutoSwitchControlSchemes: 0
+  m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
