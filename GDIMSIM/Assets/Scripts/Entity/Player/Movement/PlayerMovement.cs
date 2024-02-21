@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
     
     // For new input system
     private Vector2 _movementInput = Vector2.zero;
-    private bool _shouldJump = false;
     private bool _shouldSprint = false;
     private bool _shouldCrouch = false;
     
@@ -101,9 +100,6 @@ public class PlayerMovement : MonoBehaviour
         // Movement
         MoveInDirection();
 
-        // Jumping
-        CheckJump();
-        
         // Crouching
         CheckCrouch();
         
@@ -177,37 +173,6 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * (_currentSpeed * Time.deltaTime)); // Moving in the direction of move at the speed
     }
 
-    private void CheckJump()
-    {
-        if (_shouldJump)
-        {
-            if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching)
-            {
-                jumped = true;
-                DoJump();
-            }
-            else if ((movementState == MovementState.Air || movementState == MovementState.Falling) && _canDoubleJump)
-            {
-                _canDoubleJump = false;
-                DoJump();
-            }
-
-            /*
-            switch (movementState == MovementState.Falling)
-            {
-                case true when movementState != MovementState.Crouching:
-                    jumped = true;
-                    DoJump();
-                    break;
-                case false when movementState is MovementState.Air or MovementState.Falling && _canDoubleJump && !_wallRunning.isWallJumping && spellActive:
-                    _canDoubleJump = false;
-                    DoJump();
-                    break;
-            }
-            */
-        }
-    }
-
     private void DoJump() => velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
     
     private bool IsUnderObject()
@@ -262,7 +227,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        _shouldJump = context.action.triggered;
+        bool shouldJump = context.started;
+        if (!shouldJump)
+            return;
+        
+        if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching)
+        {
+            jumped = true;
+            DoJump();
+        }
+        else if ((movementState == MovementState.Air || movementState == MovementState.Falling) && _canDoubleJump)
+        {
+            _canDoubleJump = false;
+            DoJump();
+        }
     }
 
     public void OnSprint(InputAction.CallbackContext context)
