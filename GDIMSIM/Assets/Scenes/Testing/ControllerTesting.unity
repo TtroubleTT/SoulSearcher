@@ -750,7 +750,7 @@ GameObject:
   - component: {fileID: 2105816994}
   - component: {fileID: 2105816993}
   - component: {fileID: 2105816992}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.71463895, y: 0.004060241, z: -0.10470746, w: 0.6916004}
   m_LocalPosition: {x: -6.03, y: 11.02, z: 17.73}
-  m_LocalScale: {x: 1, y: 5, z: 1}
+  m_LocalScale: {x: 3, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

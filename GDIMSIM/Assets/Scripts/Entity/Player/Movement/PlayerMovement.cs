@@ -100,9 +100,6 @@ public class PlayerMovement : MonoBehaviour
         // Movement
         MoveInDirection();
 
-        // Crouching
-        CheckCrouch();
-        
         // Force standing if player isn't trying to crouch and is no longer under object
         ForceStandUp();
 
@@ -183,22 +180,6 @@ public class PlayerMovement : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.up, heightAbove, groundMask);
     }
 
-    private void CheckCrouch()
-    {
-        Vector3 localScale = bodyTrans.localScale;
-        
-        if (_shouldCrouch && !_isCrouching && movementState != MovementState.WallRunning) // If we push down the crouch key and we are crouching (not wall running) we decrease model size
-        {
-            bodyTrans.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
-            _isCrouching = true;
-        }
-        else if (!_shouldCrouch && _isCrouching && !IsUnderObject()) // When releasing crouch key sets our scale back to normal
-        {
-            bodyTrans.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
-            _isCrouching = false;
-        }
-    }
-
     private void ForceStandUp()
     {
         if (_isCrouching && !_shouldCrouch && !IsUnderObject())
@@ -250,6 +231,18 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnCrouch(InputAction.CallbackContext context)
     {
+        Vector3 localScale = bodyTrans.localScale;
         _shouldCrouch = context.action.triggered;
+        
+        if (context.started && !_isCrouching && movementState != MovementState.WallRunning) // If we push down the crouch key and we are crouching (not wall running) we decrease model size
+        {
+            bodyTrans.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
+            _isCrouching = true;
+        }
+        else if (!context.performed && _isCrouching && !IsUnderObject()) // When releasing crouch key sets our scale back to normal
+        {
+            bodyTrans.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
+            _isCrouching = false;
+        }
     }
 }
