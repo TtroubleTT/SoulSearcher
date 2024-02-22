@@ -109,7 +109,6 @@ public class PlayerMovement : MonoBehaviour
     private void MovementStateHandler()
     {
         // Determines the movement state and speed based on different conditions
-        /*
         if (_wallRunning.isWallRunning)
         {
             movementState = MovementState.WallRunning;
@@ -118,8 +117,7 @@ public class PlayerMovement : MonoBehaviour
         {
             movementState = MovementState.Dashing;
         }
-        */
-        if (_isCrouching)
+        else if (_isCrouching)
         {
             movementState = MovementState.Crouching;
             _currentSpeed = crouchSpeed;
