@@ -217,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
             jumped = true;
             DoJump();
         }
-        else if ((movementState == MovementState.Air || movementState == MovementState.Falling) && _canDoubleJump)
+        else if ((movementState == MovementState.Air || movementState == MovementState.Falling) && _canDoubleJump && spellActive)
         {
             _canDoubleJump = false;
             DoJump();
