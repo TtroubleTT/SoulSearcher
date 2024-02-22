@@ -927,6 +927,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 542749852}
   UICanvas: {fileID: 710150319}
+  optionsMenu: {fileID: 0}
 --- !u!1 &614553889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1595,6 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 542749852}
   UICanvas: {fileID: 710150319}
+  optionsMenu: {fileID: 0}
 --- !u!4 &1128872334
 Transform:
   m_ObjectHideFlags: 0
@@ -3630,6 +3632,10 @@ PrefabInstance:
     - target: {fileID: 7550579923194443790, guid: 116a0b7252b2902428e0d339fd71697e, type: 3}
       propertyPath: m_Name
       value: InventoryCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7550579923194443790, guid: 116a0b7252b2902428e0d339fd71697e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7717960505819235457, guid: 116a0b7252b2902428e0d339fd71697e, type: 3}
       propertyPath: m_AnchorMax.y
