@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 154141981597194909}
   - component: {fileID: 5011447010193172702}
   - component: {fileID: 1947294714647627894}
-  - component: {fileID: 8060613965779046284}
   - component: {fileID: 5696353041177813382}
   - component: {fileID: 660223066057496487}
   - component: {fileID: 5753781837657833716}
@@ -118,7 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 5767570540591690417}
-  settings: {fileID: 8060613965779046284}
   bodyTrans: {fileID: 4026625270728830489}
   walkSpeed: 15
   sprintSpeed: 25
@@ -207,28 +205,6 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 100
   slider: {fileID: 8878453827069998814}
---- !u!114 &8060613965779046284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 115692680046327228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbc286405a7c6e54c9256148c5b37a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mouseXSens: {fileID: 5688175114004340637}
-  mouseYSens: {fileID: 2029751717380288765}
-  jumpKey: 32
-  sprintKey: 304
-  crouchKey: 306
-  defaultAttackSpell: 323
-  firstSpell: 101
-  secondSpell: 113
-  thirdSpell: 114
-  forthSpell: 102
 --- !u!114 &5696353041177813382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +217,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7c0a8d0109e42ba82799a968b3d4c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settings: {fileID: 8060613965779046284}
   firstCooldown: {fileID: 6906528688189660567}
   secondCooldown: {fileID: 4755079582845138473}
   thirdCooldown: {fileID: 2636393194288029707}
@@ -306,7 +281,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   cam: {fileID: 8374807191349727332}
-  settings: {fileID: 8060613965779046284}
   damage: 50
   attackDistance: 6
   attackWidth: 2.5
@@ -569,6 +543,86 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 4a72db5a-c979-44d3-8cb0-fd9af46493c9
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8176154962884339064}
+        m_TargetAssemblyTypeName: SoulStrike, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 94f8fa37-5166-4626-b819-2363732ae75e
+    m_ActionName: Player/Default Attack[/Mouse/leftButton,/XInputControllerWindows/rightTrigger,/XInputControllerWindows1/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5696353041177813382}
+        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
+        m_MethodName: CastFirstSpell
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b678e70a-217b-4a58-9e13-ede3a7184f36
+    m_ActionName: Player/First Spell[/Keyboard/1,/XInputControllerWindows/dpad/up,/XInputControllerWindows1/dpad/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5696353041177813382}
+        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
+        m_MethodName: CastSecondSpell
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: bb510b5c-ded1-4857-b3e5-3669cc212842
+    m_ActionName: Player/Second Spell[/Keyboard/2,/XInputControllerWindows/dpad/right,/XInputControllerWindows1/dpad/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5696353041177813382}
+        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
+        m_MethodName: CastThirdSpell
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1b95b1be-bd28-4153-8f63-09caf8397afd
+    m_ActionName: Player/Third Spell[/Keyboard/3,/XInputControllerWindows/dpad/down,/XInputControllerWindows1/dpad/down]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5696353041177813382}
+        m_TargetAssemblyTypeName: SpellManager, Assembly-CSharp
+        m_MethodName: CastForthSpell
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1881dfaa-51db-4173-8e9a-43491b6312b5
+    m_ActionName: Player/Forth Spell[/Keyboard/4,/XInputControllerWindows/dpad/left,/XInputControllerWindows1/dpad/left]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Player
@@ -1107,8 +1161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a53d091b0c909a4e9cc0b5863300352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseXSens: {fileID: 0}
+  mouseYSens: {fileID: 0}
   playerBody: {fileID: 4026625270728830489}
-  settings: {fileID: 8060613965779046284}
   controls: {fileID: 4141597100265222639}
 --- !u!1 &820239970800607601
 GameObject:

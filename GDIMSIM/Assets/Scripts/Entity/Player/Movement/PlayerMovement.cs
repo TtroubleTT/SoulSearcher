@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
     // Contributors: Taylor
     [Header("References")]
     [SerializeField] private CharacterController controller;
-    [SerializeField] private Settings settings;
     [SerializeField] private Transform bodyTrans;
     private WallRunning _wallRunning;
     private Dash _dash;

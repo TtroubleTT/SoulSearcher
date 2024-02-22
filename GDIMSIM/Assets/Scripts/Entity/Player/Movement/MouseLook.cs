@@ -3,16 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
     // Contributors: Taylor
+    [Header("Sensitivity")] 
+    [SerializeField] private Slider mouseXSens;
+    [SerializeField] private Slider mouseYSens;
     private float _mouseXSensitivity;
     private float _mouseYSensitivity;
 
     [Header("References")]
-    [SerializeField] private Transform playerBody; 
-    [SerializeField] private Settings settings;
+    [SerializeField] private Transform playerBody;
     [SerializeField] private PlayerInput controls;
     private float _xRotation;
     private Vector2 _lookInput = Vector2.zero;
@@ -35,7 +38,9 @@ public class MouseLook : MonoBehaviour
             _mouseXSensitivity = 20;
             _mouseYSensitivity = 20;
         }
-        // UpdateSensitivity();
+        
+        mouseXSens.value = _mouseXSensitivity;
+        mouseYSens.value = _mouseYSensitivity;
     }
     
     private void Update()
@@ -51,11 +56,6 @@ public class MouseLook : MonoBehaviour
         
         // Looking right and left
         playerBody.Rotate(Vector3.up * mouseX);
-    }
-
-    public void UpdateSensitivity()
-    {
-        (_mouseXSensitivity, _mouseYSensitivity) = settings.GetSensitivity();
     }
 
     public void OnLook(InputAction.CallbackContext context)

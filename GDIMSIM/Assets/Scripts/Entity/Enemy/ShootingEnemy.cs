@@ -21,12 +21,12 @@ public class ShootingEnemy : EnemyBase
     [SerializeField] private float damage = 10f;
     [SerializeField] private float speed = 50f;
     [SerializeField] private float range = 70f;
-    
-    [Header("References")] 
+
+    [Header("References")]
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject soul;
     [SerializeField] private Transform wandTransform;
-    private GameObject _player;
+    [SerializeField] private GameObject player;
     private Transform _playerTransform;
 
     private readonly Dictionary<ShootingProjectile.Stats, float> _projectileStats = new();
@@ -55,8 +55,7 @@ public class ShootingEnemy : EnemyBase
         InitializeStats();
         InitializeAbstractedStats();
         
-        _player = GameObject.FindGameObjectWithTag("Player");
-        _playerTransform = _player.transform;
+        _playerTransform = player.transform;
     }
 
     private void Update()
@@ -70,7 +69,7 @@ public class ShootingEnemy : EnemyBase
     // Checks if the distance between player and enemy is within the range they are allowed to fire
     private bool IsInRange()
     {
-        float distance = Vector3.Distance(_player.transform.position, transform.position);
+        float distance = Vector3.Distance(player.transform.position, transform.position);
 
         if (distance <= shotRange)
             return true;
@@ -81,9 +80,9 @@ public class ShootingEnemy : EnemyBase
     // Checks if the player is within the enemies line of sight
     private bool InLineOfSight()
     {
-        if (Physics.Raycast(transform.position + transform.forward, (_player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
+        if (Physics.Raycast(transform.position + transform.forward, (player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
         {
-            if (hitInfo.transform.gameObject == _player)
+            if (hitInfo.transform.gameObject == player)
             {
                 return true;
             }
@@ -106,7 +105,7 @@ public class ShootingEnemy : EnemyBase
     {
         Transform myTransform = wandTransform;
         GameObject projectile = Instantiate(projectilePrefab, myTransform.position + (myTransform.forward * 2) + myTransform.up, myTransform.rotation);
-        Vector3 direction = (_player.transform.position - transform.position).normalized; // Gets direction of player
+        Vector3 direction = (player.transform.position - transform.position).normalized; // Gets direction of player
         projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, StatusEffect.None);
     }
 }

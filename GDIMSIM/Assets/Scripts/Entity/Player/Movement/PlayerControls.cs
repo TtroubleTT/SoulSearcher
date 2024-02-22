@@ -71,6 +71,51 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Default Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""94f8fa37-5166-4626-b819-2363732ae75e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""First Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""b678e70a-217b-4a58-9e13-ede3a7184f36"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Second Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""bb510b5c-ded1-4857-b3e5-3669cc212842"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Third Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b95b1be-bd28-4153-8f63-09caf8397afd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Forth Spell"",
+                    ""type"": ""Button"",
+                    ""id"": ""1881dfaa-51db-4173-8e9a-43491b6312b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -225,6 +270,116 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd2721f4-639b-455b-8c5f-5b2b10097d42"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Default Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""27134130-8ed8-45af-a0b8-d094f5c3284e"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Default Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""99ebc731-e71a-4e6f-b9ee-2233ddd2edb4"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""First Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc1845d4-edad-4141-94ad-c594538ce5ec"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""First Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca88dd09-8687-4bf3-9fd1-5b239837c134"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Second Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aeddada9-a444-4287-8d3e-bd5eb1dcfe73"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Second Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03afb7f2-27ac-4e0b-8bae-c2f281fe1287"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Third Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ca9c5cb1-40d3-4fc4-9c2a-d4357ed0eb1a"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Third Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b73d246-9b18-4306-a05c-dcf7899051cc"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Forth Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e5d1c1fd-e257-482b-99a9-2c56ae26a316"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Forth Spell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -784,6 +939,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_DefaultAttack = m_Player.FindAction("Default Attack", throwIfNotFound: true);
+        m_Player_FirstSpell = m_Player.FindAction("First Spell", throwIfNotFound: true);
+        m_Player_SecondSpell = m_Player.FindAction("Second Spell", throwIfNotFound: true);
+        m_Player_ThirdSpell = m_Player.FindAction("Third Spell", throwIfNotFound: true);
+        m_Player_ForthSpell = m_Player.FindAction("Forth Spell", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -862,6 +1022,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Crouch;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_DefaultAttack;
+    private readonly InputAction m_Player_FirstSpell;
+    private readonly InputAction m_Player_SecondSpell;
+    private readonly InputAction m_Player_ThirdSpell;
+    private readonly InputAction m_Player_ForthSpell;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -871,6 +1036,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @DefaultAttack => m_Wrapper.m_Player_DefaultAttack;
+        public InputAction @FirstSpell => m_Wrapper.m_Player_FirstSpell;
+        public InputAction @SecondSpell => m_Wrapper.m_Player_SecondSpell;
+        public InputAction @ThirdSpell => m_Wrapper.m_Player_ThirdSpell;
+        public InputAction @ForthSpell => m_Wrapper.m_Player_ForthSpell;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -895,6 +1065,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Sprint.started += instance.OnSprint;
             @Sprint.performed += instance.OnSprint;
             @Sprint.canceled += instance.OnSprint;
+            @DefaultAttack.started += instance.OnDefaultAttack;
+            @DefaultAttack.performed += instance.OnDefaultAttack;
+            @DefaultAttack.canceled += instance.OnDefaultAttack;
+            @FirstSpell.started += instance.OnFirstSpell;
+            @FirstSpell.performed += instance.OnFirstSpell;
+            @FirstSpell.canceled += instance.OnFirstSpell;
+            @SecondSpell.started += instance.OnSecondSpell;
+            @SecondSpell.performed += instance.OnSecondSpell;
+            @SecondSpell.canceled += instance.OnSecondSpell;
+            @ThirdSpell.started += instance.OnThirdSpell;
+            @ThirdSpell.performed += instance.OnThirdSpell;
+            @ThirdSpell.canceled += instance.OnThirdSpell;
+            @ForthSpell.started += instance.OnForthSpell;
+            @ForthSpell.performed += instance.OnForthSpell;
+            @ForthSpell.canceled += instance.OnForthSpell;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -914,6 +1099,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Sprint.started -= instance.OnSprint;
             @Sprint.performed -= instance.OnSprint;
             @Sprint.canceled -= instance.OnSprint;
+            @DefaultAttack.started -= instance.OnDefaultAttack;
+            @DefaultAttack.performed -= instance.OnDefaultAttack;
+            @DefaultAttack.canceled -= instance.OnDefaultAttack;
+            @FirstSpell.started -= instance.OnFirstSpell;
+            @FirstSpell.performed -= instance.OnFirstSpell;
+            @FirstSpell.canceled -= instance.OnFirstSpell;
+            @SecondSpell.started -= instance.OnSecondSpell;
+            @SecondSpell.performed -= instance.OnSecondSpell;
+            @SecondSpell.canceled -= instance.OnSecondSpell;
+            @ThirdSpell.started -= instance.OnThirdSpell;
+            @ThirdSpell.performed -= instance.OnThirdSpell;
+            @ThirdSpell.canceled -= instance.OnThirdSpell;
+            @ForthSpell.started -= instance.OnForthSpell;
+            @ForthSpell.performed -= instance.OnForthSpell;
+            @ForthSpell.canceled -= instance.OnForthSpell;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1074,6 +1274,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnDefaultAttack(InputAction.CallbackContext context);
+        void OnFirstSpell(InputAction.CallbackContext context);
+        void OnSecondSpell(InputAction.CallbackContext context);
+        void OnThirdSpell(InputAction.CallbackContext context);
+        void OnForthSpell(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
