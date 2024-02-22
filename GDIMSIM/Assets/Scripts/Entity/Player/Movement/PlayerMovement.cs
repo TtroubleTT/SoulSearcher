@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jumped = false;
     
     // For new input system
-    private Vector2 _movementInput = Vector2.zero;
+    [HideInInspector] public Vector2 movementInput = Vector2.zero;
     private bool _shouldSprint = false;
     private bool _shouldCrouch = false;
     
@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
     private void MoveInDirection()
     {
         Transform myTransform = transform;
-        Vector3 move = myTransform.right * _movementInput.x + myTransform.forward * _movementInput.y; // This makes it so its moving locally so rotation is taken into consideration
+        Vector3 move = myTransform.right * movementInput.x + myTransform.forward * movementInput.y; // This makes it so its moving locally so rotation is taken into consideration
 
         controller.Move(move * (_currentSpeed * Time.deltaTime)); // Moving in the direction of move at the speed
     }
@@ -200,7 +200,7 @@ public class PlayerMovement : MonoBehaviour
     // New Input system actions below
     public void OnMove(InputAction.CallbackContext context)
     {
-        _movementInput = context.ReadValue<Vector2>();
+        movementInput = context.ReadValue<Vector2>();
     }
 
     public void OnJump(InputAction.CallbackContext context)
