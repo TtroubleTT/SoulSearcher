@@ -51,7 +51,7 @@ public class FreezeSpell : CombatSpell
     {
         GameObject projectile = Instantiate(projectilePrefab, camTrans.position + (camTrans.forward * 2), camTrans.rotation);
         Vector3 direction = camTrans.forward.normalized; // Gets direction player is looking
-        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, EnemyBase.StatusEffect.Freeze);
+        projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, EnemyBase.StatusEffect.Freeze, "Player");
     }
 
     protected override void Update()
