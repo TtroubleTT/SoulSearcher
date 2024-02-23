@@ -8,12 +8,11 @@ public class SoulEmpty : MonoBehaviour
 
     private void Awake()
     {
-        _corral = GetComponent<Corral>();
+        _corral = gameObject.transform.parent.gameObject.GetComponent<Corral>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("rahhhh");
         if (other.gameObject.CompareTag("Player"))
         {
             _corral.AddSoul(1);
