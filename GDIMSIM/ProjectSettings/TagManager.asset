@@ -13,6 +13,7 @@ TagManager:
   - SoulObject
   - SoulCounter
   - Corral
+  - PlayerUI
   layers:
   - Default
   - TransparentFX

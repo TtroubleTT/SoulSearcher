@@ -1019,14 +1019,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5543143497035825069, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: mouseXSens
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543143497035825069, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-      propertyPath: mouseYSens
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8349026030327632284, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

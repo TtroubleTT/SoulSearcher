@@ -8,9 +8,11 @@ using UnityEngine.UI;
 public class MouseLook : MonoBehaviour
 {
     // Contributors: Taylor
-    [Header("Sensitivity")] 
-    [SerializeField] private Slider mouseXSens;
-    [SerializeField] private Slider mouseYSens;
+    [Header("Sensitivity")]
+    // [SerializeField] private Slider mouseXSens;
+    // [SerializeField] private Slider mouseYSens;
+    [SerializeField] private float controllerSens;
+    [SerializeField] private float keyboardSens;
     private float _mouseXSensitivity;
     private float _mouseYSensitivity;
 
@@ -30,17 +32,17 @@ public class MouseLook : MonoBehaviour
 
         if (controls.currentControlScheme == "Controller")
         {
-            _mouseXSensitivity = 300;
-            _mouseYSensitivity = 300;
+            _mouseXSensitivity = controllerSens;
+            _mouseYSensitivity = controllerSens;
         }
         else
         {
-            _mouseXSensitivity = 20;
-            _mouseYSensitivity = 20;
+            _mouseXSensitivity = keyboardSens;
+            _mouseYSensitivity = keyboardSens;
         }
         
-        mouseXSens.value = _mouseXSensitivity;
-        mouseYSens.value = _mouseYSensitivity;
+        // mouseXSens.value = _mouseXSensitivity;
+        // mouseYSens.value = _mouseYSensitivity;
     }
     
     private void Update()

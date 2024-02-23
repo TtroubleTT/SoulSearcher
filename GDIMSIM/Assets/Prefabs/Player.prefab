@@ -948,8 +948,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a53d091b0c909a4e9cc0b5863300352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseXSens: {fileID: 0}
-  mouseYSens: {fileID: 0}
+  controllerSens: 300
+  keyboardSens: 20
   playerBody: {fileID: 4026625270728830489}
   controls: {fileID: 4141597100265222639}
 --- !u!1 &1364262275598894641
@@ -1038,7 +1038,7 @@ GameObject:
   - component: {fileID: 2166944876716167452}
   m_Layer: 5
   m_Name: PlayerUI
-  m_TagString: Untagged
+  m_TagString: PlayerUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
