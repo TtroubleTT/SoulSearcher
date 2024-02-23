@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SoulEmpty : MonoBehaviour
 {
-    private Corral corral;
+    private Corral _corral;
 
     private void Awake()
     {
-        corral = GetComponent<Corral>();
+        _corral = GetComponent<Corral>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -16,8 +16,7 @@ public class SoulEmpty : MonoBehaviour
         Debug.Log("rahhhh");
         if (other.gameObject.CompareTag("Player"))
         {
-            
-            corral.AddSoul(1);
+            _corral.AddSoul(1);
         }
     }
 
