@@ -842,10 +842,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1561336420585053980, guid: 4c8ee5bde7c2d4d429eb3c90b6de13be, type: 3}
-      propertyPath: UICanvas
-      value: 
-      objectReference: {fileID: 5816581013665388904}
     - target: {fileID: 2505984139817055124, guid: 4c8ee5bde7c2d4d429eb3c90b6de13be, type: 3}
       propertyPath: m_Name
       value: PauseCanvas
@@ -1032,11 +1028,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
---- !u!1 &5816581013665388904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1499954713555933677, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
-  m_PrefabInstance: {fileID: 5816581013665388902}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

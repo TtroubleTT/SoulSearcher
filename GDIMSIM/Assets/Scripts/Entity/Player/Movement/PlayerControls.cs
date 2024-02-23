@@ -116,6 +116,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""f50801dc-fe65-4143-9243-8108114b1e1a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -380,6 +389,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Forth Spell"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""af2daef3-60e4-4c34-9326-42bfb21d6bce"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0629fb5b-7d63-48e8-9e53-a99b95a2b758"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -944,6 +975,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_SecondSpell = m_Player.FindAction("Second Spell", throwIfNotFound: true);
         m_Player_ThirdSpell = m_Player.FindAction("Third Spell", throwIfNotFound: true);
         m_Player_ForthSpell = m_Player.FindAction("Forth Spell", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1027,6 +1059,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SecondSpell;
     private readonly InputAction m_Player_ThirdSpell;
     private readonly InputAction m_Player_ForthSpell;
+    private readonly InputAction m_Player_PauseMenu;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1041,6 +1074,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @SecondSpell => m_Wrapper.m_Player_SecondSpell;
         public InputAction @ThirdSpell => m_Wrapper.m_Player_ThirdSpell;
         public InputAction @ForthSpell => m_Wrapper.m_Player_ForthSpell;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1080,6 +1114,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ForthSpell.started += instance.OnForthSpell;
             @ForthSpell.performed += instance.OnForthSpell;
             @ForthSpell.canceled += instance.OnForthSpell;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1114,6 +1151,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ForthSpell.started -= instance.OnForthSpell;
             @ForthSpell.performed -= instance.OnForthSpell;
             @ForthSpell.canceled -= instance.OnForthSpell;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1279,6 +1319,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnSecondSpell(InputAction.CallbackContext context);
         void OnThirdSpell(InputAction.CallbackContext context);
         void OnForthSpell(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

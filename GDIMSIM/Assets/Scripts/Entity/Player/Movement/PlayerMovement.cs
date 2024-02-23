@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform bodyTrans;
     private WallRunning _wallRunning;
     private Dash _dash;
+    private PauseMenu _pauseMenu;
 
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 12f;
@@ -86,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
         _startYScale = transform.localScale.y;
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
+        _pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
     }
 
     private void Update()
@@ -205,8 +207,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        bool shouldJump = context.started;
-        if (!shouldJump)
+        if (!context.started)
             return;
         
         if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching)
@@ -240,6 +241,21 @@ public class PlayerMovement : MonoBehaviour
         {
             bodyTrans.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
             _isCrouching = false;
+        }
+    }
+
+    public void OpenMenu(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+        
+        if (_pauseMenu.IsGamePaused())
+        {
+            _pauseMenu.ResumeGame();
+        }
+        else
+        {
+            _pauseMenu.Pause();
         }
     }
 }

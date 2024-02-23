@@ -24,21 +24,8 @@ public class PauseMenu : MonoBehaviour
         }
         _deactivatedUI.Clear();
     }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            if (GamePaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                Pause();
-            }
-        }
-    }
-    private void Pause()
+    
+    public void Pause()
     {
         pauseMenu.SetActive(true);
         
@@ -59,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
+    
     public void ResumeGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -78,5 +66,10 @@ public class PauseMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public bool IsGamePaused()
+    {
+        return GamePaused;
     }
 }
