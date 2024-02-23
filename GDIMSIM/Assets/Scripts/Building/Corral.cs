@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Corral : MonoBehaviour
 {
-    [SerializeField] private float maxSoul = 5;
+    // [SerializeField] private float maxSoul = 5;
     [SerializeField] private float currentSoul = 0;
 
     public void AddSoul(float amount)
