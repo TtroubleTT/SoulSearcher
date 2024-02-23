@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -10,7 +11,6 @@ public class SpellManager : MonoBehaviour
 {
     // Contributors: Taylor
     [Header("References")]
-    [SerializeField] private Settings settings;
     [SerializeField] private Slider firstCooldown;
     [SerializeField] private Slider secondCooldown;
     [SerializeField] private Slider thirdCooldown;
@@ -80,24 +80,35 @@ public class SpellManager : MonoBehaviour
         UpdateEquippedSpells(SlotNumber.ForthSlot, forth);
     }
 
-    // Checks if they use one of their keybinds for casting an equip spell and cast the spell in that slot
-    private void Update()
+    public void CastFirstSpell(InputAction.CallbackContext context)
     {
-        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.FirstSpell]))
-        {
-            _equippedSpells[SlotNumber.FirstSlot].CastSpell();
-        }
-        else if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.SecondSpell]))
-        {
-            _equippedSpells[SlotNumber.SecondSlot].CastSpell();
-        }
-        else if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.ThirdSpell]))
-        {
-            _equippedSpells[SlotNumber.ThirdSlot].CastSpell();
-        }
-        else if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.ForthSpell]))
-        {
-            _equippedSpells[SlotNumber.ForthSlot].CastSpell();
-        }
+        if (!context.started)
+            return;
+        
+        _equippedSpells[SlotNumber.FirstSlot].CastSpell();
+    }
+    
+    public void CastSecondSpell(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+        
+        _equippedSpells[SlotNumber.SecondSlot].CastSpell();
+    }
+    
+    public void CastThirdSpell(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+        
+        _equippedSpells[SlotNumber.ThirdSlot].CastSpell();
+    }
+    
+    public void CastForthSpell(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+        
+        _equippedSpells[SlotNumber.ForthSlot].CastSpell();
     }
 }

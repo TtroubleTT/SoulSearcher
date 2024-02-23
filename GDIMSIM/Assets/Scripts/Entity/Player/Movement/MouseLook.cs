@@ -2,17 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class MouseLook : MonoBehaviour
 {
     // Contributors: Taylor
+    [Header("Sensitivity")]
+    // [SerializeField] private Slider mouseXSens;
+    // [SerializeField] private Slider mouseYSens;
+    [SerializeField] private float controllerSens;
+    [SerializeField] private float keyboardSens;
     private float _mouseXSensitivity;
     private float _mouseYSensitivity;
 
     [Header("References")]
-    [SerializeField] private Transform playerBody; 
-    [SerializeField] private Settings settings;
+    [SerializeField] private Transform playerBody;
+    [SerializeField] private PlayerInput controls;
     private float _xRotation;
+    private Vector2 _lookInput = Vector2.zero;
 
     // Code has been inspired and modified a bit based on these tutorials
     // https://www.youtube.com/watch?v=f473C43s8nE&t=505s
@@ -21,13 +29,26 @@ public class MouseLook : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        UpdateSensitivity();
+
+        if (controls.currentControlScheme == "Controller")
+        {
+            _mouseXSensitivity = controllerSens;
+            _mouseYSensitivity = controllerSens;
+        }
+        else
+        {
+            _mouseXSensitivity = keyboardSens;
+            _mouseYSensitivity = keyboardSens;
+        }
+        
+        // mouseXSens.value = _mouseXSensitivity;
+        // mouseYSens.value = _mouseYSensitivity;
     }
     
     private void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * _mouseXSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * _mouseYSensitivity * Time.deltaTime;
+        float mouseX = _lookInput.x * _mouseXSensitivity * Time.deltaTime;
+        float mouseY = _lookInput.y * _mouseYSensitivity * Time.deltaTime;
 
         // Looking up and down
         _xRotation -= mouseY;
@@ -39,8 +60,8 @@ public class MouseLook : MonoBehaviour
         playerBody.Rotate(Vector3.up * mouseX);
     }
 
-    public void UpdateSensitivity()
+    public void OnLook(InputAction.CallbackContext context)
     {
-        (_mouseXSensitivity, _mouseYSensitivity) = settings.GetSensitivity();
+        _lookInput = context.ReadValue<Vector2>();
     }
 }

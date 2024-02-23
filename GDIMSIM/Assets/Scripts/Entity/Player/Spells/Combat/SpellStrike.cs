@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 // Close range attack
 public class SoulStrike : MonoBehaviour, ICombat
@@ -12,7 +13,6 @@ public class SoulStrike : MonoBehaviour, ICombat
     [Header("References")]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private Transform cam;
-    [SerializeField] private Settings settings;
 
     [Header("Attack")] 
     [SerializeField] private float damage = 50f;
@@ -24,15 +24,6 @@ public class SoulStrike : MonoBehaviour, ICombat
     private void Start()
     {
         Damage = damage;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.DefaultAttack]) && Time.time - _lastAttack >= cooldown)
-        {
-            _lastAttack = Time.time;
-            Attack();
-        }
     }
 
     public bool HurtEnemy(GameObject enemy)
@@ -52,6 +43,18 @@ public class SoulStrike : MonoBehaviour, ICombat
         if (hitEnemy)
         {
             HurtEnemy(hitInfo.transform.gameObject);
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+
+        if (Time.time - _lastAttack >= cooldown)
+        {
+            _lastAttack = Time.time;
+            Attack();
         }
     }
 }
