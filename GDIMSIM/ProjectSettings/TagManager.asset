@@ -12,6 +12,9 @@ TagManager:
   - spellSlotTemplate
   - SoulObject
   - SoulCounter
+  - Corral
+  - PlayerUI
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

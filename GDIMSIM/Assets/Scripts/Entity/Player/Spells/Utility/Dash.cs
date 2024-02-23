@@ -60,8 +60,8 @@ public class Dash : SpellBase
 
     private (float, float) GetHorizontalAndVerticalMovement()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        float x = _playerMovement.movementInput.x;
+        float z = _playerMovement.movementInput.y;
         return (x, z); // Tuple return
     }
 
