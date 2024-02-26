@@ -5,18 +5,15 @@ using UnityEngine;
 
 public class SoulObject : MonoBehaviour
 {
-    // Contributors: Taylor
-    private SoulCounter _soulCounter;
-    private void Awake()
-    {
-        _soulCounter = GameObject.FindGameObjectWithTag("SoulCounter").GetComponent<SoulCounter>();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            _soulCounter.CollectSoulCount();
+            foreach (GameObject soulCounter in GameObject.FindGameObjectsWithTag("SoulCounter"))
+            {
+                soulCounter.GetComponent<SoulCounter>().CollectSoulCount();
+            }
+
             Destroy(gameObject);
         }
     }

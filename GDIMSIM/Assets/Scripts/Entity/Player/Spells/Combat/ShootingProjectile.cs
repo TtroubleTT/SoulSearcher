@@ -7,6 +7,7 @@ public class ShootingProjectile : MonoBehaviour
 {
     // Contributors: Taylor
     [SerializeField] private Rigidbody rb;
+    private string _tag;
     
     // Projectile Stats
     public enum Stats
@@ -35,13 +36,14 @@ public class ShootingProjectile : MonoBehaviour
         Destroy(gameObject, _range / _speed);
     }
 
-    public void ProjectileInitialize(Dictionary<Stats, float> stats, Vector3 direction, EnemyBase.StatusEffect effect)
+    public void ProjectileInitialize(Dictionary<Stats, float> stats, Vector3 direction, EnemyBase.StatusEffect effect, string tagName)
     {
         _damage = stats[Stats.Damage];
         _speed = stats[Stats.Speed];
         _range = stats[Stats.Range];
         _direction = direction;
         _statusEffect = effect;
+        _tag = tagName;
         
         ProjectileMove();
     }
@@ -57,12 +59,11 @@ public class ShootingProjectile : MonoBehaviour
         if (Time.time - _lastHit <= .5)
             return;
         
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && _tag == "Enemy")
         {
             other.gameObject.GetComponent<PlayerBase>().SubtractHealth(_damage);
         }
-        
-        if (other.gameObject.CompareTag("Enemy"))
+        else if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.GetComponent<EnemyBase>().SubtractHealth(_damage);
             other.gameObject.GetComponent<EnemyBase>().CauseStatusEffect(_statusEffect);
