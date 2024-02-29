@@ -52693,7 +52693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304537, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.13
+      value: 10.65
       objectReference: {fileID: 0}
     - target: {fileID: 8829451551789304537, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -53051,11 +53051,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632536434631913185, guid: 031e4b0249ee1ef4193b29c816e5bdf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.95
+      value: 6.91
       objectReference: {fileID: 0}
     - target: {fileID: 632536434631913185, guid: 031e4b0249ee1ef4193b29c816e5bdf4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77
+      value: 75.68
       objectReference: {fileID: 0}
     - target: {fileID: 632536434631913185, guid: 031e4b0249ee1ef4193b29c816e5bdf4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -53089,7 +53089,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoulEmpty
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4348681083005290101, guid: 031e4b0249ee1ef4193b29c816e5bdf4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -53107,6 +53108,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5611594527298004271, guid: 965932cb44f02104ca7cbfd94c23b5f6, type: 3}
+      propertyPath: soulObject
+      value: 
+      objectReference: {fileID: 8829451551789304542, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+    - target: {fileID: 5611594527298004271, guid: 965932cb44f02104ca7cbfd94c23b5f6, type: 3}
+      propertyPath: spawnPoint.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611594527298004271, guid: 965932cb44f02104ca7cbfd94c23b5f6, type: 3}
+      propertyPath: spawnPoint.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611594527298004271, guid: 965932cb44f02104ca7cbfd94c23b5f6, type: 3}
+      propertyPath: spawnPoint.z
+      value: -48
+      objectReference: {fileID: 0}
     - target: {fileID: 6204364688941185716, guid: 965932cb44f02104ca7cbfd94c23b5f6, type: 3}
       propertyPath: m_Name
       value: Corral

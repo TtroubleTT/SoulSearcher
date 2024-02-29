@@ -11,6 +11,11 @@ public class SoulCounter : MonoBehaviour
     public TMP_Text soulsCollected;
 
     private float _soulAmount = 0;
+
+	public float GetSoulAmount()
+	{
+		return _soulAmount;
+	}
     
 	public void CollectSoulCount()
 	{
