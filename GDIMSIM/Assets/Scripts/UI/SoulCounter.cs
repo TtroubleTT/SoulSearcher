@@ -17,8 +17,14 @@ public class SoulCounter : MonoBehaviour
 		_soulAmount++;
 		soulsCollected.SetText($"{_soulAmount} / 10");
 	}
-	
-	public void ResetCounter()
+
+    public void DecreaseSoulCount()
+    {
+        _soulAmount--;
+        soulsCollected.SetText($"{_soulAmount} / 10");
+    }
+
+    public void ResetCounter()
 	{
 		soulsCollected.SetText("0 / 10");
 	}

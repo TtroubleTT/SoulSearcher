@@ -20,6 +20,7 @@ public class SoulEmpty : MonoBehaviour
 
             if (_soulCounter.GetSoulAmount() > 0)
             {
+                Debug.Log("hello");
                 _corral.AddSoul(1);
             }
 
