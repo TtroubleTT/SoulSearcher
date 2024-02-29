@@ -5,6 +5,7 @@ using UnityEngine;
 
 public abstract class CombatSpell : SpellBase, ICombat
 {
+    // Contributors: Taylor
     public abstract float Damage { get; set; }
 
     public virtual bool HurtEnemy(GameObject enemy)

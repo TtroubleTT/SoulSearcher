@@ -5,6 +5,7 @@ using UnityEngine;
 
 public interface ICombat
 {
+    // Contributors: Taylor
     public float Damage { get; set; }
 
     public bool HurtEnemy(GameObject enemy);

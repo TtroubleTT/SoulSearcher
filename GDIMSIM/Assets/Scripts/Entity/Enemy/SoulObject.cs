@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,11 @@ public class SoulObject : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("adding soul");
+            foreach (GameObject soulCounter in GameObject.FindGameObjectsWithTag("SoulCounter"))
+            {
+                soulCounter.GetComponent<SoulCounter>().CollectSoulCount();
+            }
+
             Destroy(gameObject);
         }
     }

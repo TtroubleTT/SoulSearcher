@@ -7,12 +7,15 @@ using TMPro;
 
 public class SoulCounter : MonoBehaviour
 {
+	// Contributors: Taylor, Richard
     public TMP_Text soulsCollected;
+
+    private float _soulAmount = 0;
     
 	public void CollectSoulCount()
 	{
-		int count = Int32.Parse(soulsCollected.text) + 1;
-		soulsCollected.SetText($"{count} / 10");
+		_soulAmount++;
+		soulsCollected.SetText($"{_soulAmount} / 10");
 	}
 	
 	public void ResetCounter()

@@ -6,34 +6,35 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    // Contributors: Taylor, Aidan
     public static bool GamePaused = false;
 
-    [SerializeField] GameObject pauseMenu;
-    [SerializeField] GameObject UICanvas;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject optionsMenu;
+
+    private List<GameObject> _deactivatedUI = new();
 
     private void Start()
     {
         pauseMenu.SetActive(false);
-    }
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        optionsMenu.SetActive(false);
+        foreach (GameObject playerUI in GameObject.FindGameObjectsWithTag("PlayerUI"))
         {
-            if (GamePaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                Pause();
-            }
+            playerUI.SetActive(true);
         }
+        _deactivatedUI.Clear();
     }
-    private void Pause()
+    
+    public void Pause()
     {
         pauseMenu.SetActive(true);
-        UICanvas.SetActive(false);
+        
+        foreach (GameObject playerUI in GameObject.FindGameObjectsWithTag("PlayerUI"))
+        {
+            _deactivatedUI.Add(playerUI);
+            playerUI.SetActive(false);
+        }
+        
         Time.timeScale = 0;
         GamePaused = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -45,14 +46,30 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
+    
     public void ResumeGame()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(false);
+        optionsMenu.SetActive(false);
+        
+        foreach (GameObject playerUI in _deactivatedUI)
+        {
+            playerUI.SetActive(true);
+        }
+        
+        _deactivatedUI.Clear();
+        
         Time.timeScale = 1;
         GamePaused = false;
     }
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public bool IsGamePaused()
+    {
+        return GamePaused;
     }
 }

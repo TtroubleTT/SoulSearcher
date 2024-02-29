@@ -2,14 +2,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Contributors: Taylor
     [Header("References")]
     [SerializeField] private CharacterController controller;
-    [SerializeField] private Settings settings;
+    [SerializeField] private Transform bodyTrans;
     private WallRunning _wallRunning;
     private Dash _dash;
+    private PauseMenu _pauseMenu;
 
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 12f;
@@ -40,6 +44,11 @@ public class PlayerMovement : MonoBehaviour
     private bool _isCrouching = false;
     private double fallTime = 0.0;
     private bool jumped = false;
+    
+    // For new input system
+    [HideInInspector] public Vector2 movementInput = Vector2.zero;
+    private bool _shouldSprint = false;
+    private bool _shouldCrouch = false;
     
     // For Spell
     [HideInInspector] public bool spellActive = false;
@@ -79,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
         _startYScale = transform.localScale.y;
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
+        _pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
     }
 
     private void Update()
@@ -92,12 +102,6 @@ public class PlayerMovement : MonoBehaviour
         // Movement
         MoveInDirection();
 
-        // Jumping
-        CheckJump();
-        
-        // Crouching
-        CheckCrouch();
-        
         // Force standing if player isn't trying to crouch and is no longer under object
         ForceStandUp();
 
@@ -121,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
             movementState = MovementState.Crouching;
             _currentSpeed = crouchSpeed;
         }
-        else if (_isGrounded && Input.GetKey(settings.PlayerControlMap[Settings.PlayerControls.Sprint]))
+        else if (_isGrounded && _shouldSprint)
         {
             movementState = MovementState.Sprinting;
             _currentSpeed = sprintSpeed;
@@ -160,31 +164,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveInDirection()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        
         Transform myTransform = transform;
-        Vector3 move = myTransform.right * x + myTransform.forward * z; // This makes it so its moving locally so rotation is taken into consideration
+        Vector3 move = myTransform.right * movementInput.x + myTransform.forward * movementInput.y; // This makes it so its moving locally so rotation is taken into consideration
 
         controller.Move(move * (_currentSpeed * Time.deltaTime)); // Moving in the direction of move at the speed
-    }
-
-    private void CheckJump()
-    {
-        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.Jump]))
-        {
-            switch (_isGrounded || movementState == MovementState.Falling)
-            {
-                case true when movementState != MovementState.Crouching:
-                    jumped = true;
-                    DoJump();
-                    break;
-                case false when movementState is MovementState.Air or MovementState.Falling && _canDoubleJump && !_wallRunning.isWallJumping && spellActive:
-                    _canDoubleJump = false;
-                    DoJump();
-                    break;
-            }
-        }
     }
 
     private void DoJump() => velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
@@ -197,31 +180,12 @@ public class PlayerMovement : MonoBehaviour
         return Physics.Raycast(transform.position, Vector3.up, heightAbove, groundMask);
     }
 
-    private void CheckCrouch()
-    {
-        Vector3 localScale = transform.localScale;
-        
-        // If we push down the crouch key and we are crouching (not wall running) we decrease model size
-        if (Input.GetKeyDown(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && movementState != MovementState.WallRunning)
-        {
-            transform.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
-            _isCrouching = true;
-        }
-
-        // When releasing crouch key sets our scale back to normal
-        if (Input.GetKeyUp(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && !IsUnderObject())
-        {
-            transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
-            _isCrouching = false;
-        }
-    }
-
     private void ForceStandUp()
     {
-        if (_isCrouching && !Input.GetKey(settings.PlayerControlMap[Settings.PlayerControls.Crouch]) && !IsUnderObject())
+        if (_isCrouching && !_shouldCrouch && !IsUnderObject())
         {
-            Vector3 localScale = transform.localScale;
-            transform.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
+            Vector3 localScale = bodyTrans.localScale;
+            bodyTrans.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
             _isCrouching = false;
         }
     }
@@ -233,6 +197,66 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y += gravity * Time.deltaTime;
             controller.Move(velocity * Time.deltaTime);
+        }
+    }
+    
+    // New Input system actions below
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        movementInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+        
+        if ((_isGrounded || movementState == MovementState.Falling) && movementState != MovementState.Crouching)
+        {
+            jumped = true;
+            DoJump();
+        }
+        else if ((movementState == MovementState.Air || movementState == MovementState.Falling) && _canDoubleJump && spellActive)
+        {
+            _canDoubleJump = false;
+            DoJump();
+        }
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        _shouldSprint = context.action.triggered;
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        Vector3 localScale = bodyTrans.localScale;
+        _shouldCrouch = context.action.triggered;
+        
+        if (context.started && !_isCrouching && movementState != MovementState.WallRunning) // If we push down the crouch key and we are crouching (not wall running) we decrease model size
+        {
+            bodyTrans.localScale = new Vector3(localScale.x, crouchYScale, localScale.z);
+            _isCrouching = true;
+        }
+        else if (!context.performed && _isCrouching && !IsUnderObject()) // When releasing crouch key sets our scale back to normal
+        {
+            bodyTrans.localScale = new Vector3(localScale.x, _startYScale, localScale.z);
+            _isCrouching = false;
+        }
+    }
+
+    public void OpenMenu(InputAction.CallbackContext context)
+    {
+        if (!context.started)
+            return;
+        
+        if (_pauseMenu.IsGamePaused())
+        {
+            _pauseMenu.ResumeGame();
+        }
+        else
+        {
+            _pauseMenu.Pause();
         }
     }
 }
