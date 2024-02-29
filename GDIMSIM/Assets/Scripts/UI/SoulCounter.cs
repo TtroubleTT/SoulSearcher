@@ -22,4 +22,10 @@ public class SoulCounter : MonoBehaviour
 	{
 		soulsCollected.SetText("0 / 10");
 	}
+
+	public float GetSoulAmount()
+	{
+		return _soulAmount;	
+	}
+
 }
