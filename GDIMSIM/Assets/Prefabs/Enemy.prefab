@@ -158,4 +158,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 1505275376173301197, guid: faa71656769562b468929c39b313d3a2, type: 3}
   soul: {fileID: 8829451551789304542, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
   wandTransform: {fileID: 8237002709386710254}
-  player: {fileID: 4539241511926668715, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+  player: {fileID: 0}
