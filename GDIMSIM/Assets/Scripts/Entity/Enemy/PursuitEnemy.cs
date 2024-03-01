@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class PursuitEnemy : EnemyBase
 {
@@ -16,8 +18,13 @@ public class PursuitEnemy : EnemyBase
 
     [Header("References")]
     [SerializeField] private GameObject soul;
-    [SerializeField] private GameObject player;
-    private Transform _playerTransform;
+    [SerializeField] private NavMeshAgent agent;
+
+    [Header("Wander")]
+    private Vector3 _wanderTarget = Vector3.zero;
+    [SerializeField] private float wanderRadius = 10;
+    [SerializeField] private float wanderDistance = 10;
+    [SerializeField] private float wanderJitter = 1;
 
     protected override void InitializeAbstractedStats()
     {
@@ -34,12 +41,16 @@ public class PursuitEnemy : EnemyBase
     private void Start()
     {
         InitializeAbstractedStats();
-        _playerTransform = player.transform;
     }
 
     private void Update()
     {
-        
+        Wander();
+    }
+
+    private void Seek(Vector3 location)
+    {
+        agent.SetDestination(location);
     }
 
     private void Pursue(Transform target)
@@ -48,5 +59,17 @@ public class PursuitEnemy : EnemyBase
         Vector3 targetDir = target.position - myTransform.position;
 
         float relativeHeading = Vector3.Angle(myTransform.forward, myTransform.TransformVector(target.forward));
+    }
+
+    private void Wander()
+    {
+        _wanderTarget += new Vector3(Random.Range(-1f, 1f) * wanderJitter, 0, Random.Range(-1f, 1f) * wanderJitter);
+        _wanderTarget.Normalize();
+        _wanderTarget *= wanderRadius;
+
+        Vector3 targetLocal = _wanderTarget + new Vector3(0, 0, wanderDistance);
+        Vector3 targetWorld = gameObject.transform.InverseTransformVector(targetLocal);
+        
+        Seek(targetWorld);
     }
 }
