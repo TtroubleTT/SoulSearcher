@@ -7180,7 +7180,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.49999997
-  m_Speed: 8
+  m_Speed: 12
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -7204,8 +7204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d801128d89b74375a650126e57932dde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  currentHealth: 50
+  maxHealth: 100
+  currentHealth: 100
+  healthToFlee: 50
+  distanceToPursue: 60
   soul: {fileID: 8829451551789304542, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
   agent: {fileID: 321197922}
   player: {fileID: 126349280}
@@ -29920,7 +29922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2080745726545924830, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.3
+      value: -128
       objectReference: {fileID: 0}
     - target: {fileID: 2080745726545924830, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_LocalRotation.w

@@ -13,8 +13,10 @@ public class PursuitEnemy : EnemyBase
     protected override float CurrentHealth { get; set; }
 
     [Header("Enemy Stats")]
-    [SerializeField] private float maxHealth = 50f;
-    [SerializeField] private float currentHealth = 50f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float currentHealth = 100f;
+    [SerializeField] private float healthToFlee = 50f;
+    [SerializeField] private float distanceToPursue = 60f;
 
     [Header("References")]
     [SerializeField] private GameObject soul;
@@ -46,7 +48,35 @@ public class PursuitEnemy : EnemyBase
 
     private void Update()
     {
-        Flee(player.transform.position);
+        AIState();
+    }
+
+    private void AIState()
+    {
+        if (CurrentHealth <= healthToFlee)
+        {
+            Flee(player.transform.position);
+        }
+        else if (IsInRange())
+        {
+            Pursue(player.transform);
+        }
+        else
+        {
+            Wander();
+        }
+    }
+    
+    // Checks if the distance between player and enemy 
+    private bool IsInRange()
+    {
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        if (distance <= distanceToPursue)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private void Seek(Vector3 location)
