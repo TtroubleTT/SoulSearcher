@@ -19,6 +19,7 @@ public class PursuitEnemy : EnemyBase
     [Header("References")]
     [SerializeField] private GameObject soul;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private GameObject player;
 
     [Header("Wander")]
     private Vector3 _wanderTarget = Vector3.zero;
@@ -45,12 +46,19 @@ public class PursuitEnemy : EnemyBase
 
     private void Update()
     {
-        Wander();
+        Flee(player.transform.position);
     }
 
     private void Seek(Vector3 location)
     {
         agent.SetDestination(location);
+    }
+
+    private void Flee(Vector3 location)
+    {
+        Vector3 myPos = transform.position;
+        Vector3 fleeVector = location - myPos;
+        agent.SetDestination(myPos - fleeVector);
     }
 
     private void Pursue(Transform target)
@@ -59,6 +67,16 @@ public class PursuitEnemy : EnemyBase
         Vector3 targetDir = target.position - myTransform.position;
 
         float relativeHeading = Vector3.Angle(myTransform.forward, myTransform.TransformVector(target.forward));
+        float toTarget = Vector3.Angle(myTransform.forward, myTransform.TransformVector(targetDir));
+
+        if (toTarget > 90 && relativeHeading < 20)
+        {
+            Seek(target.transform.position);
+            return;
+        }
+
+        float lookAhead = targetDir.magnitude / agent.speed;
+        Seek(target.transform.position + target.transform.forward * lookAhead);
     }
 
     private void Wander()
