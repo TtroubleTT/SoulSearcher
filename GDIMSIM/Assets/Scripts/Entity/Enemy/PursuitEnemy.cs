@@ -17,11 +17,15 @@ public class PursuitEnemy : EnemyBase
     [SerializeField] private float currentHealth = 100f;
     [SerializeField] private float healthToFlee = 50f;
     [SerializeField] private float distanceToPursue = 60f;
+    [SerializeField] private float distanceToMelee = 5f;
+    [SerializeField] private float attackCooldown = 3f;
+    private float _lastAttack;
 
     [Header("References")]
     [SerializeField] private GameObject soul;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject player;
+    private PlayerBase _playerBase;
 
     [Header("Wander")]
     private Vector3 _wanderTarget = Vector3.zero;
@@ -44,6 +48,7 @@ public class PursuitEnemy : EnemyBase
     private void Start()
     {
         InitializeAbstractedStats();
+        _playerBase = player.GetComponent<PlayerBase>();
     }
 
     private void Update()
@@ -60,6 +65,10 @@ public class PursuitEnemy : EnemyBase
         else if (IsInRange())
         {
             Pursue(player.transform);
+            if (InAttackRange())
+            {
+                Attack();
+            }
         }
         else
         {
@@ -77,6 +86,26 @@ public class PursuitEnemy : EnemyBase
         }
 
         return false;
+    }
+
+    private bool InAttackRange()
+    {
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+        if (distance <= distanceToMelee)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    
+    private void Attack()
+    {
+        if (Time.time - _lastAttack > attackCooldown && CanAttack)
+        {
+            _lastAttack = Time.time;
+            _playerBase.SubtractHealth(20);
+        }
     }
 
     private void Seek(Vector3 location)
