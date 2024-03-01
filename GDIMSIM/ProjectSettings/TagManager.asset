@@ -15,6 +15,7 @@ TagManager:
   - Corral
   - PlayerUI
   - PauseMenu
+  - Hide
   layers:
   - Default
   - TransparentFX

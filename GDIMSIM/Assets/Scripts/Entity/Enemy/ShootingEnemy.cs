@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShootingEnemy : EnemyBase
 {
@@ -11,10 +13,11 @@ public class ShootingEnemy : EnemyBase
     protected override float CurrentHealth { get; set; }
 
     [Header("Enemy Stats")]
-    [SerializeField] private float maxHealth = 50f;
-    [SerializeField] private float currentHealth = 50f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float currentHealth = 100f;
     [SerializeField] private float shotRange = 30f;
     [SerializeField] private float shotCooldown = 3f;
+    [SerializeField] private float healthToHide = 50;
     private float _lastShotTime;
 
     [Header("Projectile Stats")] 
@@ -27,7 +30,15 @@ public class ShootingEnemy : EnemyBase
     [SerializeField] private GameObject soul;
     [SerializeField] private Transform wandTransform;
     [SerializeField] private GameObject player;
+    [SerializeField] private NavMeshAgent agent;
     private Transform _playerTransform;
+    private List<GameObject> _hideableObjects = new();
+
+    [Header("Wander")]
+    private Vector3 _wanderTarget = Vector3.zero;
+    [SerializeField] private float wanderRadius = 10;
+    [SerializeField] private float wanderDistance = 10;
+    [SerializeField] private float wanderJitter = 1;
 
     private readonly Dictionary<ShootingProjectile.Stats, float> _projectileStats = new();
 
@@ -56,14 +67,28 @@ public class ShootingEnemy : EnemyBase
         InitializeAbstractedStats();
         
         _playerTransform = player.transform;
+        _hideableObjects = GameObject.FindGameObjectsWithTag("Hide").ToList();
     }
 
     private void Update()
     {
-        Vector3 playerPos = _playerTransform.position;
-        Vector3 lookPoint = new Vector3(playerPos.x, transform.position.y, playerPos.z);
-        transform.LookAt(lookPoint);
-        CheckShoot();
+        AiState();
+    }
+
+    private void AiState()
+    {
+        if (CurrentHealth <= healthToHide)
+        {
+            Hide();
+        }
+        else if (IsInRange())
+        {
+            CheckShoot();
+        }
+        else
+        {
+            Wander();
+        }
     }
 
     // Checks if the distance between player and enemy is within the range they are allowed to fire
@@ -108,5 +133,42 @@ public class ShootingEnemy : EnemyBase
         GameObject projectile = Instantiate(projectilePrefab, myTransform.position + (myTransform.forward * 2) + myTransform.up, myTransform.rotation);
         Vector3 direction = (player.transform.position - transform.position).normalized; // Gets direction of player
         projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, StatusEffect.None, "Enemy");
+    }
+    
+    private void Wander()
+    {
+        _wanderTarget += new Vector3(UnityEngine.Random.Range(-1f, 1f) * wanderJitter, 0, UnityEngine.Random.Range(-1f, 1f) * wanderJitter);
+        _wanderTarget.Normalize();
+        _wanderTarget *= wanderRadius;
+
+        Vector3 targetLocal = _wanderTarget + new Vector3(0, 0, wanderDistance);
+        Vector3 targetWorld = gameObject.transform.InverseTransformVector(targetLocal);
+        
+        Seek(targetWorld);
+    }
+    
+    private void Seek(Vector3 location)
+    {
+        agent.SetDestination(location);
+    }
+
+    private void Hide()
+    {
+        float distance = Mathf.Infinity;
+        Vector3 chosenSpot = Vector3.zero;
+
+        for (int i = 0; i < _hideableObjects.Count; i++)
+        {
+            Vector3 hideDir = _hideableObjects[i].transform.position - player.transform.position;
+            Vector3 hidePos = _hideableObjects[i].transform.position + hideDir.normalized * 5;
+
+            if (Vector3.Distance(transform.position, hidePos) < distance)
+            {
+                chosenSpot = hidePos;
+                distance = Vector3.Distance(transform.position, hidePos);
+            }
+            
+            Seek(chosenSpot);
+        }
     }
 }
