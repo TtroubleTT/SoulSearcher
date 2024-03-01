@@ -1324,6 +1324,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 796608709130495497, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 126349280}
     - target: {fileID: 2012184471877530237, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -3070,6 +3074,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b67d2b761d3397348831d776dbb33e03, type: 3}
   m_PrefabInstance: {fileID: 123109647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &126349280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 115692680046327228, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+  m_PrefabInstance: {fileID: 1185934479}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &127314909
 PrefabInstance:
@@ -17124,6 +17133,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 796608709130495497, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 126349280}
     - target: {fileID: 2012184471877530237, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -41393,6 +41406,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 796608709130495497, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 126349280}
     - target: {fileID: 2012184471877530237, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -49842,6 +49859,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 796608709130495497, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 126349280}
     - target: {fileID: 2012184471877530237, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -53284,6 +53305,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e964916361a082429fc429922d3e782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHappiness: 0
+  decreaseHappiness: 0
+  decreaseTime: 0
 --- !u!1001 &8466252911165885507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53292,6 +53316,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 796608709130495497, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 126349280}
     - target: {fileID: 2012184471877530237, guid: 6c5f4c7cc270e254eabf4d25216c8fe3, type: 3}
       propertyPath: m_Name
       value: Enemy
