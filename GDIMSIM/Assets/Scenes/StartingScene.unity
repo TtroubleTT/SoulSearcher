@@ -1318,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 1064296905700786787, guid: e15c80ff72879c24d9002f4125cf9e86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1789750938088736729, guid: e15c80ff72879c24d9002f4125cf9e86, type: 3}
       propertyPath: player
       value: 
@@ -7267,6 +7271,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MeleeEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1064296905700786787, guid: e15c80ff72879c24d9002f4125cf9e86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1789750938088736729, guid: e15c80ff72879c24d9002f4125cf9e86, type: 3}
       propertyPath: player
       value: 
@@ -7948,6 +7956,10 @@ PrefabInstance:
     - target: {fileID: 3148119840376611586, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
       propertyPath: m_Name
       value: ShootingEnemy (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148119840376611586, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3621265695362836341, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11454,6 +11466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootingEnemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3148119840376611586, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3621265695362836341, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -12384,6 +12400,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootingEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 3148119840376611586, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3621265695362836341, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -13242,6 +13262,10 @@ PrefabInstance:
     - target: {fileID: 1064296905700786787, guid: e15c80ff72879c24d9002f4125cf9e86, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1064296905700786787, guid: e15c80ff72879c24d9002f4125cf9e86, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1789750938088736729, guid: e15c80ff72879c24d9002f4125cf9e86, type: 3}
       propertyPath: player
@@ -29247,10 +29271,69 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1779503323}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1779503323}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdatePlayerList
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: UpdatePlayerList
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerTracker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerTracker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerLeftEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3535313824186387292, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1779503323}
   m_SourcePrefab: {fileID: 100100000, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
 --- !u!1001 &1153267283
 PrefabInstance:
@@ -41709,6 +41792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShootingEnemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3148119840376611586, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3621265695362836341, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -45245,6 +45332,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.25153244, y: 0.23101993, z: 0.2164456}
   m_Center: {x: -0.00532514, y: 0.12156852, z: 0.002699689}
+--- !u!1 &1779503320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3535313824186387292, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+  m_PrefabInstance: {fileID: 1152407692}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1779503323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779503320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0583f927425f4b2899f24e72a0373ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1780450982
 GameObject:
   m_ObjectHideFlags: 0
@@ -53171,6 +53275,10 @@ PrefabInstance:
     - target: {fileID: 3148119840376611586, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
       propertyPath: m_Name
       value: ShootingEnemy (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148119840376611586, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6058304767220552401, guid: cd66ff86a6fd1424483303b3214af1a5, type: 3}
       propertyPath: m_LocalPosition.x

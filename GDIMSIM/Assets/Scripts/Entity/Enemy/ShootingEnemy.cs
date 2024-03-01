@@ -29,9 +29,8 @@ public class ShootingEnemy : EnemyBase
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject soul;
     [SerializeField] private Transform wandTransform;
-    [SerializeField] private GameObject player;
     [SerializeField] private NavMeshAgent agent;
-    private Transform _playerTransform;
+    private GameObject _player;
     private List<GameObject> _hideableObjects = new();
 
     [Header("Wander")]
@@ -66,13 +65,32 @@ public class ShootingEnemy : EnemyBase
         InitializeStats();
         InitializeAbstractedStats();
         
-        _playerTransform = player.transform;
+        UpdatePlayerList();
+        _player = GameObject.FindGameObjectWithTag("Player");
         _hideableObjects = GameObject.FindGameObjectsWithTag("Hide").ToList();
     }
 
     private void Update()
     {
+        TargetPlayer();
+        Vector3 playerPos = _player.transform.position;
+        Vector3 lookPoint = new Vector3(playerPos.x, transform.position.y, playerPos.z);
+        transform.LookAt(lookPoint);
         AiState();
+    }
+    
+    private void TargetPlayer()
+    {
+        GameObject closestPlayer = _player;
+        foreach (GameObject obj in _playerList)
+        {
+            if (Vector3.Distance(transform.position, obj.transform.position) < Vector3.Distance(transform.position, closestPlayer.transform.position))
+            {
+                closestPlayer = obj;
+            }
+        }
+
+        _player = closestPlayer;
     }
 
     private void AiState()
@@ -94,7 +112,7 @@ public class ShootingEnemy : EnemyBase
     // Checks if the distance between player and enemy is within the range they are allowed to fire
     private bool IsInRange()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(_player.transform.position, transform.position);
         if (distance <= shotRange)
         {
             return true;
@@ -106,9 +124,9 @@ public class ShootingEnemy : EnemyBase
     // Checks if the player is within the enemies line of sight
     private bool InLineOfSight()
     {
-        if (Physics.Raycast(transform.position + transform.forward, (player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
+        if (Physics.Raycast(transform.position + transform.forward, (_player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
         {
-            if (hitInfo.transform.gameObject == player)
+            if (hitInfo.transform.gameObject == _player)
             {
                 return true;
             }
@@ -131,7 +149,7 @@ public class ShootingEnemy : EnemyBase
     {
         Transform myTransform = wandTransform;
         GameObject projectile = Instantiate(projectilePrefab, myTransform.position + (myTransform.forward * 2) + myTransform.up, myTransform.rotation);
-        Vector3 direction = (player.transform.position - transform.position).normalized; // Gets direction of player
+        Vector3 direction = (_player.transform.position - transform.position).normalized; // Gets direction of player
         projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, StatusEffect.None, "Enemy");
     }
     
@@ -159,7 +177,7 @@ public class ShootingEnemy : EnemyBase
 
         for (int i = 0; i < _hideableObjects.Count; i++)
         {
-            Vector3 hideDir = _hideableObjects[i].transform.position - player.transform.position;
+            Vector3 hideDir = _hideableObjects[i].transform.position - _player.transform.position;
             Vector3 hidePos = _hideableObjects[i].transform.position + hideDir.normalized * 5;
 
             if (Vector3.Distance(transform.position, hidePos) < distance)

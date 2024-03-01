@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
@@ -24,8 +25,7 @@ public class PursuitEnemy : EnemyBase
     [Header("References")]
     [SerializeField] private GameObject soul;
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] private GameObject player;
-    private PlayerBase _playerBase;
+    private GameObject _player;
 
     [Header("Wander")]
     private Vector3 _wanderTarget = Vector3.zero;
@@ -48,23 +48,39 @@ public class PursuitEnemy : EnemyBase
     private void Start()
     {
         InitializeAbstractedStats();
-        _playerBase = player.GetComponent<PlayerBase>();
+        UpdatePlayerList();
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update()
     {
+        TargetPlayer();
         AIState();
+    }
+
+    private void TargetPlayer()
+    {
+        GameObject closestPlayer = _player;
+        foreach (GameObject obj in _playerList)
+        {
+            if (Vector3.Distance(transform.position, obj.transform.position) < Vector3.Distance(transform.position, closestPlayer.transform.position))
+            {
+                closestPlayer = obj;
+            }
+        }
+
+        _player = closestPlayer;
     }
 
     private void AIState()
     {
         if (CurrentHealth <= healthToFlee)
         {
-            Flee(player.transform.position);
+            Flee(_player.transform.position);
         }
         else if (IsInRange())
         {
-            Pursue(player.transform);
+            Pursue(_player.transform);
             if (InAttackRange())
             {
                 Attack();
@@ -79,7 +95,7 @@ public class PursuitEnemy : EnemyBase
     // Checks if the distance between player and enemy 
     private bool IsInRange()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(_player.transform.position, transform.position);
         if (distance <= distanceToPursue)
         {
             return true;
@@ -90,7 +106,7 @@ public class PursuitEnemy : EnemyBase
 
     private bool InAttackRange()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
+        float distance = Vector3.Distance(_player.transform.position, transform.position);
         if (distance <= distanceToMelee)
         {
             return true;
@@ -104,7 +120,7 @@ public class PursuitEnemy : EnemyBase
         if (Time.time - _lastAttack > attackCooldown && CanAttack)
         {
             _lastAttack = Time.time;
-            _playerBase.SubtractHealth(20);
+            _player.GetComponent<PlayerBase>().SubtractHealth(20);
         }
     }
 
