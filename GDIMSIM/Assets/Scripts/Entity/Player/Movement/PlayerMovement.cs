@@ -82,6 +82,11 @@ public class PlayerMovement : MonoBehaviour
     {
         return _isGrounded;
     }
+
+    public float GetSpeed()
+    {
+        return _currentSpeed;
+    }
     
     private void Start()
     {
