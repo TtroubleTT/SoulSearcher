@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     // Contributors: Taylor
     [Header("References")]
@@ -90,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void Start()
     {
+        if (!isLocalPlayer)
+            return;
+        
         _startYScale = transform.localScale.y;
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
@@ -98,6 +102,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!isLocalPlayer)
+            return;
+        
         // Handles what movement state we are in
         MovementStateHandler();
         

@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class MouseLook : MonoBehaviour
+public class MouseLook : NetworkBehaviour
 {
     // Contributors: Taylor
     [Header("Sensitivity")]
@@ -19,6 +20,7 @@ public class MouseLook : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform playerBody;
     [SerializeField] private PlayerInput controls;
+    [SerializeField] private Camera playerCamera;
     private float _xRotation;
     private Vector2 _lookInput = Vector2.zero;
 
@@ -28,6 +30,12 @@ public class MouseLook : MonoBehaviour
     
     private void Start()
     {
+        // If the player isn't the local one they don't get that camera
+        if (!isLocalPlayer)
+        {
+            playerCamera.gameObject.SetActive(false);
+        }
+        
         Cursor.lockState = CursorLockMode.Locked;
 
         if (controls.currentControlScheme == "Controller")
