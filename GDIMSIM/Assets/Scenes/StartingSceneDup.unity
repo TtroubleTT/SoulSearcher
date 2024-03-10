@@ -30396,6 +30396,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4383774972932822517, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
+      propertyPath: sceneId
+      value: 1396809668
+      objectReference: {fileID: 0}
     - target: {fileID: 4539241511926668715, guid: 81434e99e73fa694ebf8ad575708c0ee, type: 3}
       propertyPath: m_Name
       value: Player
