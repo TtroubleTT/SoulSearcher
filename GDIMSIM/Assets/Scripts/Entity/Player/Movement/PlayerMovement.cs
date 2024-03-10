@@ -73,6 +73,15 @@ public class PlayerMovement : NetworkBehaviour
     // https://www.youtube.com/watch?v=f473C43s8nE&t=505s
     // https://www.youtube.com/watch?v=_QajrabyTJc
 
+    // Need this in order for new input system to work with networked multiplayer
+    public override void OnStartAuthority()
+    {
+        base.OnStartAuthority();
+
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput.enabled = true;
+    }
+
     public void UpdateSpeed(float change)
     {
         walkSpeed += change;

@@ -29471,6 +29471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3535313824186387292, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5998238538348079176, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -42
@@ -29509,6 +29513,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5998238538348079176, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071608596016378686, guid: 02178e40f46066f4eadf39f4ab2a3b4e, type: 3}
+      propertyPath: m_SplitScreen
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
