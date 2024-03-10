@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ShootingEnemy : EnemyBase
 {
@@ -11,10 +13,11 @@ public class ShootingEnemy : EnemyBase
     protected override float CurrentHealth { get; set; }
 
     [Header("Enemy Stats")]
-    [SerializeField] private float maxHealth = 50f;
-    [SerializeField] private float currentHealth = 50f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float currentHealth = 100f;
     [SerializeField] private float shotRange = 30f;
     [SerializeField] private float shotCooldown = 3f;
+    [SerializeField] private float healthToHide = 50;
     private float _lastShotTime;
 
     [Header("Projectile Stats")] 
@@ -26,8 +29,15 @@ public class ShootingEnemy : EnemyBase
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject soul;
     [SerializeField] private Transform wandTransform;
-    [SerializeField] private GameObject player;
-    private Transform _playerTransform;
+    [SerializeField] private NavMeshAgent agent;
+    private GameObject _player;
+    private List<GameObject> _hideableObjects = new();
+
+    [Header("Wander")]
+    private Vector3 _wanderTarget = Vector3.zero;
+    [SerializeField] private float wanderRadius = 10;
+    [SerializeField] private float wanderDistance = 10;
+    [SerializeField] private float wanderJitter = 1;
 
     private readonly Dictionary<ShootingProjectile.Stats, float> _projectileStats = new();
 
@@ -55,24 +65,58 @@ public class ShootingEnemy : EnemyBase
         InitializeStats();
         InitializeAbstractedStats();
         
-        _playerTransform = player.transform;
+        UpdatePlayerList();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _hideableObjects = GameObject.FindGameObjectsWithTag("Hide").ToList();
     }
 
     private void Update()
     {
-        Vector3 playerPos = _playerTransform.position;
+        TargetPlayer();
+        Vector3 playerPos = _player.transform.position;
         Vector3 lookPoint = new Vector3(playerPos.x, transform.position.y, playerPos.z);
         transform.LookAt(lookPoint);
-        CheckShoot();
+        AiState();
+    }
+    
+    private void TargetPlayer()
+    {
+        GameObject closestPlayer = _player;
+        foreach (GameObject obj in _playerList)
+        {
+            if (Vector3.Distance(transform.position, obj.transform.position) < Vector3.Distance(transform.position, closestPlayer.transform.position))
+            {
+                closestPlayer = obj;
+            }
+        }
+
+        _player = closestPlayer;
+    }
+
+    private void AiState()
+    {
+        if (CurrentHealth <= healthToHide)
+        {
+            Hide();
+        }
+        else if (IsInRange())
+        {
+            CheckShoot();
+        }
+        else
+        {
+            Wander();
+        }
     }
 
     // Checks if the distance between player and enemy is within the range they are allowed to fire
     private bool IsInRange()
     {
-        float distance = Vector3.Distance(player.transform.position, transform.position);
-
+        float distance = Vector3.Distance(_player.transform.position, transform.position);
         if (distance <= shotRange)
+        {
             return true;
+        }
 
         return false;
     }
@@ -80,9 +124,9 @@ public class ShootingEnemy : EnemyBase
     // Checks if the player is within the enemies line of sight
     private bool InLineOfSight()
     {
-        if (Physics.Raycast(transform.position + transform.forward, (player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
+        if (Physics.Raycast(transform.position + transform.forward, (_player.transform.position - transform.position), out RaycastHit hitInfo, shotRange))
         {
-            if (hitInfo.transform.gameObject == player)
+            if (hitInfo.transform.gameObject == _player)
             {
                 return true;
             }
@@ -105,7 +149,44 @@ public class ShootingEnemy : EnemyBase
     {
         Transform myTransform = wandTransform;
         GameObject projectile = Instantiate(projectilePrefab, myTransform.position + (myTransform.forward * 2) + myTransform.up, myTransform.rotation);
-        Vector3 direction = (player.transform.position - transform.position).normalized; // Gets direction of player
+        Vector3 direction = (_player.transform.position - transform.position).normalized; // Gets direction of player
         projectile.GetComponent<ShootingProjectile>().ProjectileInitialize(_projectileStats, direction, StatusEffect.None, "Enemy");
+    }
+    
+    private void Wander()
+    {
+        _wanderTarget += new Vector3(UnityEngine.Random.Range(-1f, 1f) * wanderJitter, 0, UnityEngine.Random.Range(-1f, 1f) * wanderJitter);
+        _wanderTarget.Normalize();
+        _wanderTarget *= wanderRadius;
+
+        Vector3 targetLocal = _wanderTarget + new Vector3(0, 0, wanderDistance);
+        Vector3 targetWorld = gameObject.transform.InverseTransformVector(targetLocal);
+        
+        Seek(targetWorld);
+    }
+    
+    private void Seek(Vector3 location)
+    {
+        agent.SetDestination(location);
+    }
+
+    private void Hide()
+    {
+        float distance = Mathf.Infinity;
+        Vector3 chosenSpot = Vector3.zero;
+
+        for (int i = 0; i < _hideableObjects.Count; i++)
+        {
+            Vector3 hideDir = _hideableObjects[i].transform.position - _player.transform.position;
+            Vector3 hidePos = _hideableObjects[i].transform.position + hideDir.normalized * 5;
+
+            if (Vector3.Distance(transform.position, hidePos) < distance)
+            {
+                chosenSpot = hidePos;
+                distance = Vector3.Distance(transform.position, hidePos);
+            }
+            
+            Seek(chosenSpot);
+        }
     }
 }

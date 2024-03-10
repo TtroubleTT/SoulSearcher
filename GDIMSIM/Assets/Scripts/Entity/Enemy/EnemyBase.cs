@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,8 @@ public abstract class EnemyBase : EntityBase
     // Contributors: Taylor, Amelia
 
     protected bool CanAttack = true;
+    
+    protected List<GameObject> _playerList = new();
 
     public enum StatusEffect
     {
@@ -22,7 +25,12 @@ public abstract class EnemyBase : EntityBase
     {
         Destroy(gameObject);
     }
-
+    
+    public void UpdatePlayerList()
+    {
+        _playerList = GameObject.FindGameObjectsWithTag("Player").ToList();
+    }
+    
     public void CauseStatusEffect(StatusEffect effect)
     {
         if (effect == StatusEffect.Burning)
