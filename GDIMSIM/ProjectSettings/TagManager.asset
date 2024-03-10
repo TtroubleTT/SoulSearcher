@@ -16,6 +16,7 @@ TagManager:
   - PlayerUI
   - PauseMenu
   - Hide
+  - CustomPlayerSpawner
   layers:
   - Default
   - TransparentFX

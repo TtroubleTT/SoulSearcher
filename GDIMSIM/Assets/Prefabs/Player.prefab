@@ -121,6 +121,7 @@ MonoBehaviour:
   syncInterval: 0
   controller: {fileID: 5767570540591690417}
   bodyTrans: {fileID: 4026625270728830489}
+  identity: {fileID: 8562121845402883965}
   walkSpeed: 15
   sprintSpeed: 25
   crouchSpeed: 5

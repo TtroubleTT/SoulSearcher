@@ -8,10 +8,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : NetworkBehaviour
 {
+    private static float myTime = 0f;
+    
     // Contributors: Taylor
     [Header("References")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform bodyTrans;
+    [SerializeField] private NetworkIdentity identity;
     private WallRunning _wallRunning;
     private Dash _dash;
     private PauseMenu _pauseMenu;
@@ -93,7 +96,7 @@ public class PlayerMovement : NetworkBehaviour
     {
         if (!isLocalPlayer)
             return;
-        
+
         _startYScale = transform.localScale.y;
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
