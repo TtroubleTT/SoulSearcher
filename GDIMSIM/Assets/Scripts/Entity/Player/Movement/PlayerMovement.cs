@@ -1,16 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     // Contributors: Taylor
     [Header("References")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform bodyTrans;
+    [SerializeField] private NetworkIdentity identity;
     private WallRunning _wallRunning;
     private Dash _dash;
     private PauseMenu _pauseMenu;
@@ -71,6 +73,15 @@ public class PlayerMovement : MonoBehaviour
     // https://www.youtube.com/watch?v=f473C43s8nE&t=505s
     // https://www.youtube.com/watch?v=_QajrabyTJc
 
+    // Need this in order for new input system to work with networked multiplayer
+    public override void OnStartAuthority()
+    {
+        base.OnStartAuthority();
+
+        PlayerInput playerInput = GetComponent<PlayerInput>();
+        playerInput.enabled = true;
+    }
+
     public void UpdateSpeed(float change)
     {
         walkSpeed += change;
@@ -90,6 +101,9 @@ public class PlayerMovement : MonoBehaviour
     
     private void Start()
     {
+        if (!isLocalPlayer)
+            return;
+
         _startYScale = transform.localScale.y;
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
@@ -98,6 +112,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!isLocalPlayer)
+            return;
+        
         // Handles what movement state we are in
         MovementStateHandler();
         

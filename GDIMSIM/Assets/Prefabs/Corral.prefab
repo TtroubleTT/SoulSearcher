@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSoul: 0
-  soulObject: {fileID: 6770335294067877755, guid: a6a52a8378bbd6b48ba76c4fbed4036f, type: 3}
-  spawnPoint: {x: 6, y: 2, z: -48}
+  soulObject: {fileID: 8829451551789304542, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+  spawnPoint: {x: 6, y: 0.8, z: -48}
 --- !u!1001 &4204834670293643180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,11 +69,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632536434631913185, guid: 031e4b0249ee1ef4193b29c816e5bdf4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.95
+      value: 3.72
       objectReference: {fileID: 0}
     - target: {fileID: 632536434631913185, guid: 031e4b0249ee1ef4193b29c816e5bdf4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 77
+      value: 76.85
       objectReference: {fileID: 0}
     - target: {fileID: 632536434631913185, guid: 031e4b0249ee1ef4193b29c816e5bdf4, type: 3}
       propertyPath: m_LocalRotation.w
