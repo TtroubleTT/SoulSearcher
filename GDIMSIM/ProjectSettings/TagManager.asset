@@ -17,6 +17,7 @@ TagManager:
   - PauseMenu
   - Hide
   - CustomPlayerSpawner
+  - NetworkManager
   layers:
   - Default
   - TransparentFX

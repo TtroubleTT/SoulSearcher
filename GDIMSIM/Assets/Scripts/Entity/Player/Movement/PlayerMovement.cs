@@ -12,10 +12,10 @@ public class PlayerMovement : NetworkBehaviour
     [Header("References")]
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform bodyTrans;
-    [SerializeField] private NetworkIdentity identity;
     private WallRunning _wallRunning;
     private Dash _dash;
     private PauseMenu _pauseMenu;
+    private PlayerTracker _playerTracker;
 
     [Header("Speed")]
     [SerializeField] private float walkSpeed = 12f;
@@ -108,6 +108,13 @@ public class PlayerMovement : NetworkBehaviour
         _wallRunning = GetComponent<WallRunning>();
         _dash = GetComponent<Dash>();
         _pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
+        _playerTracker = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<PlayerTracker>();
+        _playerTracker.UpdatePlayerList();
+    }
+
+    protected void OnDestroy()
+    {
+        _playerTracker.UpdatePlayerList();
     }
 
     private void Update()
