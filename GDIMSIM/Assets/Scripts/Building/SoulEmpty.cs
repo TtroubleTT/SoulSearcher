@@ -17,7 +17,8 @@ public class SoulEmpty : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-           
+            Debug.Log("HELP ME");
+
             if (_soulCounter.GetSoulAmount() > 0)
             {
                 _corral.AddSoul(1);

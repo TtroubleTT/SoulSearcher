@@ -33,4 +33,5 @@ public class SoulCounter : MonoBehaviour
 	{
 		soulsCollected.SetText("0 / 10");
 	}
+
 }
