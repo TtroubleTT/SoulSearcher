@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSoul: 0
-  soulObject: {fileID: 8829451551789304542, guid: e91fa0fac941e714e8c4d5709097019f, type: 3}
+  soulObject: {fileID: 3458022250785305694, guid: a6a52a8378bbd6b48ba76c4fbed4036f, type: 3}
   spawnPoint: {x: 6, y: 0.8, z: -48}
 --- !u!1001 &4204834670293643180
 PrefabInstance:
