@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -23,6 +24,7 @@ public abstract class EnemyBase : EntityBase
 
     protected override void Die()
     {
+        NetworkServer.Destroy(gameObject);
         Destroy(gameObject);
     }
     
