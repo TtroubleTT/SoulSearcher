@@ -63,12 +63,17 @@ public class PursuitEnemy : EnemyBase
         GameObject closestPlayer = _player;
         foreach (GameObject obj in _playerList)
         {
+            if (_player is null)
+            {
+                _player = obj;
+                return;
+            }
             if (Vector3.Distance(transform.position, obj.transform.position) < Vector3.Distance(transform.position, closestPlayer.transform.position))
             {
                 closestPlayer = obj;
             }
         }
-
+        
         _player = closestPlayer;
     }
 
@@ -95,6 +100,9 @@ public class PursuitEnemy : EnemyBase
     // Checks if the distance between player and enemy 
     private bool IsInRange()
     {
+        if (_player is null)
+            return false;
+        
         float distance = Vector3.Distance(_player.transform.position, transform.position);
         if (distance <= distanceToPursue)
         {

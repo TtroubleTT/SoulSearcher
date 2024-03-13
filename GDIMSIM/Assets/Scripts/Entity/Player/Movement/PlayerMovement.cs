@@ -109,7 +109,6 @@ public class PlayerMovement : NetworkBehaviour
         _dash = GetComponent<Dash>();
         _pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu").GetComponent<PauseMenu>();
         _playerTracker = GameObject.FindGameObjectWithTag("NetworkManager").GetComponent<PlayerTracker>();
-        Debug.Log($"player tracker: {_playerTracker}");
         _playerTracker.UpdatePlayerList();
     }
 
