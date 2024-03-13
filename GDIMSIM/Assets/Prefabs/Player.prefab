@@ -121,7 +121,6 @@ MonoBehaviour:
   syncInterval: 0
   controller: {fileID: 5767570540591690417}
   bodyTrans: {fileID: 4026625270728830489}
-  identity: {fileID: 0}
   walkSpeed: 15
   sprintSpeed: 25
   crouchSpeed: 5
@@ -207,6 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4900d308ac8f2f4293ccb06eb046451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   maxHealth: 100
   currentHealth: 100
   slider: {fileID: 8878453827069998814}
@@ -231,7 +233,7 @@ MonoBehaviour:
   thirdIcon: {fileID: 217098242781696595}
   forthIcon: {fileID: 5666561461261430019}
   first: {fileID: 3811520837266437147}
-  second: {fileID: 154141981597194909}
+  second: {fileID: 660223066057496487}
   third: {fileID: 7043531831209795787}
   forth: {fileID: 2039697158080946591}
 --- !u!114 &660223066057496487
