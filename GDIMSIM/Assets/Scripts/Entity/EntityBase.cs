@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror;
 using UnityEngine;
 
-public abstract class EntityBase : MonoBehaviour
+public abstract class EntityBase : NetworkBehaviour
 {
     // Contributors: Taylor
     protected abstract float MaxHealth { get; set;  }

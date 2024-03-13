@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using kcp2k;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -73,6 +74,9 @@ public class ShootingEnemy : EnemyBase
     private void Update()
     {
         TargetPlayer();
+        if (_player is null)
+            return;
+        
         Vector3 playerPos = _player.transform.position;
         Vector3 lookPoint = new Vector3(playerPos.x, transform.position.y, playerPos.z);
         transform.LookAt(lookPoint);
@@ -84,12 +88,17 @@ public class ShootingEnemy : EnemyBase
         GameObject closestPlayer = _player;
         foreach (GameObject obj in _playerList)
         {
+            if (_player is null)
+            {
+                _player = obj;
+                return;
+            }
             if (Vector3.Distance(transform.position, obj.transform.position) < Vector3.Distance(transform.position, closestPlayer.transform.position))
             {
                 closestPlayer = obj;
             }
         }
-
+        
         _player = closestPlayer;
     }
 
